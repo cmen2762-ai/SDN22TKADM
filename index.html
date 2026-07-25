@@ -124,7 +124,7 @@
                 </blockquote>
 
                 <p class="text-sm text-brand-100 leading-relaxed font-normal">
-                    FAUZI, S.Hum.
+                    FAUZI,S.Hum.
                 </p>
 
                 <div class="pt-2 grid grid-cols-3 gap-4 border-t border-brand-500/30">
@@ -171,7 +171,7 @@
                         <label class="block text-xs font-semibold text-slate-700 mb-1">Username <span class="text-rose-500">*</span></label>
                         <div class="relative">
                             <i class="fa-solid fa-user absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
-                            <input type="text" id="loginUsername" required placeholder="....." class="w-full pl-9 pr-3.5 py-2.5 text-xs border border-slate-300 rounded-xl focus:ring-2 focus:ring-brand-500 focus:outline-none transition">
+                            <input type="text" id="loginUsername" required placeholder="Masukkan Username" class="w-full pl-9 pr-3.5 py-2.5 text-xs border border-slate-300 rounded-xl focus:ring-2 focus:ring-brand-500 focus:outline-none transition">
                         </div>
                     </div>
 
@@ -179,7 +179,7 @@
                         <label class="block text-xs font-semibold text-slate-700 mb-1">Kata Sandi / Password <span class="text-rose-500">*</span></label>
                         <div class="relative">
                             <i class="fa-solid fa-lock absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
-                            <input type="password" id="loginPassword" required placeholder="....." class="w-full pl-9 pr-9 py-2.5 text-xs border border-slate-300 rounded-xl focus:ring-2 focus:ring-brand-500 focus:outline-none transition">
+                            <input type="password" id="loginPassword" required placeholder="Masukkan Sandi" class="w-full pl-9 pr-9 py-2.5 text-xs border border-slate-300 rounded-xl focus:ring-2 focus:ring-brand-500 focus:outline-none transition">
                             <button type="button" onclick="togglePasswordVisibility()" class="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 focus:outline-none">
                                 <i id="togglePassIcon" class="fa-solid fa-eye text-xs"></i>
                             </button>
@@ -195,7 +195,7 @@
                     </div>
 
                     <button type="submit" class="w-full py-2.5 px-4 bg-brand-600 hover:bg-brand-700 text-white font-semibold text-xs rounded-xl shadow-lg shadow-brand-600/30 transition duration-200 flex items-center justify-center space-x-2">
-                        <span>Masuk ke Panel ADMOPS</span>
+                        <span>Masuk ke Aplikasi</span>
                         <i class="fa-solid fa-right-to-bracket text-xs"></i>
                     </button>
                 </form>
@@ -287,13 +287,11 @@
                 <button onclick="switchTab('siswa')" id="nav-siswa" class="nav-btn w-full flex items-center px-4 py-3 text-sm font-medium rounded-xl text-slate-300 hover:bg-slate-800 hover:text-white transition-all duration-200">
                     <i class="fa-solid fa-user-graduate w-6 text-base"></i>
                     <span>Data Siswa</span>
-                    <span id="badgeSiswa" class="ml-auto bg-brand-800 text-brand-200 text-xs px-2 py-0.5 rounded-full font-semibold">0</span>
                 </button>
 
                 <button onclick="switchTab('gtk')" id="nav-gtk" class="nav-btn w-full flex items-center px-4 py-3 text-sm font-medium rounded-xl text-slate-300 hover:bg-slate-800 hover:text-white transition-all duration-200">
                     <i class="fa-solid fa-chalkboard-user w-6 text-base"></i>
                     <span>Data GTK</span>
-                    <span id="badgeGTK" class="ml-auto bg-brand-800 text-brand-200 text-xs px-2 py-0.5 rounded-full font-semibold">0</span>
                 </button>
 
                 <p class="px-3 text-[11px] font-semibold text-slate-400 uppercase tracking-wider mt-4 mb-2">Manajemen Surat</p>
@@ -301,13 +299,11 @@
                 <button onclick="switchTab('surat-masuk')" id="nav-surat-masuk" class="nav-btn w-full flex items-center px-4 py-3 text-sm font-medium rounded-xl text-slate-300 hover:bg-slate-800 hover:text-white transition-all duration-200">
                     <i class="fa-solid fa-inbox w-6 text-base"></i>
                     <span>Surat Masuk</span>
-                    <span id="badgeSuratMasuk" class="ml-auto bg-brand-800 text-brand-200 text-xs px-2 py-0.5 rounded-full font-semibold">0</span>
                 </button>
 
                 <button onclick="switchTab('surat-keluar')" id="nav-surat-keluar" class="nav-btn w-full flex items-center px-4 py-3 text-sm font-medium rounded-xl text-slate-300 hover:bg-slate-800 hover:text-white transition-all duration-200">
                     <i class="fa-solid fa-paper-plane w-6 text-base"></i>
                     <span>Surat Keluar</span>
-                    <span id="badgeSuratKeluar" class="ml-auto bg-brand-800 text-brand-200 text-xs px-2 py-0.5 rounded-full font-semibold">0</span>
                 </button>
 
                 <p class="px-3 text-[11px] font-semibold text-slate-400 uppercase tracking-wider mt-4 mb-2">Dokumen</p>
@@ -315,19 +311,16 @@
                 <button onclick="switchTab('surat-pindah')" id="nav-surat-pindah" class="nav-btn w-full flex items-center px-4 py-3 text-sm font-medium rounded-xl text-slate-300 hover:bg-slate-800 hover:text-white transition-all duration-200">
                     <i class="fa-solid fa-file-export w-6 text-base"></i>
                     <span>Surat Pindah Sekolah</span>
-                    <span id="badgeSuratPindah" class="ml-auto bg-brand-800 text-brand-200 text-xs px-2 py-0.5 rounded-full font-semibold">0</span>
                 </button>
 
                 <button onclick="switchTab('surat-aktif')" id="nav-surat-aktif" class="nav-btn w-full flex items-center px-4 py-3 text-sm font-medium rounded-xl text-slate-300 hover:bg-slate-800 hover:text-white transition-all duration-200">
                     <i class="fa-solid fa-file-signature w-6 text-base"></i>
                     <span>Surat Keterangan Aktif</span>
-                    <span id="badgeSuratAktif" class="ml-auto bg-brand-800 text-brand-200 text-xs px-2 py-0.5 rounded-full font-semibold">0</span>
                 </button>
 
                 <button onclick="switchTab('surat-terima')" id="nav-surat-terima" class="nav-btn w-full flex items-center px-4 py-3 text-sm font-medium rounded-xl text-slate-300 hover:bg-slate-800 hover:text-white transition-all duration-200">
                     <i class="fa-solid fa-file-circle-check w-6 text-base"></i>
                     <span>Surat Bersedia Menerima</span>
-                    <span id="badgeSuratTerima" class="ml-auto bg-brand-800 text-brand-200 text-xs px-2 py-0.5 rounded-full font-semibold">0</span>
                 </button>
 
                 <p class="px-3 text-[11px] font-semibold text-slate-400 uppercase tracking-wider mt-4 mb-2">Pengaturan</p>
@@ -419,7 +412,7 @@
                             </div>
                             <h2 class="text-2xl md:text-3xl font-bold tracking-tight mb-2">Pusat Administrasi & Data Sekolah</h2>
                             <p class="text-brand-100 text-sm leading-relaxed mb-6">
-                             Mempermudah Mengelola Administrasi Sekolah 
+                                Kelola data terpadu untuk Siswa, Guru, dan Tenaga Kependidikan (GTK) dengan mudah, cepat, dan aman dalam satu platform terintegrasi.
                             </p>
                             <div class="flex flex-wrap gap-3">
                                 <button onclick="switchTab('siswa'); openModalSiswa()" class="px-4 py-2.5 bg-white text-brand-800 font-semibold text-xs rounded-xl hover:bg-brand-50 transition shadow-md flex items-center space-x-2">
@@ -550,8 +543,8 @@
                                 <div class="flex items-start space-x-3">
                                     <div class="w-2 h-2 rounded-full bg-indigo-500 mt-1.5 shrink-0"></div>
                                     <div>
-                                        <p class="font-semibold text-slate-700">Pemeriksaan LocalStorage</p>
-                                        <p class="text-slate-400 text-[10px]">Server Data Lokal Siap</p>
+                                        <p class="font-semibold text-slate-700">Pemeriksaan Database Google Sheets</p>
+                                        <p class="text-slate-400 text-[10px]">Server Data Siap Terhubung</p>
                                     </div>
                                 </div>
                             </div>
@@ -2351,127 +2344,6 @@
             });
         }
 
-        document.addEventListener('DOMContentLoaded', () => {
-            checkAuthSession();
-            initClock();
-            fetchFromGAS();
-            renderSekolahData();
-            renderKopData();
-            renderAllData();
-            setupMobileSidebar();
-        });
-
-        function renderAllData() {
-            renderDashboardStats();
-            renderSiswaTable();
-            renderGTKTable();
-            renderSuratMasukTable();
-            renderSuratKeluarTable();
-            renderSuratPindahTable();
-            renderSuratAktifTable();
-            renderSuratTerimaTable();
-            renderKopData();
-            updateBadges();
-        }
-
-        function saveToStorage() {
-            localStorage.setItem('admops_sekolah', JSON.stringify(sekolahData));
-            localStorage.setItem('admops_kop', JSON.stringify(kopData));
-            localStorage.setItem('admops_siswa', JSON.stringify(siswaList));
-            localStorage.setItem('admops_gtk', JSON.stringify(gtkList));
-            localStorage.setItem('admops_surat_masuk', JSON.stringify(suratMasukList));
-            localStorage.setItem('admops_surat_keluar', JSON.stringify(suratKeluarList));
-            localStorage.setItem('admops_surat_pindah', JSON.stringify(suratPindahList));
-            localStorage.setItem('admops_surat_aktif', JSON.stringify(suratAktifList));
-            localStorage.setItem('admops_surat_terima', JSON.stringify(suratTerimaList));
-            renderAllData();
-            renderSekolahData();
-            renderKopData();
-            syncDataToGAS();
-        }
-
-        function syncDataToGAS() {
-            if (!GAS_URL) return;
-            const payload = {
-                action: "syncAll",
-                payload: {
-                    sekolah: sekolahData,
-                    kop: kopData,
-                    siswa: siswaList,
-                    gtk: gtkList,
-                    suratMasuk: suratMasukList,
-                    suratKeluar: suratKeluarList,
-                    suratPindah: suratPindahList,
-                    suratAktif: suratAktifList,
-                    suratTerima: suratTerimaList
-                }
-            };
-            
-            fetch(GAS_URL, {
-                method: "POST",
-                headers: { "Content-Type": "text/plain;charset=utf-8" },
-                body: JSON.stringify(payload)
-            })
-            .then(res => res.json())
-            .then(data => {
-                console.log("Sinkronisasi Google Sheets berhasil:", data);
-            })
-            .catch(err => {
-                console.warn("Sinkronisasi otomatis ke Google Sheets:", err);
-            });
-        }
-
-        function manualSyncGAS() {
-            showToast("Proses sinkronisasi dengan Google Sheets berjalan...", "info");
-            const icon = document.getElementById('syncSidebarIcon');
-            if (icon) icon.classList.add('fa-spin');
-
-            syncDataToGAS();
-            fetchFromGAS();
-
-            setTimeout(() => {
-                if (icon) icon.classList.remove('fa-spin');
-                showToast("Sinkronisasi data ke Google Sheets berhasil!", "success");
-            }, 1200);
-        }
-
-        function fetchFromGAS() {
-            if (!GAS_URL) return;
-            fetch(GAS_URL)
-            .then(res => res.json())
-            .then(res => {
-                if (res && res.status === "success" && res.data) {
-                    const d = res.data;
-                    if (d.sekolah && Object.keys(d.sekolah).length) sekolahData = Object.assign(sekolahData, d.sekolah);
-                    if (d.kop && Object.keys(d.kop).length) kopData = Object.assign(kopData, d.kop);
-                    if (Array.isArray(d.siswa) && d.siswa.length) siswaList = d.siswa;
-                    if (Array.isArray(d.gtk) && d.gtk.length) gtkList = d.gtk;
-                    if (Array.isArray(d.suratMasuk) && d.suratMasuk.length) suratMasukList = d.suratMasuk;
-                    if (Array.isArray(d.suratKeluar) && d.suratKeluar.length) suratKeluarList = d.suratKeluar;
-                    if (Array.isArray(d.suratPindah) && d.suratPindah.length) suratPindahList = d.suratPindah;
-                    if (Array.isArray(d.suratAktif) && d.suratAktif.length) suratAktifList = d.suratAktif;
-                    if (Array.isArray(d.suratTerima) && d.suratTerima.length) suratTerimaList = d.suratTerima;
-                    
-                    localStorage.setItem('admops_sekolah', JSON.stringify(sekolahData));
-                    localStorage.setItem('admops_kop', JSON.stringify(kopData));
-                    localStorage.setItem('admops_siswa', JSON.stringify(siswaList));
-                    localStorage.setItem('admops_gtk', JSON.stringify(gtkList));
-                    localStorage.setItem('admops_surat_masuk', JSON.stringify(suratMasukList));
-                    localStorage.setItem('admops_surat_keluar', JSON.stringify(suratKeluarList));
-                    localStorage.setItem('admops_surat_pindah', JSON.stringify(suratPindahList));
-                    localStorage.setItem('admops_surat_aktif', JSON.stringify(suratAktifList));
-                    localStorage.setItem('admops_surat_terima', JSON.stringify(suratTerimaList));
-                    
-                    renderAllData();
-                    renderSekolahData();
-                    renderKopData();
-                }
-            })
-            .catch(err => {
-                console.warn("Memakai penyimpanan lokal:", err);
-            });
-        }
-
         // KOP SURAT LOGIC
         function renderKopData() {
             const logoKiriEl = document.getElementById('kopLogoKiri');
@@ -2562,21 +2434,7 @@
         }
 
         function updateBadges() {
-            const bSiswa = document.getElementById('badgeSiswa');
-            const bGTK = document.getElementById('badgeGTK');
-            const bSM = document.getElementById('badgeSuratMasuk');
-            const bSK = document.getElementById('badgeSuratKeluar');
-            const bSP = document.getElementById('badgeSuratPindah');
-            const bSA = document.getElementById('badgeSuratAktif');
-            const bST = document.getElementById('badgeSuratTerima');
-
-            if (bSiswa) bSiswa.textContent = siswaList.length;
-            if (bGTK) bGTK.textContent = gtkList.length;
-            if (bSM) bSM.textContent = suratMasukList.length;
-            if (bSK) bSK.textContent = suratKeluarList.length;
-            if (bSP) bSP.textContent = suratPindahList.length;
-            if (bSA) bSA.textContent = suratAktifList.length;
-            if (bST) bST.textContent = suratTerimaList.length;
+            // Lencana angka notifikasi pada sidebar telah dihapus
         }
 
         function checkAuthSession() {
@@ -3329,6 +3187,13 @@
                 return matchSearch && matchDate;
             });
 
+            // Urutkan ascending berdasarkan Nomor Surat (001 di paling atas, nomor tertinggi di paling bawah)
+            filtered.sort((a, b) => {
+                const comp = (a.noSurat || '').localeCompare(b.noSurat || '', undefined, { numeric: true, sensitivity: 'base' });
+                if (comp !== 0) return comp;
+                return (a.id || 0) - (b.id || 0);
+            });
+
             if (filtered.length === 0) {
                 if (emptyState) emptyState.classList.remove('hidden');
                 return;
@@ -3464,6 +3329,13 @@
                 return matchSearch && matchDate;
             });
 
+            // Urutkan ascending berdasarkan Nomor Surat (001 di paling atas, nomor tertinggi di paling bawah)
+            filtered.sort((a, b) => {
+                const comp = (a.noSurat || '').localeCompare(b.noSurat || '', undefined, { numeric: true, sensitivity: 'base' });
+                if (comp !== 0) return comp;
+                return (a.id || 0) - (b.id || 0);
+            });
+
             if (filtered.length === 0) {
                 showToast("Tidak ada data Surat Masuk untuk dicetak!", "warning");
                 return;
@@ -3590,6 +3462,13 @@
                 }
 
                 return matchSearch && matchDate;
+            });
+
+            // Urutkan ascending berdasarkan Nomor Surat (001 di paling atas, nomor tertinggi di paling bawah)
+            filtered.sort((a, b) => {
+                const comp = (a.noSurat || '').localeCompare(b.noSurat || '', undefined, { numeric: true, sensitivity: 'base' });
+                if (comp !== 0) return comp;
+                return (a.id || 0) - (b.id || 0);
             });
 
             if (filtered.length === 0) {
@@ -3721,6 +3600,13 @@
                 }
 
                 return matchSearch && matchDate;
+            });
+
+            // Urutkan ascending berdasarkan Nomor Surat (001 di paling atas, nomor tertinggi di paling bawah)
+            filtered.sort((a, b) => {
+                const comp = (a.noSurat || '').localeCompare(b.noSurat || '', undefined, { numeric: true, sensitivity: 'base' });
+                if (comp !== 0) return comp;
+                return (a.id || 0) - (b.id || 0);
             });
 
             if (filtered.length === 0) {
