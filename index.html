@@ -116,7 +116,7 @@
             <div class="relative z-10 my-8 md:my-auto max-w-xl space-y-6">
                 <div class="inline-flex items-center space-x-2 bg-brand-500/30 backdrop-blur-md border border-brand-300/30 px-3.5 py-1.5 rounded-full text-xs font-semibold text-brand-200">
                     <i class="fa-solid fa-heart-pulse text-rose-400"></i>
-                    <span>SDN 22 TANAH KERAS</span>
+                    <span>Apresiasi Operator Sekolah Indonesia</span>
                 </div>
 
                 <blockquote class="text-2xl lg:text-3xl font-bold leading-relaxed tracking-tight text-white">
@@ -124,7 +124,7 @@
                 </blockquote>
 
                 <p class="text-sm text-brand-100 leading-relaxed font-normal">
-                    FAUZI,S.Hum.
+                   FAUZI, S.Hum.
                 </p>
 
                 <div class="pt-2 grid grid-cols-3 gap-4 border-t border-brand-500/30">
@@ -163,7 +163,7 @@
                         <img src="https://iili.io/CNAFjhQ.png" onerror="this.src='https://iili.io/CNAFjhQ.th.png'" alt="Logo Sekolah" class="w-full h-full object-contain">
                     </div>
                     <h2 class="text-xl font-bold text-slate-900 tracking-tight">Selamat Datang</h2>
-                    <p class="text-[11px] text-slate-500 mt-0.5">Silakan Login.</p>
+                    <p class="text-[11px] text-slate-500 mt-0.5">Silakan Login</p>
                 </div>
 
                 <form id="formLogin" onsubmit="handleLoginSubmit(event)" class="space-y-4">
@@ -195,7 +195,7 @@
                     </div>
 
                     <button type="submit" class="w-full py-2.5 px-4 bg-brand-600 hover:bg-brand-700 text-white font-semibold text-xs rounded-xl shadow-lg shadow-brand-600/30 transition duration-200 flex items-center justify-center space-x-2">
-                        <span>Masuk ke Aplikasi</span>
+                        <span>Masuk</span>
                         <i class="fa-solid fa-right-to-bracket text-xs"></i>
                     </button>
                 </form>
@@ -410,9 +410,9 @@
                                 <i class="fa-solid fa-shield-halved text-brand-300"></i>
                                 <span>Selamat Datang, Fauzi, S.Hum (Operator)</span>
                             </div>
-                            <h2 class="text-2xl md:text-3xl font-bold tracking-tight mb-2">Administrasi & Data Sekolah</h2>
+                            <h2 class="text-2xl md:text-3xl font-bold tracking-tight mb-2">Pusat Administrasi & Data Sekolah</h2>
                             <p class="text-brand-100 text-sm leading-relaxed mb-6">
-                                Kelola data terpadu untuk Siswa, Guru, dan Tenaga Kependidikan (GTK) dengan mudah, cepat.
+                                Kelola data terpadu untuk Siswa, Guru, dan Tenaga Kependidikan (GTK) dengan mudah, cepat, dan aman dalam satu platform terintegrasi.
                             </p>
                             <div class="flex flex-wrap gap-3">
                                 <button onclick="switchTab('siswa'); openModalSiswa()" class="px-4 py-2.5 bg-white text-brand-800 font-semibold text-xs rounded-xl hover:bg-brand-50 transition shadow-md flex items-center space-x-2">
@@ -2041,13 +2041,17 @@
                                         <input type="text" id="terimaNisnSiswa" required placeholder="3164285400" class="w-full px-2.5 py-1.5 text-xs border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:outline-none bg-white">
                                     </div>
                                 </div>
-                                <div class="grid grid-cols-2 gap-2.5">
+                                <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
                                     <div>
                                         <label class="block text-[11px] font-semibold text-slate-700 mb-1">Jenis Kelamin <span class="text-rose-500">*</span></label>
                                         <select id="terimaJkSiswa" required class="w-full px-2.5 py-1.5 text-xs border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:outline-none bg-white">
                                             <option value="Perempuan">Perempuan</option>
                                             <option value="Laki-Laki">Laki-Laki</option>
                                         </select>
+                                    </div>
+                                    <div>
+                                        <label class="block text-[11px] font-semibold text-slate-700 mb-1">Diterima di Kelas <span class="text-rose-500">*</span></label>
+                                        <input type="text" id="terimaKelasTerima" required placeholder="Contoh: Kelas 3" class="w-full px-2.5 py-1.5 text-xs border border-slate-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:outline-none bg-white font-semibold">
                                     </div>
                                     <div>
                                         <label class="block text-[11px] font-semibold text-slate-700 mb-1">Nama Orang Tua <span class="text-rose-500">*</span></label>
@@ -2174,7 +2178,7 @@
         const initialSuratTerima = [];
 
         // STATE APP & GOOGLE SHEETS URL INTEGRATION (DIRECT DATABASE FROM GOOGLE SHEETS)
-        let GAS_URL = "https://script.google.com/macros/s/AKfycbzJmOzbxpDRUmXnALADePll3y4n8d1QwCoG6V2wERCUeoqL4__WLnS05Iy6vuY9kbLcJA/exec";
+        let GAS_URL = "https://script.google.com/macros/s/AKfycbzK6FZu_m3LRuqfCapNd3TgsaDWZcIsBlSerSbL6mFFLIWOS2pal-oPfHlFshUkIHxp/exec";
         let sekolahData = Object.assign({}, initialSekolah);
         let kopData = Object.assign({}, initialKop);
         let siswaList = [];
@@ -2188,6 +2192,15 @@
         let currentUploadedFoto = "";
         let currentUploadedSuratFile = { name: "Lampiran_Dokumen.pdf", size: "1.5 MB" };
         let currentKenaikanMode = 'auto';
+
+        // Pagination State Variables
+        let currentPageSiswa = 1, itemsPerPageSiswa = 5;
+        let currentPageGTK = 1, itemsPerPageGTK = 5;
+        let currentPageSuratMasuk = 1, itemsPerPageSuratMasuk = 5;
+        let currentPageSuratKeluar = 1, itemsPerPageSuratKeluar = 5;
+        let currentPageSuratPindah = 1, itemsPerPageSuratPindah = 5;
+        let currentPageSuratAktif = 1, itemsPerPageSuratAktif = 5;
+        let currentPageSuratTerima = 1, itemsPerPageSuratTerima = 5;
 
         function fixLeadingZeroNisn(val) {
             if (!val && val !== 0) return "";
@@ -2414,21 +2427,21 @@
 
         // HELPER GENERATE KOP HTML FOR ALL PRINTING MODULES
         function generateKopHtml() {
-            const logoKiriHtml = kopData.logoKiri ? `<img src="${escapeHtml(kopData.logoKiri)}" style="height: 70px; width: auto; object-fit: contain;">` : '';
-            const logoKananHtml = kopData.logoKanan ? `<img src="${escapeHtml(kopData.logoKanan)}" style="height: 70px; width: auto; object-fit: contain;">` : '';
+            const logoKiriHtml = kopData.logoKiri ? `<img src="${escapeHtml(kopData.logoKiri)}" style="height: 85px; width: auto; object-fit: contain;">` : '';
+            const logoKananHtml = kopData.logoKanan ? `<img src="${escapeHtml(kopData.logoKanan)}" style="height: 85px; width: auto; object-fit: contain;">` : '';
 
             return `
-                <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 3px double #000; padding-bottom: 4px; margin-bottom: 16px; text-align: center; line-height: 1.15;">
-                    <div style="width: 75px; text-align: left;">${logoKiriHtml}</div>
+                <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 3px double #000; padding-bottom: 6px; margin-bottom: 20px; text-align: center; line-height: 1.25; font-family: Cambria, serif;">
+                    <div style="width: 85px; text-align: left;">${logoKiriHtml}</div>
                     <div style="flex: 1; padding: 0 10px;">
-                        <h3 style="margin: 0; font-size: 15px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px; line-height: 1.15;">${escapeHtml(kopData.pemerintah)}</h3>
-                        <h3 style="margin: 1px 0 0 0; font-size: 13px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px; line-height: 1.15;">${escapeHtml(kopData.dinas)}</h3>
-                        <h2 style="margin: 1px 0 0 0; font-size: 16px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; line-height: 1.15;">${escapeHtml(kopData.sekolah)}</h2>
-                        <h4 style="margin: 1px 0 0 0; font-size: 12px; font-weight: bold; text-transform: uppercase; line-height: 1.15;">${escapeHtml(kopData.kecamatan)}</h4>
-                        <p style="margin: 1px 0 0 0; font-size: 10px; font-weight: normal; line-height: 1.15;">${escapeHtml(kopData.alamat)}</p>
-                        <p style="margin: 1px 0 0 0; font-size: 10px; font-weight: normal; color: #1d4ed8; line-height: 1.15;">Email: <span style="color: #1d4ed8;">${escapeHtml(kopData.email)}</span> | Website: <span style="color: #1d4ed8;">${escapeHtml(kopData.website)}</span></p>
+                        <h3 style="margin: 0; font-size: 14pt; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px; line-height: 1.2;">${escapeHtml(kopData.pemerintah)}</h3>
+                        <h3 style="margin: 2px 0 0 0; font-size: 14pt; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px; line-height: 1.2;">${escapeHtml(kopData.dinas)}</h3>
+                        <h2 style="margin: 3px 0 0 0; font-size: 17pt; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; line-height: 1.2; color: #000;">${escapeHtml(kopData.sekolah)}</h2>
+                        <h4 style="margin: 2px 0 0 0; font-size: 13pt; font-weight: bold; text-transform: uppercase; line-height: 1.2;">${escapeHtml(kopData.kecamatan)}</h4>
+                        <p style="margin: 3px 0 0 0; font-size: 11.5pt; font-weight: normal; line-height: 1.2;">${escapeHtml(kopData.alamat)}</p>
+                        <p style="margin: 2px 0 0 0; font-size: 11.5pt; font-weight: normal; color: #1d4ed8; line-height: 1.2;">Email: <span style="color: #1d4ed8;">${escapeHtml(kopData.email)}</span> | Website: <span style="color: #1d4ed8;">${escapeHtml(kopData.website)}</span></p>
                     </div>
-                    <div style="width: 75px; text-align: right;">${logoKananHtml}</div>
+                    <div style="width: 85px; text-align: right;">${logoKananHtml}</div>
                 </div>
             `;
         }
@@ -2655,6 +2668,46 @@
                 .replace(/>/g, '&gt;')
                 .replace(/"/g, '&quot;')
                 .replace(/'/g, '&#039;');
+        }
+
+        // FUNGSI MEMBUAT STYLESHEET CETAK (UKURAN KERTAS & MARGIN)
+        function getPrintPageCSS(moduleId, defaultOrientation) {
+            let paperSize = 'A4';
+            let mt = '15', mb = '15', ml = '20', mr = '15';
+
+            if (moduleId) {
+                const paperEl = document.getElementById(moduleId + 'PaperSize');
+                const mtEl = document.getElementById(moduleId + 'MarginTop');
+                const mbEl = document.getElementById(moduleId + 'MarginBottom');
+                const mlEl = document.getElementById(moduleId + 'MarginLeft');
+                const mrEl = document.getElementById(moduleId + 'MarginRight');
+
+                if (paperEl && paperEl.value) paperSize = paperEl.value;
+                if (mtEl && mtEl.value !== '') mt = mtEl.value;
+                if (mbEl && mbEl.value !== '') mb = mbEl.value;
+                if (mlEl && mlEl.value !== '') ml = mlEl.value;
+                if (mrEl && mrEl.value !== '') mr = mrEl.value;
+            }
+
+            let sizeRule = 'A4';
+            if (paperSize === 'F4') sizeRule = '215mm 330mm';
+            else if (paperSize === 'Legal') sizeRule = '216mm 356mm';
+            else if (paperSize === '8.5x13' || paperSize === '8.5 x 13 in' || paperSize === '8.5 x 13 In') sizeRule = '216mm 330mm';
+            else sizeRule = 'A4';
+
+            if (defaultOrientation === 'landscape') {
+                sizeRule += ' landscape';
+            }
+
+            return `
+                @page {
+                    size: ${sizeRule};
+                    margin: ${mt}mm ${mr}mm ${mb}mm ${ml}mm;
+                }
+                @media print {
+                    body { margin: 0; padding: 0; }
+                }
+            `;
         }
 
         function renderSekolahData() {
@@ -2899,16 +2952,19 @@
                 <head>
                     <title>Laporan Data Siswa - ${escapeHtml(sekolahData.nama)}</title>
                     <style>
-                        body { font-family: Arial, sans-serif; margin: 25px; font-size: 11px; }
-                        h2, p { margin: 2px 0; text-align: center; }
-                        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
-                        th, td { border: 1px solid #64748b; padding: 6px; text-align: left; }
-                        th { background-color: #e2e8f0; }
+                        ${getPrintPageCSS('siswa', 'landscape')}
+                        body { font-family: 'Cambria', serif; font-size: 12pt; color: #000; margin: 0; }
+                        .title h3 { font-size: 14pt; font-weight: bold; text-align: center; margin: 10px 0; text-transform: uppercase; }
+                        table { width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 12pt; }
+                        th, td { border: 1px solid #000; padding: 6px; text-align: left; font-size: 12pt; }
+                        th { background-color: #f1f5f9; font-weight: bold; }
                     </style>
                 </head>
                 <body>
                     ${generateKopHtml()}
-                    <p style="font-size: 13px; font-weight: bold; text-align: center; margin: 10px 0; text-transform: uppercase;">LAPORAN DATA SISWA - ${escapeHtml(sekolahData.tahunPelajaran)}</p>
+                    <div class="title">
+                        <h3>LAPORAN DATA SISWA - ${escapeHtml(sekolahData.tahunPelajaran)}</h3>
+                    </div>
                     <table>
                         <thead>
                             <tr>
@@ -3114,7 +3170,7 @@
                         <td style="text-align:center;">${idx + 1}</td>
                         <td><strong>${escapeHtml(g.nama)}</strong></td>
                         <td>${escapeHtml(g.tugas || '-')}</td>
-                        <td>${escapeHtml(g.nip || '-')}<br><small style="color:#64748b;">NPWP: ${escapeHtml(g.npwp || '-')}</small></td>
+                        <td>${escapeHtml(g.nip || '-')}<br><small style="color:#475569;">NPWP: ${escapeHtml(g.npwp || '-')}</small></td>
                         <td>${escapeHtml(g.nik)}</td>
                         <td>${escapeHtml(g.jabatan)}</td>
                     </tr>
@@ -3127,16 +3183,19 @@
                 <head>
                     <title>Laporan Data GTK - ${escapeHtml(sekolahData.nama)}</title>
                     <style>
-                        body { font-family: Arial, sans-serif; margin: 25px; font-size: 11px; }
-                        h2, p { margin: 2px 0; text-align: center; }
-                        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
-                        th, td { border: 1px solid #64748b; padding: 6px; text-align: left; }
-                        th { background-color: #e2e8f0; }
+                        ${getPrintPageCSS('gtk', 'landscape')}
+                        body { font-family: 'Cambria', serif; font-size: 12pt; color: #000; margin: 0; }
+                        .title h3 { font-size: 14pt; font-weight: bold; text-align: center; margin: 10px 0; text-transform: uppercase; }
+                        table { width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 12pt; }
+                        th, td { border: 1px solid #000; padding: 6px; text-align: left; font-size: 12pt; }
+                        th { background-color: #f1f5f9; font-weight: bold; }
                     </style>
                 </head>
                 <body>
                     ${generateKopHtml()}
-                    <p style="font-size: 13px; font-weight: bold; text-align: center; margin: 10px 0; text-transform: uppercase;">LAPORAN DATA GTK (GURU & TENAGA KEPENDIDIKAN)</p>
+                    <div class="title">
+                        <h3>LAPORAN DATA GTK (GURU & TENAGA KEPENDIDIKAN)</h3>
+                    </div>
                     <table>
                         <thead>
                             <tr>
@@ -3319,22 +3378,13 @@
 
                 let tglClean = formatDateOnly(s.tanggal);
                 let matchDate = true;
-                if (tglMulai && tglClean) {
-                    matchDate = matchDate && (tglClean >= tglMulai);
-                }
-                if (tglSelesai && tglClean) {
-                    matchDate = matchDate && (tglClean <= tglSelesai);
-                }
+                if (tglMulai && tglClean) matchDate = matchDate && (tglClean >= tglMulai);
+                if (tglSelesai && tglClean) matchDate = matchDate && (tglClean <= tglSelesai);
 
                 return matchSearch && matchDate;
             });
 
-            // Urutkan ascending berdasarkan Nomor Surat (001 di paling atas, nomor tertinggi di paling bawah)
-            filtered.sort((a, b) => {
-                const comp = (a.noSurat || '').localeCompare(b.noSurat || '', undefined, { numeric: true, sensitivity: 'base' });
-                if (comp !== 0) return comp;
-                return (a.id || 0) - (b.id || 0);
-            });
+            filtered.sort((a, b) => (a.noSurat || '').localeCompare(b.noSurat || '', undefined, { numeric: true, sensitivity: 'base' }));
 
             if (filtered.length === 0) {
                 showToast("Tidak ada data Surat Masuk untuk dicetak!", "warning");
@@ -3348,11 +3398,7 @@
             }
 
             const todayStr = new Date().toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' });
-
-            let filterInfoText = '';
-            if (tglMulai || tglSelesai) {
-                filterInfoText = ` (Periode: ${tglMulai || 'Awal'} s/d ${tglSelesai || 'Sekarang'})`;
-            }
+            let filterInfoText = (tglMulai || tglSelesai) ? ` (Periode: ${tglMulai || 'Awal'} s/d ${tglSelesai || 'Sekarang'})` : '';
 
             let rowsHtml = '';
             filtered.forEach((s, idx) => {
@@ -3374,17 +3420,14 @@
                     <meta charset="UTF-8">
                     <title>Agenda Surat Masuk - ${escapeHtml(sekolahData.nama)}</title>
                     <style>
-                        body { font-family: Arial, sans-serif; margin: 30px; font-size: 11px; color: #1e293b; }
+                        ${getPrintPageCSS('surat-masuk', 'landscape')}
+                        body { font-family: 'Cambria', serif; font-size: 12pt; color: #000; margin: 0; }
                         .title { text-align: center; margin-bottom: 20px; }
-                        .title h3 { margin: 0; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; }
-                        .title p { margin: 4px 0 0 0; font-size: 11px; color: #64748b; font-weight: bold; }
-                        table { width: 100%; border-collapse: collapse; margin-bottom: 30px; }
-                        th, td { border: 1px solid #64748b; padding: 6px 8px; text-align: left; vertical-align: top; }
-                        th { background-color: #f1f5f9; font-weight: bold; text-transform: uppercase; font-size: 10px; }
-                        @media print {
-                            @page { size: A4 landscape; margin: 12mm; }
-                            body { margin: 0; }
-                        }
+                        .title h3 { margin: 0; font-size: 14pt; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px; }
+                        .title p { margin: 4px 0 0 0; font-size: 12pt; color: #334155; font-weight: bold; }
+                        table { width: 100%; border-collapse: collapse; margin-bottom: 30px; font-size: 12pt; }
+                        th, td { border: 1px solid #000; padding: 6px 8px; text-align: left; vertical-align: top; font-size: 12pt; }
+                        th { background-color: #f1f5f9; font-weight: bold; text-transform: uppercase; }
                     </style>
                 </head>
                 <body>
@@ -3405,12 +3448,10 @@
                                 <th>Perihal / Catatan</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            ${rowsHtml}
-                        </tbody>
+                        <tbody>${rowsHtml}</tbody>
                     </table>
 
-                    <table style="border:none; margin-top:20px; width: 100%;">
+                    <table style="border:none; margin-top:20px; width: 100%; font-size: 12pt;">
                         <tr style="border:none;">
                             <td style="border:none;"></td>
                             <td style="border:none; width: 280px; text-align: center;">
@@ -3592,22 +3633,13 @@
                        (s.perihal && s.perihal.toLowerCase().includes(search));
 
                 let matchDate = true;
-                if (tglMulai && s.tanggal) {
-                    matchDate = matchDate && (s.tanggal >= tglMulai);
-                }
-                if (tglSelesai && s.tanggal) {
-                    matchDate = matchDate && (s.tanggal <= tglSelesai);
-                }
+                if (tglMulai && s.tanggal) matchDate = matchDate && (s.tanggal >= tglMulai);
+                if (tglSelesai && s.tanggal) matchDate = matchDate && (s.tanggal <= tglSelesai);
 
                 return matchSearch && matchDate;
             });
 
-            // Urutkan ascending berdasarkan Nomor Surat (001 di paling atas, nomor tertinggi di paling bawah)
-            filtered.sort((a, b) => {
-                const comp = (a.noSurat || '').localeCompare(b.noSurat || '', undefined, { numeric: true, sensitivity: 'base' });
-                if (comp !== 0) return comp;
-                return (a.id || 0) - (b.id || 0);
-            });
+            filtered.sort((a, b) => (a.noSurat || '').localeCompare(b.noSurat || '', undefined, { numeric: true, sensitivity: 'base' }));
 
             if (filtered.length === 0) {
                 showToast("Tidak ada data Surat Keluar untuk dicetak!", "warning");
@@ -3621,11 +3653,7 @@
             }
 
             const todayStr = new Date().toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' });
-
-            let filterInfoText = '';
-            if (tglMulai || tglSelesai) {
-                filterInfoText = ` (Periode: ${tglMulai || 'Awal'} s/d ${tglSelesai || 'Sekarang'})`;
-            }
+            let filterInfoText = (tglMulai || tglSelesai) ? ` (Periode: ${tglMulai || 'Awal'} s/d ${tglSelesai || 'Sekarang'})` : '';
 
             let rowsHtml = '';
             filtered.forEach((s, idx) => {
@@ -3647,17 +3675,14 @@
                     <meta charset="UTF-8">
                     <title>Agenda Surat Keluar - ${escapeHtml(sekolahData.nama)}</title>
                     <style>
-                        body { font-family: Arial, sans-serif; margin: 30px; font-size: 11px; color: #1e293b; }
+                        ${getPrintPageCSS('surat-keluar', 'landscape')}
+                        body { font-family: 'Cambria', serif; font-size: 12pt; color: #000; margin: 0; }
                         .title { text-align: center; margin-bottom: 20px; }
-                        .title h3 { margin: 0; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; }
-                        .title p { margin: 4px 0 0 0; font-size: 11px; color: #64748b; font-weight: bold; }
-                        table { width: 100%; border-collapse: collapse; margin-bottom: 30px; }
-                        th, td { border: 1px solid #64748b; padding: 6px 8px; text-align: left; vertical-align: top; }
-                        th { background-color: #f1f5f9; font-weight: bold; text-transform: uppercase; font-size: 10px; }
-                        @media print {
-                            @page { size: A4 landscape; margin: 12mm; }
-                            body { margin: 0; }
-                        }
+                        .title h3 { margin: 0; font-size: 14pt; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px; }
+                        .title p { margin: 4px 0 0 0; font-size: 12pt; color: #334155; font-weight: bold; }
+                        table { width: 100%; border-collapse: collapse; margin-bottom: 30px; font-size: 12pt; }
+                        th, td { border: 1px solid #000; padding: 6px 8px; text-align: left; vertical-align: top; font-size: 12pt; }
+                        th { background-color: #f1f5f9; font-weight: bold; text-transform: uppercase; }
                     </style>
                 </head>
                 <body>
@@ -3678,12 +3703,10 @@
                                 <th>Perihal / Catatan</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            ${rowsHtml}
-                        </tbody>
+                        <tbody>${rowsHtml}</tbody>
                     </table>
 
-                    <table style="border:none; margin-top:20px; width: 100%;">
+                    <table style="border:none; margin-top:20px; width: 100%; font-size: 12pt;">
                         <tr style="border:none;">
                             <td style="border:none;"></td>
                             <td style="border:none; width: 280px; text-align: center;">
@@ -3994,20 +4017,21 @@
                     <meta charset="UTF-8">
                     <title>Surat Pindah Sekolah - ${escapeHtml(data.namaSiswa)}</title>
                     <style>
+                        ${getPrintPageCSS('surat-pindah', 'portrait')}
                         body {
-                            font-family: 'Times New Roman', Times, serif;
-                            margin: 45px 55px;
-                            font-size: 13.5px;
+                            font-family: 'Cambria', serif;
+                            font-size: 12pt;
                             color: #000;
                             line-height: 1.5;
+                            margin: 0;
                         }
                         .header {
                             text-align: center;
-                            margin-bottom: 25px;
+                            margin-bottom: 20px;
                         }
                         .header h3 {
                             margin: 0;
-                            font-size: 15.5px;
+                            font-size: 14pt;
                             text-decoration: underline;
                             text-transform: uppercase;
                             font-weight: bold;
@@ -4015,22 +4039,25 @@
                         }
                         .header p {
                             margin: 3px 0 0 0;
-                            font-size: 13px;
+                            font-size: 12pt;
                             font-weight: bold;
                         }
                         p.indented {
                             text-indent: 35px;
                             margin: 10px 0;
                             text-align: justify;
+                            font-size: 12pt;
                         }
                         table.data-table {
                             width: 100%;
                             border-collapse: collapse;
                             margin: 6px 0 12px 35px;
+                            font-size: 12pt;
                         }
                         table.data-table td {
-                            padding: 2.5px 4px;
+                            padding: 3px 4px;
                             vertical-align: top;
+                            font-size: 12pt;
                         }
                         .dotted-line {
                             border-bottom: 1px dotted #000;
@@ -4038,6 +4065,7 @@
                         }
                         .receipt-box {
                             margin-top: 10px;
+                            font-size: 12pt;
                         }
                         .stat-box {
                             border: 1px solid #000;
@@ -4048,10 +4076,6 @@
                             width: 22px;
                             height: 22px;
                             text-align: center;
-                        }
-                        @media print {
-                            @page { size: A4 portrait; margin: 15mm; }
-                            body { margin: 0; }
                         }
                     </style>
                 </head>
@@ -4141,7 +4165,7 @@
 
                         <p class="indented">${escapeHtml(data.pernyataan4)}</p>
 
-                        <table style="width: 100%; border:none; margin-top: 30px;">
+                        <table style="width: 100%; border:none; margin-top: 30px; font-size: 12pt;">
                             <tr style="border:none;">
                                 <td style="border:none;"></td>
                                 <td style="border:none; width: 280px; text-align: center;">
@@ -4154,12 +4178,12 @@
                         </table>
 
                         <div class="dotted-line"></div>
-                        <p style="font-size: 12px; margin: 0 0 10px 0;">Setelah siswa tersebut diterimah di sekolah ini, isian dibawah ini harap diisi dan dikirim pada kami.</p>
+                        <p style="font-size: 11pt; margin: 0 0 10px 0;">Setelah siswa tersebut diterimah di sekolah ini, isian dibawah ini harap diisi dan dikirim pada kami.</p>
                         <div class="dotted-line" style="margin-top: 0;"></div>
 
                         <div class="receipt-box">
                             <div style="float: right; text-align: center; margin-right: 20px;">
-                                <p style="margin:0 0 4px 0; font-size:12px;">Nomor Statistik Sekolah</p>
+                                <p style="margin:0 0 4px 0; font-size:11pt;">Nomor Statistik Sekolah</p>
                                 <table class="stat-box">
                                     <tr>
                                         <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
@@ -4167,7 +4191,7 @@
                                 </table>
                             </div>
 
-                            <table style="width: 60%; font-size: 12.5px;">
+                            <table style="width: 60%; font-size: 11.5pt;">
                                 <tr><td style="width:130px;">Nama Sekolah</td><td>:</td></tr>
                                 <tr><td>Status Sekolah</td><td>:</td></tr>
                                 <tr><td>Alamat</td><td>:</td></tr>
@@ -4241,17 +4265,14 @@
                     <meta charset="UTF-8">
                     <title>Rekap Surat Pindah Sekolah - ${escapeHtml(sekolahData.nama)}</title>
                     <style>
-                        body { font-family: Arial, sans-serif; margin: 30px; font-size: 11px; color: #1e293b; }
+                        ${getPrintPageCSS('surat-pindah', 'landscape')}
+                        body { font-family: 'Cambria', serif; font-size: 12pt; color: #000; margin: 0; }
                         .title { text-align: center; margin-bottom: 20px; }
-                        .title h3 { margin: 0; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; }
-                        .title p { margin: 4px 0 0 0; font-size: 11px; color: #64748b; font-weight: bold; }
-                        table { width: 100%; border-collapse: collapse; margin-bottom: 30px; }
-                        th, td { border: 1px solid #94a3b8; padding: 6px 8px; text-align: left; vertical-align: top; }
-                        th { background-color: #f1f5f9; font-weight: bold; text-transform: uppercase; font-size: 10px; }
-                        @media print {
-                            @page { size: A4 landscape; margin: 12mm; }
-                            body { margin: 0; }
-                        }
+                        .title h3 { margin: 0; font-size: 14pt; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+                        .title p { margin: 4px 0 0 0; font-size: 12pt; color: #334155; font-weight: bold; }
+                        table { width: 100%; border-collapse: collapse; margin-bottom: 30px; font-size: 12pt; }
+                        th, td { border: 1px solid #000; padding: 6px 8px; text-align: left; vertical-align: top; font-size: 12pt; }
+                        th { background-color: #f1f5f9; font-weight: bold; text-transform: uppercase; }
                     </style>
                 </head>
                 <body>
@@ -4273,12 +4294,10 @@
                                 <th>Alasan Pindah</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            ${rowsHtml}
-                        </tbody>
+                        <tbody>${rowsHtml}</tbody>
                     </table>
 
-                    <table style="border:none; margin-top:20px; width: 100%;">
+                    <table style="border:none; margin-top:20px; width: 100%; font-size: 12pt;">
                         <tr style="border:none;">
                             <td style="border:none;"></td>
                             <td style="border:none; width: 280px; text-align: center;">
@@ -4511,12 +4530,13 @@
                     <meta charset="UTF-8">
                     <title>Surat Keterangan Aktif Belajar - ${escapeHtml(data.namaSiswa)}</title>
                     <style>
+                        ${getPrintPageCSS('surat-aktif', 'portrait')}
                         body {
-                            font-family: 'Times New Roman', Times, serif;
-                            margin: 55px 65px;
-                            font-size: 14px;
+                            font-family: 'Cambria', serif;
+                            font-size: 12pt;
                             color: #000;
                             line-height: 1.6;
+                            margin: 0;
                         }
                         .header {
                             text-align: center;
@@ -4524,7 +4544,7 @@
                         }
                         .header h3 {
                             margin: 0;
-                            font-size: 16px;
+                            font-size: 14pt;
                             text-decoration: underline;
                             text-transform: uppercase;
                             font-weight: bold;
@@ -4532,7 +4552,7 @@
                         }
                         .header p {
                             margin: 3px 0 0 0;
-                            font-size: 13.5px;
+                            font-size: 12pt;
                             font-weight: bold;
                         }
                         .content {
@@ -4542,19 +4562,18 @@
                             text-indent: 40px;
                             margin: 12px 0;
                             text-align: justify;
+                            font-size: 12pt;
                         }
                         table.data-table {
                             width: 100%;
                             border-collapse: collapse;
                             margin: 10px 0 18px 40px;
+                            font-size: 12pt;
                         }
                         table.data-table td {
                             padding: 3px 4px;
                             vertical-align: top;
-                        }
-                        @media print {
-                            @page { size: A4 portrait; margin: 20mm; }
-                            body { margin: 0; }
+                            font-size: 12pt;
                         }
                     </style>
                 </head>
@@ -4592,7 +4611,7 @@
                             </tr>
                         </table>
 
-                        <p style="font-weight: bold; margin-left: 0px; margin-bottom: 12px;">Menerangkan :</p>
+                        <p style="font-weight: bold; margin-left: 0px; margin-bottom: 12px; font-size: 12pt;">Menerangkan :</p>
 
                         <table class="data-table">
                             <tr>
@@ -4619,7 +4638,7 @@
 
                         <p class="indented" style="margin-top: 25px;">${escapeHtml(penutup)}</p>
 
-                        <table style="width: 100%; border:none; margin-top: 50px;">
+                        <table style="width: 100%; border:none; margin-top: 50px; font-size: 12pt;">
                             <tr style="border:none;">
                                 <td style="border:none;"></td>
                                 <td style="border:none; width: 300px; text-align: center;">
@@ -4687,17 +4706,14 @@
                     <meta charset="UTF-8">
                     <title>Rekap Surat Keterangan Aktif Belajar - ${escapeHtml(sekolahData.nama)}</title>
                     <style>
-                        body { font-family: Arial, sans-serif; margin: 30px; font-size: 11px; color: #1e293b; }
+                        ${getPrintPageCSS('surat-aktif', 'landscape')}
+                        body { font-family: 'Cambria', serif; font-size: 12pt; color: #000; margin: 0; }
                         .title { text-align: center; margin-bottom: 20px; }
-                        .title h3 { margin: 0; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; }
-                        .title p { margin: 4px 0 0 0; font-size: 11px; color: #64748b; font-weight: bold; }
-                        table { width: 100%; border-collapse: collapse; margin-bottom: 30px; }
-                        th, td { border: 1px solid #94a3b8; padding: 6px 8px; text-align: left; vertical-align: top; }
-                        th { background-color: #f1f5f9; font-weight: bold; text-transform: uppercase; font-size: 10px; }
-                        @media print {
-                            @page { size: A4 landscape; margin: 12mm; }
-                            body { margin: 0; }
-                        }
+                        .title h3 { margin: 0; font-size: 14pt; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+                        .title p { margin: 4px 0 0 0; font-size: 12pt; color: #334155; font-weight: bold; }
+                        table { width: 100%; border-collapse: collapse; margin-bottom: 30px; font-size: 12pt; }
+                        th, td { border: 1px solid #000; padding: 6px 8px; text-align: left; vertical-align: top; font-size: 12pt; }
+                        th { background-color: #f1f5f9; font-weight: bold; text-transform: uppercase; }
                     </style>
                 </head>
                 <body>
@@ -4719,12 +4735,10 @@
                                 <th>Tempat / Tgl Lahir</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            ${rowsHtml}
-                        </tbody>
+                        <tbody>${rowsHtml}</tbody>
                     </table>
 
-                    <table style="border:none; margin-top:20px; width: 100%;">
+                    <table style="border:none; margin-top:20px; width: 100%; font-size: 12pt;">
                         <tr style="border:none;">
                             <td style="border:none;"></td>
                             <td style="border:none; width: 280px; text-align: center;">
@@ -4747,179 +4761,6 @@
 
             printWindow.document.write(htmlContent);
             printWindow.document.close();
-        }
-
-        // --- SURAT BERSEDIA MENERIMA SISWA PINDAHAN FUNCTIONS ---
-        function renderSuratTerimaTable() {
-            const tbody = document.getElementById('tableSuratTerimaBody');
-            if (!tbody) return;
-            const search = document.getElementById('searchSuratTerima').value.toLowerCase();
-            const emptyState = document.getElementById('emptySuratTerimaState');
-
-            tbody.innerHTML = '';
-
-            const filtered = suratTerimaList.filter(s => {
-                return (s.noSurat && s.noSurat.toLowerCase().includes(search)) ||
-                       (s.namaSiswa && s.namaSiswa.toLowerCase().includes(search)) ||
-                       (s.nisnSiswa && s.nisnSiswa.toLowerCase().includes(search)) ||
-                       (s.namaOrtu && s.namaOrtu.toLowerCase().includes(search));
-            });
-
-            if (filtered.length === 0) {
-                if (emptyState) emptyState.classList.remove('hidden');
-                return;
-            } else {
-                if (emptyState) emptyState.classList.add('hidden');
-            }
-
-            filtered.forEach((s, index) => {
-                const tr = document.createElement('tr');
-                tr.className = "hover:bg-slate-50/80 transition-colors";
-                const cleanTgl = formatDateOnly(s.tanggalSurat);
-                tr.innerHTML = `
-                    <td class="py-3 px-4 text-center font-semibold text-slate-400">${index + 1}</td>
-                    <td class="py-3 px-4">
-                        <p class="font-bold text-slate-800">${escapeHtml(s.noSurat)}</p>
-                        <p class="text-[10px] text-slate-400 font-mono">${escapeHtml(cleanTgl)}</p>
-                    </td>
-                    <td class="py-3 px-4 font-bold text-slate-800">
-                        ${escapeHtml(s.namaSiswa)}
-                        <p class="text-[10px] text-slate-400 font-mono">NISN: ${escapeHtml(s.nisnSiswa)}</p>
-                    </td>
-                    <td class="py-3 px-4 font-semibold text-brand-700">${escapeHtml(s.kelasTerima || '-')}</td>
-                    <td class="py-3 px-4 text-slate-600">${escapeHtml(s.namaOrtu || '-')}</td>
-                    <td class="py-3 px-4 text-center">
-                        <div class="flex items-center justify-center space-x-1">
-                            <button onclick="cetakSuratTerima(${s.id})" class="px-2.5 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-lg text-xs transition flex items-center space-x-1 shadow-sm" title="Cetak Surat Terima">
-                                <i class="fa-solid fa-print"></i>
-                                <span>Cetak</span>
-                            </button>
-                            <button onclick="editSuratTerima(${s.id})" class="p-1.5 text-brand-600 hover:bg-brand-50 rounded-lg transition" title="Edit Data">
-                                <i class="fa-solid fa-pen-to-square text-sm"></i>
-                            </button>
-                            <button onclick="confirmDeleteSuratTerima(${s.id})" class="p-1.5 text-rose-600 hover:bg-rose-50 rounded-lg transition" title="Hapus Data">
-                                <i class="fa-solid fa-trash-can text-sm"></i>
-                            </button>
-                        </div>
-                    </td>
-                `;
-                tbody.appendChild(tr);
-            });
-        }
-
-        function openModalSuratTerima(data = null) {
-            const modal = document.getElementById('modalSuratTerima');
-            const title = document.getElementById('modalSuratTerimaTitle');
-            const form = document.getElementById('formSuratTerima');
-
-            form.reset();
-            document.getElementById('suratTerimaEditId').value = '';
-
-            const defaultPembuka1 = "Yang bertanda tangan di bawah ini Kepala Sekolah UPT SDN 22 Tanah Keras,";
-            const defaultPembuka2 = "Dengan ini menerangkan bahwa :";
-            const defaultPenerimaan = "Anak tersebut diatas diterima di kelas III (Tiga) pada SDN 22 Tanah Keras Kecamatan Bayang Kabupaten Pesisir Selatan Provinsi Sumatera Barat dengan membawah persyaratan sebagai berikut :\n\n1. Surat Keterangan Pindah dari Sekolah;\n2. Surat Pindah Sekolah Rayon dari Dinas Pendidikan dan Kebudayaan  jika dari Luar Kota;\n3. Surat Mutasi dari Aplikasi DAPODIK;\n4. Format 8355;\n5. Laporan Pendidikan (Raport);\n6. Menyerahkan Foto Copy Akta Kelahiran ( 2Lembar);\n7. Menyerahkan Foto Copy Kartu Keluarga (2 Lembar).";
-            const defaultPenutup = "Bersedia menerima anak tersebut di atas sebagai siswa di UPT SDN 22 Tanah Keras Kecamatan Bayang Kabupaten Pesisir Selatan Provinsi Sumatera Barat. Demikian surat keterangan penerimaan siswa pindahan ini di buat untuk dapat di pergunakan sebagaimana mestinya.";
-
-            document.getElementById('terimaNamaKepsek').value = sekolahData.kepalaSekolah || 'RINA MELATI, M.Pd';
-            document.getElementById('terimaNipKepsek').value = sekolahData.nipKepalaSekolah || '197103161993042001';
-
-            if (data) {
-                title.textContent = 'Edit Surat Keterangan Siap Menerima Siswa Pindahan';
-                document.getElementById('suratTerimaEditId').value = data.id;
-                document.getElementById('terimaNoSurat').value = data.noSurat || '';
-                document.getElementById('terimaTempatSurat').value = data.tempatSurat || 'Tanah Keras';
-                document.getElementById('terimaTanggalSurat').value = formatDateOnly(data.tanggalSurat) || '';
-                document.getElementById('terimaPernyataanPembuka1').value = data.pernyataanPembuka1 || defaultPembuka1;
-                document.getElementById('terimaPangkatKepsek').value = data.pangkatKepsek || 'Pembina TK 1/IV b';
-                document.getElementById('terimaUnitKerjaKepsek').value = data.unitKerjaKepsek || 'UPT SDN 22 Tanah Keras Kec. Bayang';
-                document.getElementById('terimaPernyataanPembuka2').value = data.pernyataanPembuka2 || defaultPembuka2;
-                document.getElementById('terimaNamaSiswa').value = data.namaSiswa || '';
-                document.getElementById('terimaTtlSiswa').value = data.ttlSiswa || '';
-                document.getElementById('terimaNisnSiswa').value = data.nisnSiswa || '';
-                document.getElementById('terimaJkSiswa').value = data.jkSiswa || 'Perempuan';
-                document.getElementById('terimaNamaOrtu').value = data.namaOrtu || '';
-                document.getElementById('terimaAlamatSiswa').value = data.alamatSiswa || '';
-                document.getElementById('terimaPernyataanPenerimaan').value = data.pernyataanPenerimaan || defaultPenerimaan;
-                document.getElementById('terimaPernyataanPenutup').value = data.pernyataanPenutup || defaultPenutup;
-            } else {
-                title.textContent = 'Formulir Surat Keterangan Siap Menerima Siswa Pindahan';
-                document.getElementById('terimaTanggalSurat').valueAsDate = new Date();
-                document.getElementById('terimaTempatSurat').value = 'Tanah Keras';
-                document.getElementById('terimaNoSurat').value = '061/108.420.10/SD-22/TK-2026';
-                document.getElementById('terimaPernyataanPembuka1').value = defaultPembuka1;
-                document.getElementById('terimaPangkatKepsek').value = 'Pembina TK 1/IV b';
-                document.getElementById('terimaUnitKerjaKepsek').value = 'UPT SDN 22 Tanah Keras Kec. Bayang';
-                document.getElementById('terimaPernyataanPembuka2').value = defaultPembuka2;
-                document.getElementById('terimaPernyataanPenerimaan').value = defaultPenerimaan;
-                document.getElementById('terimaPernyataanPenutup').value = defaultPenutup;
-            }
-
-            modal.classList.remove('hidden');
-        }
-
-        function closeModalSuratTerima() {
-            document.getElementById('modalSuratTerima').classList.add('hidden');
-        }
-
-        function handleSuratTerimaSubmit(e) {
-            e.preventDefault();
-            const editId = document.getElementById('suratTerimaEditId').value;
-
-            // Extract kelas dari pernyataan penerimaan
-            const penerimaanText = document.getElementById('terimaPernyataanPenerimaan').value;
-            let kelasTerima = 'Kelas III';
-            const match = penerimaanText.match(/diterima di (kelas [^\s,]+|\w+)/i);
-            if (match) kelasTerima = match[1];
-
-            const terimaData = {
-                id: editId ? parseInt(editId) : Date.now(),
-                noSurat: document.getElementById('terimaNoSurat').value,
-                tempatSurat: document.getElementById('terimaTempatSurat').value,
-                tanggalSurat: formatDateOnly(document.getElementById('terimaTanggalSurat').value),
-                pernyataanPembuka1: document.getElementById('terimaPernyataanPembuka1').value,
-                namaKepsek: document.getElementById('terimaNamaKepsek').value,
-                nipKepsek: document.getElementById('terimaNipKepsek').value,
-                pangkatKepsek: document.getElementById('terimaPangkatKepsek').value,
-                unitKerjaKepsek: document.getElementById('terimaUnitKerjaKepsek').value,
-                pernyataanPembuka2: document.getElementById('terimaPernyataanPembuka2').value,
-                namaSiswa: document.getElementById('terimaNamaSiswa').value,
-                ttlSiswa: document.getElementById('terimaTtlSiswa').value,
-                nisnSiswa: document.getElementById('terimaNisnSiswa').value,
-                jkSiswa: document.getElementById('terimaJkSiswa').value,
-                namaOrtu: document.getElementById('terimaNamaOrtu').value,
-                alamatSiswa: document.getElementById('terimaAlamatSiswa').value,
-                pernyataanPenerimaan: document.getElementById('terimaPernyataanPenerimaan').value,
-                pernyataanPenutup: document.getElementById('terimaPernyataanPenutup').value,
-                kelasTerima: kelasTerima
-            };
-
-            if (editId) {
-                const index = suratTerimaList.findIndex(s => s.id === parseInt(editId));
-                if (index !== -1) suratTerimaList[index] = terimaData;
-                showToast("Surat Keterangan Siap Menerima berhasil diperbarui", "success");
-            } else {
-                suratTerimaList.unshift(terimaData);
-                showToast("Surat Keterangan Siap Menerima baru berhasil diterbitkan", "success");
-            }
-
-            saveToStorage();
-            closeModalSuratTerima();
-        }
-
-        function editSuratTerima(id) {
-            const data = suratTerimaList.find(s => s.id === id);
-            if (data) openModalSuratTerima(data);
-        }
-
-        function confirmDeleteSuratTerima(id) {
-            const data = suratTerimaList.find(s => s.id === id);
-            if (!data) return;
-
-            showConfirmModal(`Hapus Surat Bersedia Menerima siswa <b>${escapeHtml(data.namaSiswa)}</b>?`, () => {
-                suratTerimaList = suratTerimaList.filter(s => s.id !== id);
-                saveToStorage();
-                showToast("Surat Keterangan Siap Menerima berhasil dihapus", "warning");
-            });
         }
 
         function cetakSuratTerima(id) {
@@ -4962,12 +4803,13 @@
                     <meta charset="UTF-8">
                     <title>Surat Siap Menerima Siswa Pindahan - ${escapeHtml(data.namaSiswa)}</title>
                     <style>
+                        ${getPrintPageCSS('surat-terima', 'portrait')}
                         body {
-                            font-family: 'Times New Roman', Times, serif;
-                            margin: 50px 60px;
-                            font-size: 13.5px;
+                            font-family: 'Cambria', serif;
+                            font-size: 12pt;
                             color: #000;
                             line-height: 1.5;
+                            margin: 0;
                         }
                         .header {
                             text-align: center;
@@ -4975,7 +4817,7 @@
                         }
                         .header h3 {
                             margin: 0;
-                            font-size: 15px;
+                            font-size: 14pt;
                             text-decoration: underline;
                             text-transform: uppercase;
                             font-weight: bold;
@@ -4983,26 +4825,25 @@
                         }
                         .header p {
                             margin: 3px 0 0 0;
-                            font-size: 13px;
+                            font-size: 12pt;
                             font-weight: bold;
                         }
                         p.indented {
                             text-indent: 40px;
                             margin: 10px 0;
                             text-align: justify;
+                            font-size: 12pt;
                         }
                         table.data-table {
                             width: 100%;
                             border-collapse: collapse;
                             margin: 8px 0 14px 40px;
+                            font-size: 12pt;
                         }
                         table.data-table td {
-                            padding: 2.5px 4px;
+                            padding: 3px 4px;
                             vertical-align: top;
-                        }
-                        @media print {
-                            @page { size: A4 portrait; margin: 18mm; }
-                            body { margin: 0; }
+                            font-size: 12pt;
                         }
                     </style>
                 </head>
@@ -5080,13 +4921,13 @@
                             </tr>
                         </table>
 
-                        <div style="margin-left: 40px; text-align: justify; margin-top: 15px; margin-bottom: 15px;">
+                        <div style="margin-left: 40px; text-align: justify; margin-top: 15px; margin-bottom: 15px; font-size: 12pt;">
                             ${penerimaanFormatted}
                         </div>
 
                         <p class="indented" style="margin-top: 15px;">${escapeHtml(penutup)}</p>
 
-                        <table style="width: 100%; border:none; margin-top: 45px;">
+                        <table style="width: 100%; border:none; margin-top: 45px; font-size: 12pt;">
                             <tr style="border:none;">
                                 <td style="border:none;"></td>
                                 <td style="border:none; width: 280px; text-align: center;">
@@ -5112,8 +4953,206 @@
             printWindow.document.close();
         }
 
+        function renderSuratTerimaTable() {
+            const tbody = document.getElementById('tableSuratTerimaBody');
+            if (!tbody) return;
+
+            const searchInput = document.getElementById('searchSuratTerima');
+            const search = searchInput ? searchInput.value.toLowerCase() : '';
+            const emptyState = document.getElementById('emptySuratTerimaState');
+
+            tbody.innerHTML = '';
+
+            const page = currentPageSuratTerima || 1;
+            const perPage = itemsPerPageSuratTerima || 5;
+
+            const filtered = suratTerimaList.filter(s => {
+                return (s.noSurat && s.noSurat.toLowerCase().includes(search)) ||
+                       (s.namaSiswa && s.namaSiswa.toLowerCase().includes(search)) ||
+                       (s.nisnSiswa && s.nisnSiswa.toLowerCase().includes(search)) ||
+                       (s.namaOrtu && s.namaOrtu.toLowerCase().includes(search));
+            });
+
+            filtered.sort((a, b) => (a.noSurat || '').localeCompare(b.noSurat || '', undefined, { numeric: true, sensitivity: 'base' }));
+
+            if (filtered.length === 0) {
+                if (emptyState) emptyState.classList.remove('hidden');
+                if (typeof renderPaginationControls === 'function') {
+                    renderPaginationControls('SuratTerima', 0, 1, perPage);
+                }
+                return;
+            } else {
+                if (emptyState) emptyState.classList.add('hidden');
+            }
+
+            const totalPages = Math.ceil(filtered.length / perPage) || 1;
+            const validPage = Math.min(Math.max(1, page), totalPages);
+            currentPageSuratTerima = validPage;
+
+            const startIdx = (validPage - 1) * perPage;
+            const paginated = filtered.slice(startIdx, startIdx + perPage);
+
+            paginated.forEach((s, index) => {
+                const tr = document.createElement('tr');
+                tr.className = "hover:bg-slate-50/80 transition-colors";
+                const cleanTgl = formatDateOnly(s.tanggalSurat);
+                tr.innerHTML = `
+                    <td class="py-3 px-4 text-center font-semibold text-slate-400">${startIdx + index + 1}</td>
+                    <td class="py-3 px-4">
+                        <p class="font-bold text-slate-800">${escapeHtml(s.noSurat)}</p>
+                        <p class="text-[10px] text-slate-400 font-mono">${escapeHtml(cleanTgl)}</p>
+                    </td>
+                    <td class="py-3 px-4 font-bold text-slate-800">
+                        ${escapeHtml(s.namaSiswa)}
+                        <p class="text-[10px] text-slate-400 font-mono">NISN: ${escapeHtml(s.nisnSiswa)}</p>
+                    </td>
+                    <td class="py-3 px-4 font-semibold text-brand-700">${escapeHtml(s.kelasTerima || '-')}</td>
+                    <td class="py-3 px-4 text-slate-600">${escapeHtml(s.namaOrtu || '-')}</td>
+                    <td class="py-3 px-4 text-center">
+                        <div class="flex items-center justify-center space-x-1">
+                            <button onclick="cetakSuratTerima(${s.id})" class="px-2.5 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-lg text-xs transition flex items-center space-x-1 shadow-sm" title="Cetak Surat Terima">
+                                <i class="fa-solid fa-print"></i>
+                                <span>Cetak</span>
+                            </button>
+                            <button onclick="editSuratTerima(${s.id})" class="p-1.5 text-brand-600 hover:bg-brand-50 rounded-lg transition" title="Edit Data">
+                                <i class="fa-solid fa-pen-to-square text-sm"></i>
+                            </button>
+                            <button onclick="confirmDeleteSuratTerima(${s.id})" class="p-1.5 text-rose-600 hover:bg-rose-50 rounded-lg transition" title="Hapus Data">
+                                <i class="fa-solid fa-trash-can text-sm"></i>
+                            </button>
+                        </div>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+
+            if (typeof renderPaginationControls === 'function') {
+                renderPaginationControls('SuratTerima', filtered.length, validPage, perPage);
+            }
+        }
+
+        // FUNGSI MODAL & AKSI SURAT BERSEDIA MENERIMA
+        function openModalSuratTerima(data = null) {
+            const modal = document.getElementById('modalSuratTerima');
+            const title = document.getElementById('modalSuratTerimaTitle');
+            const form = document.getElementById('formSuratTerima');
+
+            if (!modal || !form) return;
+            form.reset();
+
+            const setVal = (id, val) => {
+                const el = document.getElementById(id);
+                if (el) el.value = (val !== undefined && val !== null) ? val : '';
+            };
+
+            setVal('suratTerimaEditId', '');
+
+            const defaultPembuka1 = "Yang bertanda tangan di bawah ini Kepala Sekolah UPT SDN 22 Tanah Keras,";
+            const defaultPembuka2 = "Dengan ini menerangkan bahwa :";
+            const defaultPenerimaan = "";
+            const defaultPenutup = "Demikian Surat Keterangan Siap Menerima Siswa Pindahan ini diberikan kepada yang bersangkutan untuk dapat dipergunakan sebagaimana mestinya.";
+
+            setVal('terimaNamaKepsek', sekolahData.kepalaSekolah || 'RINA MELATI, M.Pd');
+            setVal('terimaNipKepsek', sekolahData.nipKepalaSekolah || '197103161993042001');
+
+            if (data) {
+                if (title) title.textContent = 'Edit Surat Siap Menerima Siswa Pindahan';
+                setVal('suratTerimaEditId', data.id);
+                setVal('terimaNoSurat', data.noSurat);
+                setVal('terimaTempatSurat', data.tempatSurat || 'Tanah Keras');
+                setVal('terimaTanggalSurat', formatDateOnly(data.tanggalSurat));
+                setVal('terimaPernyataanPembuka1', data.pernyataanPembuka1 || defaultPembuka1);
+                setVal('terimaPangkatKepsek', data.pangkatKepsek || 'Pembina TK 1/IV b');
+                setVal('terimaUnitKerjaKepsek', data.unitKerjaKepsek || 'UPT SDN 22 Tanah Keras Kec. Bayang');
+                setVal('terimaPernyataanPembuka2', data.pernyataanPembuka2 || defaultPembuka2);
+                setVal('terimaNamaSiswa', data.namaSiswa);
+                setVal('terimaTtlSiswa', data.ttlSiswa);
+                setVal('terimaNisnSiswa', data.nisnSiswa);
+                setVal('terimaJkSiswa', data.jkSiswa || 'Perempuan');
+                setVal('terimaKelasTerima', data.kelasTerima);
+                setVal('terimaNamaOrtu', data.namaOrtu);
+                setVal('terimaAlamatSiswa', data.alamatSiswa);
+                setVal('terimaPernyataanPenerimaan', data.pernyataanPenerimaan || defaultPenerimaan);
+                setVal('terimaPernyataanPenutup', data.pernyataanPenutup || defaultPenutup);
+            } else {
+                if (title) title.textContent = 'Formulir Surat Keterangan Siap Menerima Siswa Pindahan';
+                const tglEl = document.getElementById('terimaTanggalSurat');
+                if (tglEl) tglEl.valueAsDate = new Date();
+                setVal('terimaTempatSurat', 'Tanah Keras');
+                setVal('terimaNoSurat', '061/108.420.10/SD-22/TK-2026');
+                setVal('terimaPernyataanPembuka1', defaultPembuka1);
+                setVal('terimaPangkatKepsek', 'Pembina TK 1/IV b');
+                setVal('terimaUnitKerjaKepsek', 'UPT SDN 22 Tanah Keras Kec. Bayang');
+                setVal('terimaPernyataanPembuka2', defaultPembuka2);
+                setVal('terimaKelasTerima', '');
+                setVal('terimaPernyataanPenerimaan', defaultPenerimaan);
+                setVal('terimaPernyataanPenutup', defaultPenutup);
+            }
+
+            modal.classList.remove('hidden');
+        }
+
+        function closeModalSuratTerima() {
+            const modal = document.getElementById('modalSuratTerima');
+            if (modal) modal.classList.add('hidden');
+        }
+
+        function handleSuratTerimaSubmit(e) {
+            if (e) e.preventDefault();
+            const editId = document.getElementById('suratTerimaEditId').value;
+
+            const data = {
+                id: editId ? parseInt(editId) : Date.now(),
+                noSurat: document.getElementById('terimaNoSurat').value,
+                tempatSurat: document.getElementById('terimaTempatSurat').value,
+                tanggalSurat: formatDateOnly(document.getElementById('terimaTanggalSurat').value),
+                pernyataanPembuka1: document.getElementById('terimaPernyataanPembuka1').value,
+                namaKepsek: document.getElementById('terimaNamaKepsek').value,
+                nipKepsek: document.getElementById('terimaNipKepsek').value,
+                pangkatKepsek: document.getElementById('terimaPangkatKepsek').value,
+                unitKerjaKepsek: document.getElementById('terimaUnitKerjaKepsek').value,
+                pernyataanPembuka2: document.getElementById('terimaPernyataanPembuka2').value,
+                namaSiswa: document.getElementById('terimaNamaSiswa').value,
+                ttlSiswa: document.getElementById('terimaTtlSiswa').value,
+                nisnSiswa: document.getElementById('terimaNisnSiswa').value,
+                jkSiswa: document.getElementById('terimaJkSiswa').value,
+                namaOrtu: document.getElementById('terimaNamaOrtu').value,
+                alamatSiswa: document.getElementById('terimaAlamatSiswa').value,
+                pernyataanPenerimaan: document.getElementById('terimaPernyataanPenerimaan').value,
+                pernyataanPenutup: document.getElementById('terimaPernyataanPenutup').value
+            };
+
+            if (editId) {
+                const index = suratTerimaList.findIndex(s => s.id === parseInt(editId));
+                if (index !== -1) suratTerimaList[index] = data;
+                showToast("Surat Bersedia Menerima berhasil diperbarui", "success");
+            } else {
+                suratTerimaList.unshift(data);
+                showToast("Surat Bersedia Menerima baru berhasil diterbitkan", "success");
+            }
+
+            saveToStorage();
+            closeModalSuratTerima();
+        }
+
+        function editSuratTerima(id) {
+            const data = suratTerimaList.find(s => s.id === id);
+            if (data) openModalSuratTerima(data);
+        }
+
+        function confirmDeleteSuratTerima(id) {
+            const data = suratTerimaList.find(s => s.id === id);
+            if (!data) return;
+
+            showConfirmModal(`Hapus Surat Bersedia Menerima siswa <b>${escapeHtml(data.namaSiswa)}</b>?`, () => {
+                suratTerimaList = suratTerimaList.filter(s => s.id !== id);
+                saveToStorage();
+                showToast("Surat Bersedia Menerima berhasil dihapus", "warning");
+            });
+        }
+
         function cetakRekapSuratTerima() {
-            const search = document.getElementById('searchSuratTerima').value.toLowerCase();
+            const search = document.getElementById('searchSuratTerima') ? document.getElementById('searchSuratTerima').value.toLowerCase() : '';
             const filtered = suratTerimaList.filter(s => {
                 return (s.noSurat && s.noSurat.toLowerCase().includes(search)) ||
                        (s.namaSiswa && s.namaSiswa.toLowerCase().includes(search)) ||
@@ -5122,7 +5161,7 @@
             });
 
             if (filtered.length === 0) {
-                showToast("Tidak ada data Surat Terima untuk dicetak", "warning");
+                showToast("Tidak ada data Surat Bersedia Menerima untuk dicetak", "warning");
                 return;
             }
 
@@ -5142,8 +5181,8 @@
                         <td><strong>${escapeHtml(s.noSurat)}</strong></td>
                         <td style="text-align:center;">${escapeHtml(s.tanggalSurat)}</td>
                         <td><strong>${escapeHtml(s.namaSiswa)}</strong> (NISN: ${escapeHtml(s.nisnSiswa)})</td>
-                        <td>${escapeHtml(s.kelasTerima || '-')}</td>
-                        <td>${escapeHtml(s.namaOrtu || '-')}</td>
+                        <td>${escapeHtml(s.namaOrtu)}</td>
+                        <td>${escapeHtml(s.alamatSiswa)}</td>
                     </tr>
                 `;
             });
@@ -5153,26 +5192,23 @@
                 <html lang="id">
                 <head>
                     <meta charset="UTF-8">
-                    <title>Rekap Surat Siap Menerima Siswa Pindahan - ${escapeHtml(sekolahData.nama)}</title>
+                    <title>Rekap Surat Bersedia Menerima - ${escapeHtml(sekolahData.nama)}</title>
                     <style>
-                        body { font-family: Arial, sans-serif; margin: 30px; font-size: 11px; color: #1e293b; }
+                        ${getPrintPageCSS('surat-terima', 'landscape')}
+                        body { font-family: 'Cambria', serif; font-size: 12pt; color: #000; margin: 0; }
                         .title { text-align: center; margin-bottom: 20px; }
-                        .title h3 { margin: 0; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; }
-                        .title p { margin: 4px 0 0 0; font-size: 11px; color: #64748b; font-weight: bold; }
-                        table { width: 100%; border-collapse: collapse; margin-bottom: 30px; }
-                        th, td { border: 1px solid #94a3b8; padding: 6px 8px; text-align: left; vertical-align: top; }
-                        th { background-color: #f1f5f9; font-weight: bold; text-transform: uppercase; font-size: 10px; }
-                        @media print {
-                            @page { size: A4 landscape; margin: 12mm; }
-                            body { margin: 0; }
-                        }
+                        .title h3 { margin: 0; font-size: 14pt; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+                        .title p { margin: 4px 0 0 0; font-size: 12pt; color: #334155; font-weight: bold; }
+                        table { width: 100%; border-collapse: collapse; margin-bottom: 30px; font-size: 12pt; }
+                        th, td { border: 1px solid #000; padding: 6px 8px; text-align: left; vertical-align: top; font-size: 12pt; }
+                        th { background-color: #f1f5f9; font-weight: bold; text-transform: uppercase; }
                     </style>
                 </head>
                 <body>
                     ${generateKopHtml()}
 
                     <div class="title">
-                        <h3>REKAPITULASI SURAT KETERANGAN SIAP MENERIMA SISWA PINDAHAN</h3>
+                        <h3>REKAPITULASI SURAT KETERANGAN BERSEDIA MENERIMA SISWA PINDAHAN</h3>
                         <p>${escapeHtml(sekolahData.tahunPelajaran)}</p>
                     </div>
 
@@ -5183,16 +5219,14 @@
                                 <th>No. Surat</th>
                                 <th style="text-align:center;">Tanggal</th>
                                 <th>Nama Siswa & NISN</th>
-                                <th>Diterima di Kelas</th>
                                 <th>Orang Tua / Wali</th>
+                                <th>Alamat</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            ${rowsHtml}
-                        </tbody>
+                        <tbody>${rowsHtml}</tbody>
                     </table>
 
-                    <table style="border:none; margin-top:20px; width: 100%;">
+                    <table style="border:none; margin-top:20px; width: 100%; font-size: 12pt;">
                         <tr style="border:none;">
                             <td style="border:none;"></td>
                             <td style="border:none; width: 280px; text-align: center;">
