@@ -118,7 +118,7 @@
             <div class="relative z-10 my-8 md:my-auto max-w-xl space-y-6">
                 <div class="inline-flex items-center space-x-2 bg-brand-500/30 backdrop-blur-md border border-brand-300/30 px-3.5 py-1.5 rounded-full text-xs font-semibold text-brand-200">
                     <i class="fa-solid fa-heart-pulse text-rose-400"></i>
-                    <span>UPT SDN 22 TANAH KERAS</span>
+                    <span>Apresiasi Operator Sekolah Indonesia</span>
                 </div>
 
                 <blockquote class="text-2xl lg:text-3xl font-bold leading-relaxed tracking-tight text-white">
@@ -126,7 +126,7 @@
                 </blockquote>
 
                 <p class="text-sm text-brand-100 leading-relaxed font-normal">
-                    FAUZI, S.Hum
+                    Dedikasi Anda mengelola data Siswa dan GTK secara presisi memastikan setiap anak bangsa mendapatkan hak layanan pendidikan terbaik. ADMOPS hadir membantu tugas mulia Anda dengan cepat, aman, dan efisien.
                 </p>
 
                 <div class="pt-2 grid grid-cols-3 gap-4 border-t border-brand-500/30">
@@ -146,7 +146,7 @@
             </div>
 
             <div class="relative z-10 text-xs text-brand-300 flex items-center justify-between pt-4 border-t border-brand-800/80">
-                <p>© 2026 ADMOPS • SDN 22 Tanah Keras</p>
+                <p>© 2026 ADMOPS • Kementerian Pendidikan & Kebudayaan</p>
                 <div class="flex space-x-3">
                     <i class="fa-solid fa-shield-halved" title="Aman & Terpercaya"></i>
                     <i class="fa-solid fa-bolt" title="Akses Cepat"></i>
@@ -164,8 +164,8 @@
                     <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-brand-50 p-1.5 mb-2 shadow-inner border border-brand-100/60 overflow-hidden">
                         <img src="https://iili.io/CNAFjhQ.png" onerror="this.src='https://iili.io/CNAFjhQ.th.png'" alt="Logo Sekolah" class="w-full h-full object-contain">
                     </div>
-                    <h2 class="text-xl font-bold text-slate-900 tracking-tight">Selamat Datang</h2>
-                    <p class="text-[11px] text-slate-500 mt-0.5">Silakan Login.</p>
+                    <h2 class="text-xl font-bold text-slate-900 tracking-tight">Selamat Datang Kembali</h2>
+                    <p class="text-[11px] text-slate-500 mt-0.5">Silakan masuk menggunakan akun operator Anda.</p>
                 </div>
 
                 <form id="formLogin" onsubmit="handleLoginSubmit(event)" class="space-y-4">
@@ -173,7 +173,7 @@
                         <label class="block text-xs font-semibold text-slate-700 mb-1">Username <span class="text-rose-500">*</span></label>
                         <div class="relative">
                             <i class="fa-solid fa-user absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
-                            <input type="text" id="loginUsername" required placeholder="Masukkan Username" class="w-full pl-9 pr-3.5 py-2.5 text-xs border border-slate-300 rounded-xl focus:ring-2 focus:ring-brand-500 focus:outline-none transition">
+                            <input type="text" id="loginUsername" required placeholder="Masukkan Username (Fauzi)" class="w-full pl-9 pr-3.5 py-2.5 text-xs border border-slate-300 rounded-xl focus:ring-2 focus:ring-brand-500 focus:outline-none transition">
                         </div>
                     </div>
 
@@ -181,7 +181,7 @@
                         <label class="block text-xs font-semibold text-slate-700 mb-1">Kata Sandi / Password <span class="text-rose-500">*</span></label>
                         <div class="relative">
                             <i class="fa-solid fa-lock absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
-                            <input type="password" id="loginPassword" required placeholder="Masukkan Sandi" class="w-full pl-9 pr-9 py-2.5 text-xs border border-slate-300 rounded-xl focus:ring-2 focus:ring-brand-500 focus:outline-none transition">
+                            <input type="password" id="loginPassword" required placeholder="Masukkan Sandi (12345)" class="w-full pl-9 pr-9 py-2.5 text-xs border border-slate-300 rounded-xl focus:ring-2 focus:ring-brand-500 focus:outline-none transition">
                             <button type="button" onclick="togglePasswordVisibility()" class="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 focus:outline-none">
                                 <i id="togglePassIcon" class="fa-solid fa-eye text-xs"></i>
                             </button>
@@ -197,7 +197,7 @@
                     </div>
 
                     <button type="submit" class="w-full py-2.5 px-4 bg-brand-600 hover:bg-brand-700 text-white font-semibold text-xs rounded-xl shadow-lg shadow-brand-600/30 transition duration-200 flex items-center justify-center space-x-2">
-                        <span>Masuk</span>
+                        <span>Masuk ke Panel ADMOPS</span>
                         <i class="fa-solid fa-right-to-bracket text-xs"></i>
                     </button>
                 </form>
@@ -221,7 +221,7 @@
             </div>
 
             <div class="space-y-1.5">
-                <h3 class="text-lg font-bold text-white tracking-wide">Sedang Login</h3>
+                <h3 class="text-lg font-bold text-white tracking-wide">Sedang Login & Sinkronisasi Data</h3>
                 <p id="syncStatusText" class="text-xs text-brand-300 font-medium">Menghubungkan ke Google Sheets...</p>
                 <p class="text-[11px] text-slate-400">Sedang login, mohon tunggu sebentar...</p>
             </div>
@@ -232,7 +232,7 @@
                     <div id="syncProgressBar" class="bg-gradient-to-r from-brand-500 via-blue-500 to-emerald-400 h-full rounded-full transition-all duration-150 ease-out" style="width: 0%"></div>
                 </div>
                 <div class="flex justify-between items-center text-xs text-slate-400 font-mono font-semibold px-1">
-                    <span>Jangan Tutup Aplikasi</span>
+                    <span>Google Sheets Live Data</span>
                     <span id="syncProgressPercent" class="text-emerald-400 font-bold">0%</span>
                 </div>
             </div>
@@ -289,6 +289,11 @@
                 <button onclick="switchTab('siswa')" id="nav-siswa" class="nav-btn w-full flex items-center px-4 py-3 text-sm font-medium rounded-xl text-slate-300 hover:bg-slate-800 hover:text-white transition-all duration-200">
                     <i class="fa-solid fa-user-graduate w-6 text-base"></i>
                     <span>Data Siswa</span>
+                </button>
+
+                <button onclick="switchTab('nis')" id="nav-nis" class="nav-btn w-full flex items-center px-4 py-3 text-sm font-medium rounded-xl text-slate-300 hover:bg-slate-800 hover:text-white transition-all duration-200">
+                    <i class="fa-solid fa-id-card w-6 text-base"></i>
+                    <span>Data NIS</span>
                 </button>
 
                 <button onclick="switchTab('gtk')" id="nav-gtk" class="nav-btn w-full flex items-center px-4 py-3 text-sm font-medium rounded-xl text-slate-300 hover:bg-slate-800 hover:text-white transition-all duration-200">
@@ -538,14 +543,14 @@
                                 <div class="flex items-start space-x-3 pb-3 border-b border-slate-100">
                                     <div class="w-2 h-2 rounded-full bg-brand-500 mt-1.5 shrink-0"></div>
                                     <div>
-                                        <p class="font-semibold text-slate-700">Aplikasi ADMOPS</p>
+                                        <p class="font-semibold text-slate-700">Aplikasi ADMOPS Diinisialisasi</p>
                                         <p class="text-slate-400 text-[10px]">Sistem Siap digunakan</p>
                                     </div>
                                 </div>
                                 <div class="flex items-start space-x-3">
                                     <div class="w-2 h-2 rounded-full bg-indigo-500 mt-1.5 shrink-0"></div>
                                     <div>
-                                        <p class="font-semibold text-slate-700">Pemeriksaan Database</p>
+                                        <p class="font-semibold text-slate-700">Pemeriksaan Database Google Sheets</p>
                                         <p class="text-slate-400 text-[10px]">Server Data Siap Terhubung</p>
                                     </div>
                                 </div>
@@ -702,6 +707,76 @@
                         <div id="emptySiswaState" class="hidden p-8 text-center text-slate-400">
                             <i class="fa-solid fa-folder-open text-4xl mb-2 text-slate-300"></i>
                             <p class="text-xs font-medium">Tidak ada data siswa ditemukan.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- VIEW DATA NIS -->
+                <section id="view-nis" class="space-y-6 hidden">
+                    <div class="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
+                        <div>
+                            <h2 class="text-xl font-bold text-slate-800 flex items-center space-x-2">
+                                <i class="fa-solid fa-id-card text-brand-600"></i>
+                                <span>Data NIS (Nomor Induk Siswa)</span>
+                            </h2>
+                            <p class="text-xs text-slate-500 mt-0.5">Kelola pendataan Nomor Induk Siswa (NIS) setiap tahun ajaran.</p>
+                        </div>
+                        <div class="flex flex-wrap items-center gap-2.5">
+                            <button onclick="exportNISToExcel()" class="px-4 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs rounded-xl transition shadow-lg shadow-emerald-600/20 flex items-center justify-center space-x-2" title="Ekspor Data NIS ke File Excel (.xlsx)">
+                                <i class="fa-solid fa-file-excel text-sm"></i>
+                                <span>Ekspor Excel</span>
+                            </button>
+                            <button onclick="cetakDataNIS()" class="px-4 py-2.5 bg-slate-700 hover:bg-slate-800 text-white font-semibold text-xs rounded-xl transition shadow-lg flex items-center justify-center space-x-2">
+                                <i class="fa-solid fa-print text-sm"></i>
+                                <span>Cetak Data NIS</span>
+                            </button>
+                            <button onclick="openModalNIS()" class="px-4 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-semibold text-xs rounded-xl transition shadow-lg shadow-brand-600/30 flex items-center justify-center space-x-2">
+                                <i class="fa-solid fa-plus text-sm"></i>
+                                <span>Tambah Data NIS</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-4 rounded-xl border border-slate-200/80 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-3">
+                        <div class="relative w-full sm:w-80">
+                            <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+                            <input type="text" id="searchNIS" onkeyup="renderNISTable()" placeholder="Cari Nama Siswa, NIS..." class="w-full pl-9 pr-4 py-2 text-xs border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent">
+                        </div>
+                        <div class="flex items-center space-x-2 w-full sm:w-auto">
+                            <span class="text-xs font-medium text-slate-500 whitespace-nowrap"><i class="fa-solid fa-filter text-slate-400"></i> Kelas:</span>
+                            <select id="filterKelasNIS" onchange="renderNISTable()" class="w-full sm:w-auto text-xs border border-slate-200 rounded-lg px-3 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-brand-500">
+                                <option value="">Semua Kelas</option>
+                                <option value="Kelas 1">Kelas 1</option>
+                                <option value="Kelas 2">Kelas 2</option>
+                                <option value="Kelas 3">Kelas 3</option>
+                                <option value="Kelas 4">Kelas 4</option>
+                                <option value="Kelas 5">Kelas 5</option>
+                                <option value="Kelas 6">Kelas 6</option>
+                                <option value="Lulus / Alumni">Lulus / Alumni</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden">
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left text-xs border-collapse">
+                                <thead>
+                                    <tr class="bg-slate-50/80 border-b border-slate-200 text-slate-500 font-semibold uppercase tracking-wider">
+                                        <th class="py-3.5 px-4 w-12 text-center">No</th>
+                                        <th class="py-3.5 px-4">Nama Siswa</th>
+                                        <th class="py-3.5 px-4">Kelas</th>
+                                        <th class="py-3.5 px-4">NIS (Nomor Induk Siswa)</th>
+                                        <th class="py-3.5 px-4 text-center w-28">Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tableNISBody" class="divide-y divide-slate-100 text-slate-700">
+                                    <!-- Dynamic Render -->
+                                </tbody>
+                            </table>
+                        </div>
+                        <div id="emptyNISState" class="hidden p-8 text-center text-slate-400">
+                            <i class="fa-solid fa-folder-open text-4xl mb-2 text-slate-300"></i>
+                            <p class="text-xs font-medium">Tidak ada data NIS ditemukan.</p>
                         </div>
                     </div>
                 </section>
@@ -1055,7 +1130,6 @@
                                         <th class="py-3.5 px-4 w-12 text-center">No</th>
                                         <th class="py-3.5 px-4">No. Surat / Tanggal</th>
                                         <th class="py-3.5 px-4">Nama Siswa / NISN</th>
-                                        <th class="py-3.5 px-4">Diterima di Kelas</th>
                                         <th class="py-3.5 px-4">Orang Tua / Wali</th>
                                         <th class="py-3.5 px-4 text-center w-36">Aksi</th>
                                     </tr>
@@ -1188,7 +1262,7 @@
                         <p class="text-xs text-brand-200">Isi data identitas siswa dan orang tua dengan lengkap</p>
                     </div>
                 </div>
-                <button onclick="closeModalSiswa()" class="text-brand-200 hover:text-white p-1 rounded-lg hover:bg-brand-800 transition">
+                <button type="button" onclick="closeModalSiswa()" class="text-brand-200 hover:text-white p-1 rounded-lg hover:bg-brand-800 transition">
                     <i class="fa-solid fa-xmark text-xl"></i>
                 </button>
             </div>
@@ -1199,7 +1273,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                         <label class="block text-xs font-semibold text-slate-700 mb-1">Nama Lengkap Siswa <span class="text-rose-500">*</span></label>
-                        <input type="text" id="siswaNama" required placeholder="Contoh: Ahmad Rayhan Al-Fatih" class="w-full px-3.5 py-2.5 text-xs border border-slate-300 rounded-xl focus:ring-2 focus:ring-brand-500 focus:outline-none">
+                        <input type="text" id="siswaNama" required placeholder="Contoh: AHMAD RAYHAN" class="w-full px-3.5 py-2.5 text-xs border border-slate-300 rounded-xl focus:ring-2 focus:ring-brand-500 focus:outline-none">
                     </div>
 
                     <div>
@@ -1213,16 +1287,16 @@
 
                     <div>
                         <label class="block text-xs font-semibold text-slate-700 mb-1">Tempat, Tanggal Lahir <span class="text-rose-500">*</span></label>
-                        <input type="text" id="siswaTTL" required placeholder="Contoh: Tanah Keras, 12 Mei 2015" class="w-full px-3.5 py-2.5 text-xs border border-slate-300 rounded-xl focus:ring-2 focus:ring-brand-500 focus:outline-none">
+                        <input type="text" id="siswaTTL" required placeholder="Contoh: Tanah Keras, 12 Mei 2017" class="w-full px-3.5 py-2.5 text-xs border border-slate-300 rounded-xl focus:ring-2 focus:ring-brand-500 focus:outline-none">
                     </div>
 
                     <div>
                         <label class="block text-xs font-semibold text-slate-700 mb-1">NISN / NIS <span class="text-rose-500">*</span></label>
-                        <input type="text" id="siswaNISN" required placeholder="Contoh: 0091283741 / 2122001" class="w-full px-3.5 py-2.5 text-xs border border-slate-300 rounded-xl focus:ring-2 focus:ring-brand-500 focus:outline-none">
+                        <input type="text" id="siswaNISN" required placeholder="Contoh: 0123456789" class="w-full px-3.5 py-2.5 text-xs border border-slate-300 rounded-xl focus:ring-2 focus:ring-brand-500 focus:outline-none">
                     </div>
 
                     <div>
-                        <label class="block text-xs font-semibold text-slate-700 mb-1">Rombongan Belajar / Kelas <span class="text-rose-500">*</span></label>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1">Kelas <span class="text-rose-500">*</span></label>
                         <select id="siswaKelas" required class="w-full px-3.5 py-2.5 text-xs border border-slate-300 rounded-xl focus:ring-2 focus:ring-brand-500 focus:outline-none bg-white">
                             <option value="">-- Pilih Kelas --</option>
                             <option value="Kelas 1">Kelas 1</option>
@@ -1237,32 +1311,27 @@
 
                     <div>
                         <label class="block text-xs font-semibold text-slate-700 mb-1">NIK (Nomor Induk Kependudukan) <span class="text-rose-500">*</span></label>
-                        <input type="text" id="siswaNIK" required maxlength="16" placeholder="Contoh: 3201011505120001 (16 digit)" class="w-full px-3.5 py-2.5 text-xs border border-slate-300 rounded-xl focus:ring-2 focus:ring-brand-500 focus:outline-none">
+                        <input type="text" id="siswaNIK" required maxlength="16" placeholder="Contoh: 1301012304170001" class="w-full px-3.5 py-2.5 text-xs border border-slate-300 rounded-xl focus:ring-2 focus:ring-brand-500 focus:outline-none">
                     </div>
-                </div>
 
-                <div class="border-t border-slate-100 pt-4">
-                    <h4 class="text-xs font-bold text-slate-700 uppercase tracking-wider mb-3">Data Orang Tua / Wali</h4>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div>
-                            <label class="block text-xs font-semibold text-slate-700 mb-1">Nama Ayah Kandung <span class="text-rose-500">*</span></label>
-                            <input type="text" id="siswaNamaAyah" required placeholder="Contoh: Budiman" class="w-full px-3.5 py-2.5 text-xs border border-slate-300 rounded-xl focus:ring-2 focus:ring-brand-500 focus:outline-none">
-                        </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1">Nama Ayah Kandung</label>
+                        <input type="text" id="siswaNamaAyah" placeholder="Contoh: BUDI SANTOSO" class="w-full px-3.5 py-2.5 text-xs border border-slate-300 rounded-xl focus:ring-2 focus:ring-brand-500 focus:outline-none">
+                    </div>
 
-                        <div>
-                            <label class="block text-xs font-semibold text-slate-700 mb-1">Pekerjaan Ayah <span class="text-slate-400 font-normal">(Opsional)</span></label>
-                            <input type="text" id="siswaPekerjaanAyah" placeholder="Contoh: Wiraswasta" class="w-full px-3.5 py-2.5 text-xs border border-slate-300 rounded-xl focus:ring-2 focus:ring-brand-500 focus:outline-none">
-                        </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1">Pekerjaan Ayah</label>
+                        <input type="text" id="siswaPekerjaanAyah" placeholder="Contoh: Petani / Tani" class="w-full px-3.5 py-2.5 text-xs border border-slate-300 rounded-xl focus:ring-2 focus:ring-brand-500 focus:outline-none">
+                    </div>
 
-                        <div>
-                            <label class="block text-xs font-semibold text-slate-700 mb-1">Nama Ibu Kandung <span class="text-rose-500">*</span></label>
-                            <input type="text" id="siswaNamaIbu" required placeholder="Contoh: Siti Rahmah" class="w-full px-3.5 py-2.5 text-xs border border-slate-300 rounded-xl focus:ring-2 focus:ring-brand-500 focus:outline-none">
-                        </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1">Nama Ibu Kandung</label>
+                        <input type="text" id="siswaNamaIbu" placeholder="Contoh: SITI AMINAH" class="w-full px-3.5 py-2.5 text-xs border border-slate-300 rounded-xl focus:ring-2 focus:ring-brand-500 focus:outline-none">
+                    </div>
 
-                        <div>
-                            <label class="block text-xs font-semibold text-slate-700 mb-1">Pekerjaan Ibu <span class="text-slate-400 font-normal">(Opsional)</span></label>
-                            <input type="text" id="siswaPekerjaanIbu" placeholder="Contoh: Ibu Rumah Tangga" class="w-full px-3.5 py-2.5 text-xs border border-slate-300 rounded-xl focus:ring-2 focus:ring-brand-500 focus:outline-none">
-                        </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1">Pekerjaan Ibu</label>
+                        <input type="text" id="siswaPekerjaanIbu" placeholder="Contoh: Ibu Rumah Tangga" class="w-full px-3.5 py-2.5 text-xs border border-slate-300 rounded-xl focus:ring-2 focus:ring-brand-500 focus:outline-none">
                     </div>
                 </div>
 
@@ -1273,6 +1342,77 @@
                     <button type="submit" class="px-6 py-2.5 text-xs font-semibold text-white bg-brand-600 hover:bg-brand-700 rounded-xl transition shadow-lg shadow-brand-600/30 flex items-center space-x-2">
                         <i class="fa-solid fa-floppy-disk"></i>
                         <span>Simpan Data Siswa</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL FORM DATA NIS -->
+    <div id="modalNIS" class="fixed inset-0 z-50 modal-backdrop hidden flex items-center justify-center p-4 overflow-y-auto">
+        <div class="bg-white rounded-2xl shadow-2xl border border-slate-200 w-full max-w-xl overflow-hidden my-8 transform transition-all">
+            <div class="bg-brand-700 px-6 py-4 text-white flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <div class="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center">
+                        <i class="fa-solid fa-id-card text-brand-200 text-lg"></i>
+                    </div>
+                    <div>
+                        <h3 id="modalNISTitle" class="font-bold text-base">Formulir Data NIS</h3>
+                        <p class="text-xs text-brand-200">Isi pendataan Nomor Induk Siswa (NIS)</p>
+                    </div>
+                </div>
+                <button onclick="closeModalNIS()" class="text-brand-200 hover:text-white p-1 rounded-lg hover:bg-brand-800 transition">
+                    <i class="fa-solid fa-xmark text-xl"></i>
+                </button>
+            </div>
+
+            <form id="formNIS" onsubmit="handleNISSubmit(event)" class="p-6 space-y-5">
+                <input type="hidden" id="nisEditId" value="">
+
+                <!-- Quick Autofill Bar -->
+                <div class="bg-brand-50 border border-brand-200 rounded-xl p-3 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
+                    <label class="block text-xs font-bold text-brand-900 shrink-0">
+                        <i class="fa-solid fa-wand-magic-sparkles text-brand-600 mr-1"></i>
+                        Pilih Dari Data Siswa:
+                    </label>
+                    <select id="selectSiswaNIS" onchange="autofillSiswaInNISForm()" class="w-full sm:w-auto flex-1 px-3 py-1.5 text-xs border border-brand-300 rounded-lg bg-white focus:ring-2 focus:ring-brand-500 font-semibold text-slate-800">
+                        <option value="">-- Pilih Siswa atau Isi Manual --</option>
+                    </select>
+                </div>
+
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1">Nama Siswa <span class="text-rose-500">*</span></label>
+                        <input type="text" id="nisNamaSiswa" required placeholder="Contoh: Ahmad Rayhan Al-Fatih" class="w-full px-3.5 py-2.5 text-xs border border-slate-300 rounded-xl focus:ring-2 focus:ring-brand-500 focus:outline-none">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1">Kelas <span class="text-rose-500">*</span></label>
+                        <select id="nisKelas" required class="w-full px-3.5 py-2.5 text-xs border border-slate-300 rounded-xl focus:ring-2 focus:ring-brand-500 focus:outline-none bg-white">
+                            <option value="">-- Pilih Kelas --</option>
+                            <option value="Kelas 1">Kelas 1</option>
+                            <option value="Kelas 2">Kelas 2</option>
+                            <option value="Kelas 3">Kelas 3</option>
+                            <option value="Kelas 4">Kelas 4</option>
+                            <option value="Kelas 5">Kelas 5</option>
+                            <option value="Kelas 6">Kelas 6</option>
+                            <option value="Lulus / Alumni">Lulus / Alumni</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 mb-1">Nomor Induk Siswa (NIS) <span class="text-rose-500">*</span></label>
+                        <input type="text" id="nisNIS" required placeholder="Contoh: 2122001" class="w-full px-3.5 py-2.5 text-xs border border-slate-300 rounded-xl focus:ring-2 focus:ring-brand-500 focus:outline-none">
+                    </div>
+                </div>
+
+                <div class="pt-4 border-t border-slate-200 flex items-center justify-end space-x-3">
+                    <button type="button" onclick="closeModalNIS()" class="px-5 py-2.5 text-xs font-semibold text-slate-600 hover:bg-slate-100 rounded-xl transition">
+                        Batal
+                    </button>
+                    <button type="submit" class="px-6 py-2.5 text-xs font-semibold text-white bg-brand-600 hover:bg-brand-700 rounded-xl transition shadow-lg shadow-brand-600/30 flex items-center space-x-2">
+                        <i class="fa-solid fa-floppy-disk"></i>
+                        <span>Simpan Data NIS</span>
                     </button>
                 </div>
             </form>
@@ -2153,11 +2293,11 @@
 
         // INITIAL DATA STRUCTURES
         const initialSekolah = {
-            nama: "UPT SDN 22 TANAH KERAS",
+            nama: "SD NEGERI 22 TANAH KERAS",
             npsn: "20102030",
-            email: "sdn22tanahkeras@sekolah.sch.id",
-            website: "https://sdn22tanahkeras.sch.id",
-            alamat: "Tanah Keras Kecamatan Bayang Kabupaten Pesisir Selatan Provinsi Sumatera Barat",
+            email: "UPTsdn22tanahkeras@gmail.com",
+            website: "https://www.sdn22tk.my.id",
+            alamat: "Tanah Keras - Kenagarian Gurun Panjang Barat , Kode Pos : 25652",
             tahunPelajaran: "T.A. 2025/2026 Semester Ganjil",
             kepalaSekolah: "RINA MELATI, M.Pd",
             nipKepalaSekolah: "197103161993042001"
@@ -2167,12 +2307,12 @@
             logoKiri: "https://upload.wikimedia.org/wikipedia/commons/9/9c/Logo_Tut_Wuri_Handayani.png",
             logoKanan: "",
             pemerintah: "PEMERINTAH KABUPATEN PESISIR SELATAN",
-            dinas: "DINAS PENDIDIKAN DAN KEBUDAYAAN",
-            sekolah: "UPT SDN 22 TANAH KERAS",
+            dinas: "DINAS PENDIDIKAN",
+            sekolah: "SD NEGERI 22 TANAH KERAS",
             kecamatan: "KECAMATAN BAYANG",
-            alamat: "Tanah Keras Kenagarian Gurun Panjang Barat Kecamatan Bayang Kabupaten Pesisir Selatan",
-            email: "sdn22tanahkeras@sekolah.sch.id",
-            website: "https://sdn22tanahkeras.sch.id"
+            alamat: "Tanah Keras - Kenagarian Gurun Panjang Barat , Kode Pos : 25652",
+            email: "UPTsdn22tanahkeras@gmail.com",
+            website: "https://www.sdn22tk.my.id"
         };
 
         const initialSiswa = [];
@@ -2184,10 +2324,11 @@
         const initialSuratTerima = [];
 
         // STATE APP & GOOGLE SHEETS URL INTEGRATION (DIRECT DATABASE FROM GOOGLE SHEETS)
-        let GAS_URL = "https://script.google.com/macros/s/AKfycbzK6FZu_m3LRuqfCapNd3TgsaDWZcIsBlSerSbL6mFFLIWOS2pal-oPfHlFshUkIHxp/exec";
+        let GAS_URL = "https://script.google.com/macros/s/AKfycbxMxarDatjYOfFn0VdfbEZVbwsMdBkWyNYWi2KpTleDUTdzCofD8tmFReBsLTA_n2u2-g/exec";
         let sekolahData = Object.assign({}, initialSekolah);
         let kopData = Object.assign({}, initialKop);
         let siswaList = [];
+        let nisList = [];
         let gtkList = [];
         let suratMasukList = [];
         let suratKeluarList = [];
@@ -2217,8 +2358,23 @@
             return s;
         }
 
+        // FUNGSI MEMERIKSA SESI AUTENTIKASI / LOGIN
+        function checkAuthSession() {
+            const loginScreen = document.getElementById('loginScreen');
+            const appLayout = document.getElementById('appLayout');
+            const session = sessionStorage.getItem('admops_session');
+
+            if (session === 'active') {
+                if (loginScreen) loginScreen.classList.add('hidden');
+                if (appLayout) appLayout.classList.remove('hidden');
+            } else {
+                if (loginScreen) loginScreen.classList.remove('hidden');
+                if (appLayout) appLayout.classList.add('hidden');
+            }
+        }
+
         function switchTab(tabId) {
-            const views = ['beranda', 'sekolah', 'siswa', 'gtk', 'surat-masuk', 'surat-keluar', 'surat-pindah', 'surat-aktif', 'surat-terima', 'kop-surat'];
+            const views = ['beranda', 'sekolah', 'siswa', 'nis', 'gtk', 'surat-masuk', 'surat-keluar', 'surat-pindah', 'surat-aktif', 'surat-terima', 'kop-surat'];
             views.forEach(id => {
                 const viewEl = document.getElementById(`view-${id}`);
                 if (viewEl) viewEl.classList.add('hidden');
@@ -2276,6 +2432,7 @@
         function renderAllData() {
             renderDashboardStats();
             renderSiswaTable();
+            renderNISTable();
             renderGTKTable();
             renderSuratMasukTable();
             renderSuratKeluarTable();
@@ -2284,6 +2441,13 @@
             renderSuratTerimaTable();
             renderKopData();
             updateBadges();
+        }
+
+        function updateBadges() {
+            const semBadge = document.getElementById('currentSemesterBadge');
+            if (semBadge && sekolahData) {
+                semBadge.textContent = sekolahData.tahunPelajaran || 'T.A. Belum Diatur';
+            }
         }
 
         function saveToStorage() {
@@ -2301,6 +2465,7 @@
                     sekolah: sekolahData,
                     kop: kopData,
                     siswa: siswaList,
+                    nis: nisList,
                     gtk: gtkList,
                     suratMasuk: suratMasukList,
                     suratKeluar: suratKeluarList,
@@ -2315,9 +2480,12 @@
                 headers: { "Content-Type": "text/plain;charset=utf-8" },
                 body: JSON.stringify(payload)
             })
-            .then(res => res.json())
-            .then(data => {
-                console.log("Sinkronisasi Google Sheets berhasil:", data);
+            .then(res => res.text())
+            .then(text => {
+                if (text && !text.trim().startsWith('<')) {
+                    const data = JSON.parse(text);
+                    console.log("Sinkronisasi Google Sheets berhasil:", data);
+                }
             })
             .catch(err => {
                 console.warn("Sinkronisasi otomatis ke Google Sheets:", err);
@@ -2339,13 +2507,16 @@
         function fetchFromGAS() {
             if (!GAS_URL) return;
             fetch(GAS_URL)
-            .then(res => res.json())
-            .then(res => {
+            .then(res => res.text())
+            .then(text => {
+                if (!text || text.trim().startsWith('<')) return;
+                const res = JSON.parse(text);
                 if (res && res.status === "success" && res.data) {
                     const d = res.data;
                     if (d.sekolah && Object.keys(d.sekolah).length) sekolahData = Object.assign(sekolahData, d.sekolah);
                     if (d.kop && Object.keys(d.kop).length) kopData = Object.assign(kopData, d.kop);
                     if (Array.isArray(d.siswa)) siswaList = d.siswa;
+                    if (Array.isArray(d.nis)) nisList = d.nis;
                     if (Array.isArray(d.gtk)) gtkList = d.gtk;
                     if (Array.isArray(d.suratMasuk)) suratMasukList = d.suratMasuk;
                     if (Array.isArray(d.suratKeluar)) suratKeluarList = d.suratKeluar;
@@ -2362,111 +2533,245 @@
                 console.warn("Gagal mengambil data dari Google Sheets:", err);
             });
         }
+        // FUNGSI DATA NIS
+        function renderNISTable() {
+            const tbody = document.getElementById('tableNISBody');
+            if (!tbody) return;
 
-        // KOP SURAT LOGIC
-        function renderKopData() {
-            const logoKiriEl = document.getElementById('kopLogoKiri');
-            if (!logoKiriEl) return;
+            const searchInput = document.getElementById('searchNIS');
+            const search = searchInput ? searchInput.value.toLowerCase() : '';
+            const filterKelas = document.getElementById('filterKelasNIS') ? document.getElementById('filterKelasNIS').value : '';
+            const emptyState = document.getElementById('emptyNISState');
 
-            logoKiriEl.value = (kopData && kopData.logoKiri !== undefined && kopData.logoKiri !== null) ? kopData.logoKiri : initialKop.logoKiri;
-            document.getElementById('kopLogoKanan').value = (kopData && kopData.logoKanan !== undefined && kopData.logoKanan !== null) ? kopData.logoKanan : initialKop.logoKanan;
-            document.getElementById('kopPemerintah').value = (kopData && kopData.pemerintah) ? kopData.pemerintah : initialKop.pemerintah;
-            document.getElementById('kopDinas').value = (kopData && kopData.dinas) ? kopData.dinas : initialKop.dinas;
-            document.getElementById('kopSekolah').value = (kopData && kopData.sekolah) ? kopData.sekolah : initialKop.sekolah;
-            document.getElementById('kopKecamatan').value = (kopData && kopData.kecamatan) ? kopData.kecamatan : initialKop.kecamatan;
-            document.getElementById('kopAlamat').value = (kopData && kopData.alamat) ? kopData.alamat : initialKop.alamat;
-            document.getElementById('kopEmail').value = (kopData && kopData.email) ? kopData.email : initialKop.email;
-            document.getElementById('kopWebsite').value = (kopData && kopData.website) ? kopData.website : initialKop.website;
+            tbody.innerHTML = '';
 
-            updateKopPreview();
-        }
+            const filtered = nisList.filter(n => {
+                const matchSearch = (n.namaSiswa && n.namaSiswa.toLowerCase().includes(search)) ||
+                                    (n.nis && n.nis.toLowerCase().includes(search));
+                const matchKelas = filterKelas ? n.kelas === filterKelas : true;
+                return matchSearch && matchKelas;
+            });
 
-        function handleKopSubmit(e) {
-            if (e) e.preventDefault();
-            kopData = {
-                logoKiri: document.getElementById('kopLogoKiri') ? document.getElementById('kopLogoKiri').value.trim() : initialKop.logoKiri,
-                logoKanan: document.getElementById('kopLogoKanan') ? document.getElementById('kopLogoKanan').value.trim() : initialKop.logoKanan,
-                pemerintah: document.getElementById('kopPemerintah') ? document.getElementById('kopPemerintah').value.trim() : initialKop.pemerintah,
-                dinas: document.getElementById('kopDinas') ? document.getElementById('kopDinas').value.trim() : initialKop.dinas,
-                sekolah: document.getElementById('kopSekolah') ? document.getElementById('kopSekolah').value.trim() : initialKop.sekolah,
-                kecamatan: document.getElementById('kopKecamatan') ? document.getElementById('kopKecamatan').value.trim() : initialKop.kecamatan,
-                alamat: document.getElementById('kopAlamat') ? document.getElementById('kopAlamat').value.trim() : initialKop.alamat,
-                email: document.getElementById('kopEmail') ? document.getElementById('kopEmail').value.trim() : initialKop.email,
-                website: document.getElementById('kopWebsite') ? document.getElementById('kopWebsite').value.trim() : initialKop.website
-            };
-            saveToStorage();
-            showToast("Pengaturan KOP Surat berhasil disimpan!", "success");
-        }
-
-        function updateKopPreview() {
-            const preview = document.getElementById('kopPreviewBox');
-            if (!preview) return;
-
-            const logoKiri = document.getElementById('kopLogoKiri').value.trim();
-            const logoKanan = document.getElementById('kopLogoKanan').value.trim();
-            const pem = document.getElementById('kopPemerintah').value.trim() || initialKop.pemerintah;
-            const dinas = document.getElementById('kopDinas').value.trim() || initialKop.dinas;
-            const sekolah = document.getElementById('kopSekolah').value.trim() || initialKop.sekolah;
-            const kec = document.getElementById('kopKecamatan').value.trim() || initialKop.kecamatan;
-            const alamat = document.getElementById('kopAlamat').value.trim() || initialKop.alamat;
-            const email = document.getElementById('kopEmail').value.trim() || initialKop.email;
-            const web = document.getElementById('kopWebsite').value.trim() || initialKop.website;
-
-            const imgKiri = logoKiri ? `<img src="${escapeHtml(logoKiri)}" class="h-14 w-auto object-contain mx-auto" onerror="this.style.display='none'">` : '<div class="w-12 h-12 rounded border border-dashed border-slate-300 flex items-center justify-center text-[9px] text-slate-400">Logo 1</div>';
-            const imgKanan = logoKanan ? `<img src="${escapeHtml(logoKanan)}" class="h-14 w-auto object-contain mx-auto" onerror="this.style.display='none'">` : '<div class="w-12 h-12 rounded border border-dashed border-slate-300 flex items-center justify-center text-[9px] text-slate-400">Logo 2</div>';
-
-            preview.innerHTML = `
-                <div class="flex items-center justify-between border-b-2 border-double border-slate-900 pb-1 text-center">
-                    <div class="w-14 shrink-0">${imgKiri}</div>
-                    <div class="flex-1 px-2 space-y-0.5">
-                        <p class="text-[13px] font-bold uppercase tracking-wider text-slate-900 leading-none">${escapeHtml(pem)}</p>
-                        <p class="text-[11px] font-bold uppercase tracking-wider text-slate-900 leading-none">${escapeHtml(dinas)}</p>
-                        <p class="text-xs font-extrabold uppercase tracking-widest text-brand-900 leading-none">${escapeHtml(sekolah)}</p>
-                        <p class="text-[10px] font-bold uppercase tracking-wider text-slate-800 leading-none">${escapeHtml(kec)}</p>
-                        <p class="text-[9px] text-slate-600 leading-none">${escapeHtml(alamat)}</p>
-                        <p class="text-[8px] text-blue-600 font-semibold leading-none">Email: ${escapeHtml(email)} | Website: ${escapeHtml(web)}</p>
-                    </div>
-                    <div class="w-14 shrink-0">${imgKanan}</div>
-                </div>
-            `;
-        }
-
-        // HELPER GENERATE KOP HTML FOR ALL PRINTING MODULES
-        function generateKopHtml() {
-            const logoKiriHtml = kopData.logoKiri ? `<img src="${escapeHtml(kopData.logoKiri)}" style="height: 85px; width: auto; object-fit: contain;">` : '';
-            const logoKananHtml = kopData.logoKanan ? `<img src="${escapeHtml(kopData.logoKanan)}" style="height: 85px; width: auto; object-fit: contain;">` : '';
-
-            return `
-                <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 3px double #000; padding-bottom: 6px; margin-bottom: 20px; text-align: center; line-height: 1.25; font-family: Cambria, serif;">
-                    <div style="width: 85px; text-align: left;">${logoKiriHtml}</div>
-                    <div style="flex: 1; padding: 0 10px;">
-                        <h3 style="margin: 0; font-size: 14pt; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px; line-height: 1.2;">${escapeHtml(kopData.pemerintah)}</h3>
-                        <h3 style="margin: 2px 0 0 0; font-size: 14pt; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px; line-height: 1.2;">${escapeHtml(kopData.dinas)}</h3>
-                        <h2 style="margin: 3px 0 0 0; font-size: 17pt; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; line-height: 1.2; color: #000;">${escapeHtml(kopData.sekolah)}</h2>
-                        <h4 style="margin: 2px 0 0 0; font-size: 13pt; font-weight: bold; text-transform: uppercase; line-height: 1.2;">${escapeHtml(kopData.kecamatan)}</h4>
-                        <p style="margin: 3px 0 0 0; font-size: 11.5pt; font-weight: normal; line-height: 1.2;">${escapeHtml(kopData.alamat)}</p>
-                        <p style="margin: 2px 0 0 0; font-size: 11.5pt; font-weight: normal; color: #1d4ed8; line-height: 1.2;">Email: <span style="color: #1d4ed8;">${escapeHtml(kopData.email)}</span> | Website: <span style="color: #1d4ed8;">${escapeHtml(kopData.website)}</span></p>
-                    </div>
-                    <div style="width: 85px; text-align: right;">${logoKananHtml}</div>
-                </div>
-            `;
-        }
-
-        function updateBadges() {
-            // Lencana angka notifikasi pada sidebar telah dihapus
-        }
-
-        function checkAuthSession() {
-            const session = sessionStorage.getItem('admops_session');
-            const loginScreen = document.getElementById('loginScreen');
-            const appLayout = document.getElementById('appLayout');
-
-            if (session === 'active') {
-                if (loginScreen) loginScreen.classList.add('hidden');
-                if (appLayout) appLayout.classList.remove('hidden');
+            if (filtered.length === 0) {
+                if (emptyState) emptyState.classList.remove('hidden');
+                return;
             } else {
-                if (loginScreen) loginScreen.classList.remove('hidden');
-                if (appLayout) appLayout.classList.add('hidden');
+                if (emptyState) emptyState.classList.add('hidden');
+            }
+
+            filtered.forEach((n, index) => {
+                const tr = document.createElement('tr');
+                tr.className = "hover:bg-slate-50/80 transition-colors";
+
+                tr.innerHTML = `
+                    <td class="py-3 px-4 text-center font-semibold text-slate-400">${index + 1}</td>
+                    <td class="py-3 px-4 font-bold text-slate-800">${escapeHtml(n.namaSiswa)}</td>
+                    <td class="py-3 px-4 font-semibold text-brand-600">${escapeHtml(n.kelas)}</td>
+                    <td class="py-3 px-4 font-mono text-slate-700 font-bold">${escapeHtml(n.nis)}</td>
+                    <td class="py-3 px-4 text-center">
+                        <div class="flex items-center justify-center space-x-1">
+                            <button onclick="editNIS(${n.id})" class="p-1.5 text-brand-600 hover:bg-brand-50 rounded-lg transition" title="Edit Data">
+                                <i class="fa-solid fa-pen-to-square text-sm"></i>
+                            </button>
+                            <button onclick="confirmDeleteNIS(${n.id})" class="p-1.5 text-rose-600 hover:bg-rose-50 rounded-lg transition" title="Hapus Data">
+                                <i class="fa-solid fa-trash-can text-sm"></i>
+                            </button>
+                        </div>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function openModalNIS(data = null) {
+            const modal = document.getElementById('modalNIS');
+            const title = document.getElementById('modalNISTitle');
+            const form = document.getElementById('formNIS');
+            const selectSiswa = document.getElementById('selectSiswaNIS');
+
+            if (!modal || !form) return;
+            form.reset();
+            document.getElementById('nisEditId').value = '';
+
+            if (selectSiswa) {
+                selectSiswa.innerHTML = '<option value="">-- Pilih Siswa atau Isi Manual --</option>';
+                siswaList.forEach(s => {
+                    const opt = document.createElement('option');
+                    opt.value = s.id;
+                    opt.textContent = `${s.nama} (${s.kelas})`;
+                    selectSiswa.appendChild(opt);
+                });
+            }
+
+            if (data) {
+                if (title) title.textContent = 'Edit Data NIS';
+                document.getElementById('nisEditId').value = data.id;
+                document.getElementById('nisNamaSiswa').value = data.namaSiswa || '';
+                document.getElementById('nisKelas').value = data.kelas || '';
+                document.getElementById('nisNIS').value = data.nis || '';
+            } else {
+                if (title) title.textContent = 'Formulir Data NIS';
+            }
+
+            modal.classList.remove('hidden');
+        }
+
+        function closeModalNIS() {
+            const modal = document.getElementById('modalNIS');
+            if (modal) modal.classList.add('hidden');
+        }
+
+        function autofillSiswaInNISForm() {
+            const selectId = document.getElementById('selectSiswaNIS').value;
+            if (!selectId) return;
+
+            const siswa = siswaList.find(s => s.id === parseInt(selectId));
+            if (siswa) {
+                document.getElementById('nisNamaSiswa').value = siswa.nama || '';
+                document.getElementById('nisKelas').value = siswa.kelas || '';
+                showToast(`Data siswa ${siswa.nama} berhasil dimuat`, "info");
+            }
+        }
+
+        function handleNISSubmit(e) {
+            e.preventDefault();
+            const editId = document.getElementById('nisEditId').value;
+
+            const nisData = {
+                id: editId ? parseInt(editId) : Date.now(),
+                namaSiswa: document.getElementById('nisNamaSiswa').value,
+                kelas: document.getElementById('nisKelas').value,
+                nis: document.getElementById('nisNIS').value
+            };
+
+            if (editId) {
+                const idx = nisList.findIndex(n => n.id === parseInt(editId));
+                if (idx !== -1) nisList[idx] = nisData;
+                showToast("Data NIS berhasil diperbarui", "success");
+            } else {
+                nisList.unshift(nisData);
+                showToast("Data NIS baru berhasil ditambahkan", "success");
+            }
+
+            saveToStorage();
+            closeModalNIS();
+        }
+
+        function editNIS(id) {
+            const data = nisList.find(n => n.id === id);
+            if (data) openModalNIS(data);
+        }
+
+        function confirmDeleteNIS(id) {
+            const data = nisList.find(n => n.id === id);
+            if (!data) return;
+
+            showConfirmModal(`Hapus data NIS siswa <b>${escapeHtml(data.namaSiswa)}</b>?`, () => {
+                nisList = nisList.filter(n => n.id !== id);
+                saveToStorage();
+                showToast("Data NIS berhasil dihapus", "warning");
+            });
+        }
+
+        function cetakDataNIS() {
+            if (nisList.length === 0) {
+                showToast("Data NIS kosong!", "warning");
+                return;
+            }
+
+            const printWindow = window.open('', '_blank');
+            if (!printWindow) {
+                showToast("Mohon izinkan pop-up browser!", "error");
+                return;
+            }
+
+            let rows = '';
+            nisList.forEach((n, idx) => {
+                rows += `
+                    <tr>
+                        <td style="text-align:center;">${idx + 1}</td>
+                        <td><strong>${escapeHtml(n.namaSiswa)}</strong></td>
+                        <td>${escapeHtml(n.kelas)}</td>
+                        <td><strong>${escapeHtml(n.nis)}</strong></td>
+                    </tr>
+                `;
+            });
+
+            const html = `
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <title>Laporan Data NIS - ${escapeHtml(sekolahData.nama)}</title>
+                    <style>
+                        ${getPrintPageCSS('nis', 'portrait')}
+                        body { font-family: 'Cambria', serif; font-size: 12pt; color: #000; margin: 0; }
+                        .title h3 { font-size: 14pt; font-weight: bold; text-align: center; margin: 10px 0; text-transform: uppercase; }
+                        table { width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 12pt; }
+                        th, td { border: 1px solid #000; padding: 6px; text-align: left; font-size: 12pt; }
+                        th { background-color: #f1f5f9; font-weight: bold; }
+                    </style>
+                </head>
+                <body>
+                    ${generateKopHtml()}
+                    <div class="title">
+                        <h3>LAPORAN DATA NOMOR INDUK SISWA (NIS)</h3>
+                        <p style="text-align:center; font-size:12pt; margin:2px 0;">${escapeHtml(sekolahData.tahunPelajaran)}</p>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width:30px; text-align:center;">No</th>
+                                <th>Nama Siswa</th>
+                                <th>Kelas</th>
+                                <th>NIS (Nomor Induk Siswa)</th>
+                            </tr>
+                        </thead>
+                        <tbody>${rows}</tbody>
+                    </table>
+                    <script>window.onload = function() { setTimeout(function() { window.print(); }, 500); };<\/script>
+                </body>
+                </html>
+            `;
+            printWindow.document.write(html);
+            printWindow.document.close();
+        }
+
+        function exportNISToExcel() {
+            if (!nisList || nisList.length === 0) {
+                showToast("Data NIS kosong! Tidak ada data untuk diekspor.", "warning");
+                return;
+            }
+
+            const dataToExport = nisList.map((n, index) => ({
+                "No": index + 1,
+                "Nama Siswa": n.namaSiswa || "",
+                "Kelas": n.kelas || "",
+                "NIS (Nomor Induk Siswa)": String(n.nis || "")
+            }));
+
+            try {
+                if (typeof XLSX !== 'undefined') {
+                    const ws = XLSX.utils.json_to_sheet(dataToExport);
+                    const wb = XLSX.utils.book_new();
+                    XLSX.utils.book_append_sheet(wb, ws, "Data NIS");
+
+                    ws['!cols'] = [
+                        { wch: 6 },
+                        { wch: 30 },
+                        { wch: 15 },
+                        { wch: 22 }
+                    ];
+
+                    const cleanSchoolName = (sekolahData && sekolahData.nama) ? sekolahData.nama.replace(/[^a-zA-Z0-9]/g, "_") : "ADMOPS";
+                    const fileName = `Data_NIS_${cleanSchoolName}_${new Date().toISOString().split('T')[0]}.xlsx`;
+
+                    XLSX.writeFile(wb, fileName);
+                    showToast("Data NIS berhasil diekspor ke file Excel (.xlsx)!", "success");
+                } else {
+                    throw new Error("Library XLSX tidak tersedia");
+                }
+            } catch (err) {
+                console.error("Gagal melakukan ekspor XLSX:", err);
             }
         }
 
@@ -4842,6 +5147,188 @@
             printWindow.document.close();
         }
 
+        // FUNGSI SURAT BERSEDIA MENERIMA SISWA PINDAHAN
+        function renderSuratTerimaTable() {
+            const tbody = document.getElementById('tableSuratTerimaBody');
+            if (!tbody) return;
+            const searchInput = document.getElementById('searchSuratTerima');
+            const search = searchInput ? searchInput.value.toLowerCase() : '';
+            const emptyState = document.getElementById('emptySuratTerimaState');
+
+            tbody.innerHTML = '';
+
+            const filtered = suratTerimaList.filter(s => {
+                return (s.noSurat && s.noSurat.toLowerCase().includes(search)) ||
+                       (s.namaSiswa && s.namaSiswa.toLowerCase().includes(search)) ||
+                       (s.nisnSiswa && s.nisnSiswa.toLowerCase().includes(search)) ||
+                       (s.namaOrtu && s.namaOrtu.toLowerCase().includes(search));
+            });
+
+            if (filtered.length === 0) {
+                if (emptyState) emptyState.classList.remove('hidden');
+                return;
+            } else {
+                if (emptyState) emptyState.classList.add('hidden');
+            }
+
+            filtered.forEach((s, index) => {
+                const tr = document.createElement('tr');
+                tr.className = "hover:bg-slate-50/80 transition-colors";
+                const cleanTgl = formatDateOnly(s.tanggalSurat);
+                tr.innerHTML = `
+                    <td class="py-3 px-4 text-center font-semibold text-slate-400">${index + 1}</td>
+                    <td class="py-3 px-4">
+                        <p class="font-bold text-slate-800">${escapeHtml(s.noSurat)}</p>
+                        <p class="text-[10px] text-slate-400 font-mono">${escapeHtml(cleanTgl)}</p>
+                    </td>
+                    <td class="py-3 px-4 font-bold text-slate-800">
+                        ${escapeHtml(s.namaSiswa)}
+                        <p class="text-[10px] text-slate-400 font-mono">NISN: ${escapeHtml(s.nisnSiswa)}</p>
+                    </td>
+                    <td class="py-3 px-4 text-slate-600 font-semibold">${escapeHtml(s.namaOrtu || '-')}</td>
+                    <td class="py-3 px-4 text-center">
+                        <div class="flex items-center justify-center space-x-1">
+                            <button onclick="cetakSuratTerima(${s.id})" class="px-2.5 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-lg text-xs transition flex items-center space-x-1 shadow-sm" title="Cetak Surat Terima">
+                                <i class="fa-solid fa-print"></i>
+                                <span>Cetak</span>
+                            </button>
+                            <button onclick="editSuratTerima(${s.id})" class="p-1.5 text-brand-600 hover:bg-brand-50 rounded-lg transition" title="Edit Data">
+                                <i class="fa-solid fa-pen-to-square text-sm"></i>
+                            </button>
+                            <button onclick="confirmDeleteSuratTerima(${s.id})" class="p-1.5 text-rose-600 hover:bg-rose-50 rounded-lg transition" title="Hapus Data">
+                                <i class="fa-solid fa-trash-can text-sm"></i>
+                            </button>
+                        </div>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function openModalSuratTerima(data = null) {
+            const modal = document.getElementById('modalSuratTerima');
+            const title = document.getElementById('modalSuratTerimaTitle');
+            const form = document.getElementById('formSuratTerima');
+
+            if (!modal || !form) return;
+            form.reset();
+            document.getElementById('suratTerimaEditId').value = '';
+
+            const defaultPembuka1 = "Yang bertanda tangan di bawah ini Kepala Sekolah UPT SDN 22 Tanah Keras,";
+            const defaultPembuka2 = "Dengan ini menerangkan bahwa :";
+            const defaultPenutup = "Demikian surat keterangan ini dibuat dengan sebenarnya untuk dapat dipergunakan sebagaimana mestinya.";
+
+            const setVal = (id, val) => {
+                const el = document.getElementById(id);
+                if (el) el.value = val || '';
+            };
+
+            setVal('terimaNamaKepsek', sekolahData.kepalaSekolah || 'RINA MELATI, M.Pd');
+            setVal('terimaNipKepsek', sekolahData.nipKepalaSekolah || '197103161993042001');
+
+            if (data) {
+                if (title) title.textContent = 'Edit Surat Keterangan Siap Menerima Siswa Pindahan';
+                document.getElementById('suratTerimaEditId').value = data.id;
+                setVal('terimaNoSurat', data.noSurat);
+                setVal('terimaTempatSurat', data.tempatSurat || 'Tanah Keras');
+                setVal('terimaTanggalSurat', formatDateOnly(data.tanggalSurat));
+                setVal('terimaPernyataanPembuka1', data.pernyataanPembuka1 || defaultPembuka1);
+                setVal('terimaNamaKepsek', data.namaKepsek || sekolahData.kepalaSekolah);
+                setVal('terimaNipKepsek', data.nipKepsek || sekolahData.nipKepalaSekolah);
+                setVal('terimaPangkatKepsek', data.pangkatKepsek || 'Pembina TK 1/IV b');
+                setVal('terimaUnitKerjaKepsek', data.unitKerjaKepsek || 'UPT SDN 22 Tanah Keras Kec. Bayang');
+                setVal('terimaPernyataanPembuka2', data.pernyataanPembuka2 || defaultPembuka2);
+                setVal('terimaNamaSiswa', data.namaSiswa);
+                setVal('terimaTtlSiswa', data.ttlSiswa);
+                setVal('terimaNisnSiswa', data.nisnSiswa);
+                setVal('terimaJkSiswa', data.jkSiswa || 'Perempuan');
+                setVal('terimaKelasTerima', data.kelasTerima);
+                setVal('terimaNamaOrtu', data.namaOrtu);
+                setVal('terimaAlamatSiswa', data.alamatSiswa);
+                setVal('terimaPernyataanPenerimaan', data.pernyataanPenerimaan);
+                setVal('terimaPernyataanPenutup', data.pernyataanPenutup || defaultPenutup);
+            } else {
+                if (title) title.textContent = 'Formulir Surat Keterangan Siap Menerima Siswa Pindahan';
+                const tglInput = document.getElementById('terimaTanggalSurat');
+                if (tglInput) tglInput.valueAsDate = new Date();
+                setVal('terimaTempatSurat', 'Tanah Keras');
+                setVal('terimaNoSurat', '061/108.420.10/SD-22/TK-2026');
+                setVal('terimaPernyataanPembuka1', defaultPembuka1);
+                setVal('terimaPangkatKepsek', 'Pembina TK 1/IV b');
+                setVal('terimaUnitKerjaKepsek', 'UPT SDN 22 Tanah Keras Kec. Bayang');
+                setVal('terimaPernyataanPembuka2', defaultPembuka2);
+                setVal('terimaPernyataanPenerimaan', '');
+                setVal('terimaPernyataanPenutup', defaultPenutup);
+            }
+
+            modal.classList.remove('hidden');
+        }
+
+        function closeModalSuratTerima() {
+            const modal = document.getElementById('modalSuratTerima');
+            if (modal) modal.classList.add('hidden');
+        }
+
+        function handleSuratTerimaSubmit(e) {
+            e.preventDefault();
+            const editId = document.getElementById('suratTerimaEditId').value;
+
+            const getVal = (id) => {
+                const el = document.getElementById(id);
+                return el ? el.value : '';
+            };
+
+            const data = {
+                id: editId ? parseInt(editId) : Date.now(),
+                noSurat: getVal('terimaNoSurat'),
+                tempatSurat: getVal('terimaTempatSurat'),
+                tanggalSurat: formatDateOnly(getVal('terimaTanggalSurat')),
+                pernyataanPembuka1: getVal('terimaPernyataanPembuka1'),
+                namaKepsek: getVal('terimaNamaKepsek'),
+                nipKepsek: getVal('terimaNipKepsek'),
+                pangkatKepsek: getVal('terimaPangkatKepsek'),
+                unitKerjaKepsek: getVal('terimaUnitKerjaKepsek'),
+                pernyataanPembuka2: getVal('terimaPernyataanPembuka2'),
+                namaSiswa: getVal('terimaNamaSiswa'),
+                ttlSiswa: getVal('terimaTtlSiswa'),
+                nisnSiswa: getVal('terimaNisnSiswa'),
+                jkSiswa: getVal('terimaJkSiswa'),
+                kelasTerima: getVal('terimaKelasTerima'),
+                namaOrtu: getVal('terimaNamaOrtu'),
+                alamatSiswa: getVal('terimaAlamatSiswa'),
+                pernyataanPenerimaan: getVal('terimaPernyataanPenerimaan'),
+                pernyataanPenutup: getVal('terimaPernyataanPenutup')
+            };
+
+            if (editId) {
+                const idx = suratTerimaList.findIndex(s => s.id === parseInt(editId));
+                if (idx !== -1) suratTerimaList[idx] = data;
+                showToast("Surat Keterangan Bersedia Menerima diperbarui", "success");
+            } else {
+                suratTerimaList.unshift(data);
+                showToast("Surat Keterangan Bersedia Menerima berhasil diterbitkan", "success");
+            }
+
+            saveToStorage();
+            closeModalSuratTerima();
+        }
+
+        function editSuratTerima(id) {
+            const data = suratTerimaList.find(s => s.id === id);
+            if (data) openModalSuratTerima(data);
+        }
+
+        function confirmDeleteSuratTerima(id) {
+            const data = suratTerimaList.find(s => s.id === id);
+            if (!data) return;
+
+            showConfirmModal(`Hapus Surat Keterangan Siap Menerima siswa <b>${escapeHtml(data.namaSiswa)}</b>?`, () => {
+                suratTerimaList = suratTerimaList.filter(s => s.id !== id);
+                saveToStorage();
+                showToast("Surat Terima berhasil dihapus", "warning");
+            });
+        }
+
         function cetakSuratTerima(id) {
             const data = suratTerimaList.find(s => s.id === id);
             if (!data) {
@@ -5032,215 +5519,16 @@
             printWindow.document.close();
         }
 
-        function renderSuratTerimaTable() {
-            const tbody = document.getElementById('tableSuratTerimaBody');
-            if (!tbody) return;
-
-            const searchInput = document.getElementById('searchSuratTerima');
-            const search = searchInput ? searchInput.value.toLowerCase() : '';
-            const emptyState = document.getElementById('emptySuratTerimaState');
-
-            tbody.innerHTML = '';
-
-            const page = currentPageSuratTerima || 1;
-            const perPage = itemsPerPageSuratTerima || 5;
-
-            const filtered = suratTerimaList.filter(s => {
-                return (s.noSurat && s.noSurat.toLowerCase().includes(search)) ||
-                       (s.namaSiswa && s.namaSiswa.toLowerCase().includes(search)) ||
-                       (s.nisnSiswa && s.nisnSiswa.toLowerCase().includes(search)) ||
-                       (s.namaOrtu && s.namaOrtu.toLowerCase().includes(search));
-            });
-
-            filtered.sort((a, b) => (a.noSurat || '').localeCompare(b.noSurat || '', undefined, { numeric: true, sensitivity: 'base' }));
-
-            if (filtered.length === 0) {
-                if (emptyState) emptyState.classList.remove('hidden');
-                if (typeof renderPaginationControls === 'function') {
-                    renderPaginationControls('SuratTerima', 0, 1, perPage);
-                }
-                return;
-            } else {
-                if (emptyState) emptyState.classList.add('hidden');
-            }
-
-            const totalPages = Math.ceil(filtered.length / perPage) || 1;
-            const validPage = Math.min(Math.max(1, page), totalPages);
-            currentPageSuratTerima = validPage;
-
-            const startIdx = (validPage - 1) * perPage;
-            const paginated = filtered.slice(startIdx, startIdx + perPage);
-
-            paginated.forEach((s, index) => {
-                const tr = document.createElement('tr');
-                tr.className = "hover:bg-slate-50/80 transition-colors";
-                const cleanTgl = formatDateOnly(s.tanggalSurat);
-                tr.innerHTML = `
-                    <td class="py-3 px-4 text-center font-semibold text-slate-400">${startIdx + index + 1}</td>
-                    <td class="py-3 px-4">
-                        <p class="font-bold text-slate-800">${escapeHtml(s.noSurat)}</p>
-                        <p class="text-[10px] text-slate-400 font-mono">${escapeHtml(cleanTgl)}</p>
-                    </td>
-                    <td class="py-3 px-4 font-bold text-slate-800">
-                        ${escapeHtml(s.namaSiswa)}
-                        <p class="text-[10px] text-slate-400 font-mono">NISN: ${escapeHtml(s.nisnSiswa)}</p>
-                    </td>
-                    <td class="py-3 px-4 font-semibold text-brand-700">${escapeHtml(s.kelasTerima || '-')}</td>
-                    <td class="py-3 px-4 text-slate-600">${escapeHtml(s.namaOrtu || '-')}</td>
-                    <td class="py-3 px-4 text-center">
-                        <div class="flex items-center justify-center space-x-1">
-                            <button onclick="cetakSuratTerima(${s.id})" class="px-2.5 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-lg text-xs transition flex items-center space-x-1 shadow-sm" title="Cetak Surat Terima">
-                                <i class="fa-solid fa-print"></i>
-                                <span>Cetak</span>
-                            </button>
-                            <button onclick="editSuratTerima(${s.id})" class="p-1.5 text-brand-600 hover:bg-brand-50 rounded-lg transition" title="Edit Data">
-                                <i class="fa-solid fa-pen-to-square text-sm"></i>
-                            </button>
-                            <button onclick="confirmDeleteSuratTerima(${s.id})" class="p-1.5 text-rose-600 hover:bg-rose-50 rounded-lg transition" title="Hapus Data">
-                                <i class="fa-solid fa-trash-can text-sm"></i>
-                            </button>
-                        </div>
-                    </td>
-                `;
-                tbody.appendChild(tr);
-            });
-
-            if (typeof renderPaginationControls === 'function') {
-                renderPaginationControls('SuratTerima', filtered.length, validPage, perPage);
-            }
-        }
-
-        // FUNGSI MODAL & AKSI SURAT BERSEDIA MENERIMA
-        function openModalSuratTerima(data = null) {
-            const modal = document.getElementById('modalSuratTerima');
-            const title = document.getElementById('modalSuratTerimaTitle');
-            const form = document.getElementById('formSuratTerima');
-
-            if (!modal || !form) return;
-            form.reset();
-
-            const setVal = (id, val) => {
-                const el = document.getElementById(id);
-                if (el) el.value = (val !== undefined && val !== null) ? val : '';
-            };
-
-            setVal('suratTerimaEditId', '');
-
-            const defaultPembuka1 = "Yang bertanda tangan di bawah ini Kepala Sekolah UPT SDN 22 Tanah Keras,";
-            const defaultPembuka2 = "Dengan ini menerangkan bahwa :";
-            const defaultPenerimaan = "";
-            const defaultPenutup = "Demikian Surat Keterangan Siap Menerima Siswa Pindahan ini diberikan kepada yang bersangkutan untuk dapat dipergunakan sebagaimana mestinya.";
-
-            setVal('terimaNamaKepsek', sekolahData.kepalaSekolah || 'RINA MELATI, M.Pd');
-            setVal('terimaNipKepsek', sekolahData.nipKepalaSekolah || '197103161993042001');
-
-            if (data) {
-                if (title) title.textContent = 'Edit Surat Siap Menerima Siswa Pindahan';
-                setVal('suratTerimaEditId', data.id);
-                setVal('terimaNoSurat', data.noSurat);
-                setVal('terimaTempatSurat', data.tempatSurat || 'Tanah Keras');
-                setVal('terimaTanggalSurat', formatDateOnly(data.tanggalSurat));
-                setVal('terimaPernyataanPembuka1', data.pernyataanPembuka1 || defaultPembuka1);
-                setVal('terimaPangkatKepsek', data.pangkatKepsek || 'Pembina TK 1/IV b');
-                setVal('terimaUnitKerjaKepsek', data.unitKerjaKepsek || 'UPT SDN 22 Tanah Keras Kec. Bayang');
-                setVal('terimaPernyataanPembuka2', data.pernyataanPembuka2 || defaultPembuka2);
-                setVal('terimaNamaSiswa', data.namaSiswa);
-                setVal('terimaTtlSiswa', data.ttlSiswa);
-                setVal('terimaNisnSiswa', data.nisnSiswa);
-                setVal('terimaJkSiswa', data.jkSiswa || 'Perempuan');
-                setVal('terimaKelasTerima', data.kelasTerima);
-                setVal('terimaNamaOrtu', data.namaOrtu);
-                setVal('terimaAlamatSiswa', data.alamatSiswa);
-                setVal('terimaPernyataanPenerimaan', data.pernyataanPenerimaan || defaultPenerimaan);
-                setVal('terimaPernyataanPenutup', data.pernyataanPenutup || defaultPenutup);
-            } else {
-                if (title) title.textContent = 'Formulir Surat Keterangan Siap Menerima Siswa Pindahan';
-                const tglEl = document.getElementById('terimaTanggalSurat');
-                if (tglEl) tglEl.valueAsDate = new Date();
-                setVal('terimaTempatSurat', 'Tanah Keras');
-                setVal('terimaNoSurat', '061/108.420.10/SD-22/TK-2026');
-                setVal('terimaPernyataanPembuka1', defaultPembuka1);
-                setVal('terimaPangkatKepsek', 'Pembina TK 1/IV b');
-                setVal('terimaUnitKerjaKepsek', 'UPT SDN 22 Tanah Keras Kec. Bayang');
-                setVal('terimaPernyataanPembuka2', defaultPembuka2);
-                setVal('terimaKelasTerima', '');
-                setVal('terimaPernyataanPenerimaan', defaultPenerimaan);
-                setVal('terimaPernyataanPenutup', defaultPenutup);
-            }
-
-            modal.classList.remove('hidden');
-        }
-
-        function closeModalSuratTerima() {
-            const modal = document.getElementById('modalSuratTerima');
-            if (modal) modal.classList.add('hidden');
-        }
-
-        function handleSuratTerimaSubmit(e) {
-            if (e) e.preventDefault();
-            const editId = document.getElementById('suratTerimaEditId').value;
-
-            const data = {
-                id: editId ? parseInt(editId) : Date.now(),
-                noSurat: document.getElementById('terimaNoSurat').value,
-                tempatSurat: document.getElementById('terimaTempatSurat').value,
-                tanggalSurat: formatDateOnly(document.getElementById('terimaTanggalSurat').value),
-                pernyataanPembuka1: document.getElementById('terimaPernyataanPembuka1').value,
-                namaKepsek: document.getElementById('terimaNamaKepsek').value,
-                nipKepsek: document.getElementById('terimaNipKepsek').value,
-                pangkatKepsek: document.getElementById('terimaPangkatKepsek').value,
-                unitKerjaKepsek: document.getElementById('terimaUnitKerjaKepsek').value,
-                pernyataanPembuka2: document.getElementById('terimaPernyataanPembuka2').value,
-                namaSiswa: document.getElementById('terimaNamaSiswa').value,
-                ttlSiswa: document.getElementById('terimaTtlSiswa').value,
-                nisnSiswa: document.getElementById('terimaNisnSiswa').value,
-                jkSiswa: document.getElementById('terimaJkSiswa').value,
-                namaOrtu: document.getElementById('terimaNamaOrtu').value,
-                alamatSiswa: document.getElementById('terimaAlamatSiswa').value,
-                pernyataanPenerimaan: document.getElementById('terimaPernyataanPenerimaan').value,
-                pernyataanPenutup: document.getElementById('terimaPernyataanPenutup').value
-            };
-
-            if (editId) {
-                const index = suratTerimaList.findIndex(s => s.id === parseInt(editId));
-                if (index !== -1) suratTerimaList[index] = data;
-                showToast("Surat Bersedia Menerima berhasil diperbarui", "success");
-            } else {
-                suratTerimaList.unshift(data);
-                showToast("Surat Bersedia Menerima baru berhasil diterbitkan", "success");
-            }
-
-            saveToStorage();
-            closeModalSuratTerima();
-        }
-
-        function editSuratTerima(id) {
-            const data = suratTerimaList.find(s => s.id === id);
-            if (data) openModalSuratTerima(data);
-        }
-
-        function confirmDeleteSuratTerima(id) {
-            const data = suratTerimaList.find(s => s.id === id);
-            if (!data) return;
-
-            showConfirmModal(`Hapus Surat Bersedia Menerima siswa <b>${escapeHtml(data.namaSiswa)}</b>?`, () => {
-                suratTerimaList = suratTerimaList.filter(s => s.id !== id);
-                saveToStorage();
-                showToast("Surat Bersedia Menerima berhasil dihapus", "warning");
-            });
-        }
-
         function cetakRekapSuratTerima() {
-            const search = document.getElementById('searchSuratTerima') ? document.getElementById('searchSuratTerima').value.toLowerCase() : '';
+            const search = document.getElementById('searchSuratTerima').value.toLowerCase();
             const filtered = suratTerimaList.filter(s => {
                 return (s.noSurat && s.noSurat.toLowerCase().includes(search)) ||
                        (s.namaSiswa && s.namaSiswa.toLowerCase().includes(search)) ||
-                       (s.nisnSiswa && s.nisnSiswa.toLowerCase().includes(search)) ||
-                       (s.namaOrtu && s.namaOrtu.toLowerCase().includes(search));
+                       (s.nisnSiswa && s.nisnSiswa.toLowerCase().includes(search));
             });
 
             if (filtered.length === 0) {
-                showToast("Tidak ada data Surat Bersedia Menerima untuk dicetak", "warning");
+                showToast("Tidak ada data Surat Siap Menerima untuk dicetak", "warning");
                 return;
             }
 
@@ -5261,7 +5549,6 @@
                         <td style="text-align:center;">${escapeHtml(s.tanggalSurat)}</td>
                         <td><strong>${escapeHtml(s.namaSiswa)}</strong> (NISN: ${escapeHtml(s.nisnSiswa)})</td>
                         <td>${escapeHtml(s.namaOrtu)}</td>
-                        <td>${escapeHtml(s.alamatSiswa)}</td>
                     </tr>
                 `;
             });
@@ -5271,7 +5558,7 @@
                 <html lang="id">
                 <head>
                     <meta charset="UTF-8">
-                    <title>Rekap Surat Bersedia Menerima - ${escapeHtml(sekolahData.nama)}</title>
+                    <title>Rekap Surat Siap Menerima Siswa Pindahan - ${escapeHtml(sekolahData.nama)}</title>
                     <style>
                         ${getPrintPageCSS('surat-terima', 'landscape')}
                         body { font-family: 'Cambria', serif; font-size: 12pt; color: #000; margin: 0; }
@@ -5287,7 +5574,7 @@
                     ${generateKopHtml()}
 
                     <div class="title">
-                        <h3>REKAPITULASI SURAT KETERANGAN BERSEDIA MENERIMA SISWA PINDAHAN</h3>
+                        <h3>REKAPITULASI SURAT KETERANGAN SIAP MENERIMA SISWA PINDAHAN</h3>
                         <p>${escapeHtml(sekolahData.tahunPelajaran)}</p>
                     </div>
 
@@ -5299,7 +5586,6 @@
                                 <th style="text-align:center;">Tanggal</th>
                                 <th>Nama Siswa & NISN</th>
                                 <th>Orang Tua / Wali</th>
-                                <th>Alamat</th>
                             </tr>
                         </thead>
                         <tbody>${rowsHtml}</tbody>
@@ -5328,6 +5614,91 @@
 
             printWindow.document.write(htmlContent);
             printWindow.document.close();
+        }
+
+        // FUNGSI PENGATURAN KOP SURAT
+        function renderKopData() {
+            const setVal = (id, val) => {
+                const el = document.getElementById(id);
+                if (el) el.value = val || '';
+            };
+            setVal('kopLogoKiri', kopData.logoKiri);
+            setVal('kopLogoKanan', kopData.logoKanan);
+            setVal('kopPemerintah', kopData.pemerintah);
+            setVal('kopDinas', kopData.dinas);
+            setVal('kopSekolah', kopData.sekolah);
+            setVal('kopKecamatan', kopData.kecamatan);
+            setVal('kopAlamat', kopData.alamat);
+            setVal('kopEmail', kopData.email);
+            setVal('kopWebsite', kopData.website);
+            updateKopPreview();
+        }
+
+        function updateKopPreview() {
+            const box = document.getElementById('kopPreviewBox');
+            if (box) {
+                box.innerHTML = generateKopHtml();
+            }
+        }
+
+        function generateKopHtml() {
+            const logoKiri = document.getElementById('kopLogoKiri') ? document.getElementById('kopLogoKiri').value : (kopData.logoKiri || '');
+            const logoKanan = document.getElementById('kopLogoKanan') ? document.getElementById('kopLogoKanan').value : (kopData.logoKanan || '');
+            const pem = document.getElementById('kopPemerintah') ? document.getElementById('kopPemerintah').value : (kopData.pemerintah || '');
+            const dinas = document.getElementById('kopDinas') ? document.getElementById('kopDinas').value : (kopData.dinas || '');
+            const sekolah = document.getElementById('kopSekolah') ? document.getElementById('kopSekolah').value : (kopData.sekolah || '');
+            const kec = document.getElementById('kopKecamatan') ? document.getElementById('kopKecamatan').value : (kopData.kecamatan || '');
+            const alamat = document.getElementById('kopAlamat') ? document.getElementById('kopAlamat').value : (kopData.alamat || '');
+            const email = document.getElementById('kopEmail') ? document.getElementById('kopEmail').value : (kopData.email || '');
+            const web = document.getElementById('kopWebsite') ? document.getElementById('kopWebsite').value : (kopData.website || '');
+
+            const imgKiriHtml = logoKiri ? `<img src="${logoKiri}" style="height:70px; width:auto; object-fit:contain;" alt="Logo Kiri">` : '';
+            const imgKananHtml = logoKanan ? `<img src="${logoKanan}" style="height:70px; width:auto; object-fit:contain;" alt="Logo Kanan">` : '';
+
+            let contactStr = '';
+            if (email && web) {
+                contactStr = `Email: ${email} | Website: ${web}`;
+            } else if (email) {
+                contactStr = `Email: ${email}`;
+            } else if (web) {
+                contactStr = `Website: ${web}`;
+            }
+
+            return `
+                <div style="display:flex; align-items:center; justify-content:space-between; border-bottom:3px double #000; padding-bottom:3px; margin-bottom:15px; font-family:'Cambria', serif; text-align:center;">
+                    <div style="width:80px; text-align:left; flex-shrink:0;">
+                        ${imgKiriHtml}
+                    </div>
+                    <div style="flex-grow:1; text-align:center; padding:0 5px; line-height:1.1;">
+                        <div style="font-size:13pt; font-weight:bold; text-transform:uppercase; letter-spacing:0.5px; color:#000; margin:0; padding:0; line-height:1.15;">${escapeHtml(pem)}</div>
+                        <div style="font-size:13pt; font-weight:bold; text-transform:uppercase; letter-spacing:0.5px; color:#000; margin:0; padding:0; line-height:1.15;">${escapeHtml(dinas)}</div>
+                        <div style="font-size:16pt; font-weight:bold; text-transform:uppercase; letter-spacing:0.5px; color:#000; margin:1px 0; padding:0; line-height:1.15;">${escapeHtml(sekolah)}</div>
+                        <div style="font-size:12.5pt; font-weight:bold; text-transform:uppercase; color:#000; margin:0; padding:0; line-height:1.15;">${escapeHtml(kec)}</div>
+                        <div style="font-size:10.5pt; font-style:italic; color:#000; margin:1px 0 0 0; padding:0; line-height:1.15;">Alamat: ${escapeHtml(alamat)}</div>
+                        ${contactStr ? `<div style="font-size:10pt; color:#1d4ed8; font-weight:500; margin:0; padding:0; line-height:1.15;">${escapeHtml(contactStr)}</div>` : ''}
+                    </div>
+                    <div style="width:80px; text-align:right; flex-shrink:0;">
+                        ${imgKananHtml}
+                    </div>
+                </div>
+            `;
+        }
+
+        function handleKopSubmit(e) {
+            if (e) e.preventDefault();
+            kopData = {
+                logoKiri: document.getElementById('kopLogoKiri').value,
+                logoKanan: document.getElementById('kopLogoKanan').value,
+                pemerintah: document.getElementById('kopPemerintah').value,
+                dinas: document.getElementById('kopDinas').value,
+                sekolah: document.getElementById('kopSekolah').value,
+                kecamatan: document.getElementById('kopKecamatan').value,
+                alamat: document.getElementById('kopAlamat').value,
+                email: document.getElementById('kopEmail').value,
+                website: document.getElementById('kopWebsite').value
+            };
+            saveToStorage();
+            showToast("Pengaturan KOP Surat berhasil disimpan", "success");
         }
     </script>
 </body>
