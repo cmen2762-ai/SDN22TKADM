@@ -126,7 +126,7 @@
                 </blockquote>
 
                 <p class="text-sm text-brand-100 leading-relaxed font-normal">
-                    FAUZI, S.Hum.
+                    FAUZI,Hum.
                 </p>
 
                 <div class="pt-2 grid grid-cols-3 gap-4 border-t border-brand-500/30">
@@ -232,7 +232,7 @@
                     <div id="syncProgressBar" class="bg-gradient-to-r from-brand-500 via-blue-500 to-emerald-400 h-full rounded-full transition-all duration-150 ease-out" style="width: 0%"></div>
                 </div>
                 <div class="flex justify-between items-center text-xs text-slate-400 font-mono font-semibold px-1">
-                    <span>Jangan Tutu Aplikasi</span>
+                    <span>Jangan Tutup Aplikasi</span>
                     <span id="syncProgressPercent" class="text-emerald-400 font-bold">0%</span>
                 </div>
             </div>
@@ -419,7 +419,7 @@
                             </div>
                             <h2 class="text-2xl md:text-3xl font-bold tracking-tight mb-2">Pusat Administrasi & Data Sekolah</h2>
                             <p class="text-brand-100 text-sm leading-relaxed mb-6">
-                                Kelola data terpadu untuk Siswa, Guru, dan Tenaga Kependidikan (GTK) dengan mudah, cepat.
+                                Kelola data terpadu untuk Siswa, Guru, dan Tenaga Kependidikan (GTK) dengan mudah, cepat, dan aman dalam satu platform terintegrasi.
                             </p>
                             <div class="flex flex-wrap gap-3">
                                 <button onclick="switchTab('siswa'); openModalSiswa()" class="px-4 py-2.5 bg-white text-brand-800 font-semibold text-xs rounded-xl hover:bg-brand-50 transition shadow-md flex items-center space-x-2">
@@ -543,14 +543,14 @@
                                 <div class="flex items-start space-x-3 pb-3 border-b border-slate-100">
                                     <div class="w-2 h-2 rounded-full bg-brand-500 mt-1.5 shrink-0"></div>
                                     <div>
-                                        <p class="font-semibold text-slate-700">Aplikasi ADMOPS</p>
+                                        <p class="font-semibold text-slate-700">Aplikasi ADMOPS Diinisialisasi</p>
                                         <p class="text-slate-400 text-[10px]">Sistem Siap digunakan</p>
                                     </div>
                                 </div>
                                 <div class="flex items-start space-x-3">
                                     <div class="w-2 h-2 rounded-full bg-indigo-500 mt-1.5 shrink-0"></div>
                                     <div>
-                                        <p class="font-semibold text-slate-700">Pemeriksaan Database</p>
+                                        <p class="font-semibold text-slate-700">Pemeriksaan Database Google Sheets</p>
                                         <p class="text-slate-400 text-[10px]">Server Data Siap Terhubung</p>
                                     </div>
                                 </div>
@@ -2349,6 +2349,16 @@
         let currentPageSuratAktif = 1, itemsPerPageSuratAktif = 5;
         let currentPageSuratTerima = 1, itemsPerPageSuratTerima = 5;
 
+        function escapeHtml(str) {
+            if (!str && str !== 0) return '';
+            return String(str)
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+
         function fixLeadingZeroNisn(val) {
             if (!val && val !== 0) return "";
             let s = String(val).trim();
@@ -2958,53 +2968,92 @@
         function formatDateOnly(val) {
             if (!val && val !== 0) return '';
             let str = String(val).trim();
+            let d = new Date(str);
+            if (!isNaN(d.getTime()) && (str.includes('GMT') || str.includes('T') || str.length > 10 || str.includes('00:00:00'))) {
+                let year = d.getFullYear();
+                let month = String(d.getMonth() + 1).padStart(2, '0');
+                let day = String(d.getDate()).padStart(2, '0');
+                return `${year}-${month}-${day}`;
+            }
             if (str.includes('T')) {
-                let d = new Date(str);
-                if (!isNaN(d.getTime())) {
-                    let year = d.getFullYear();
-                    let month = String(d.getMonth() + 1).padStart(2, '0');
-                    let day = String(d.getDate()).padStart(2, '0');
-                    return `${year}-${month}-${day}`;
-                }
                 return str.split('T')[0];
             }
             return str;
         }
 
-        function escapeHtml(str) {
+        // FUNGSI FORMAT TANGGAL INDONESIA (CONTOH: 04 Agustus 2026)
+        function formatIndoDate(val) {
+            if (!val && val !== 0) return '';
+            let str = String(val).trim();
             if (!str) return '';
-            return String(str)
-                .replace(/&/g, '&amp;')
-                .replace(/</g, '&lt;')
-                .replace(/>/g, '&gt;')
-                .replace(/"/g, '&quot;')
-                .replace(/'/g, '&#039;');
-        }
 
-        // FUNGSI MEMBUAT STYLESHEET CETAK (UKURAN KERTAS & MARGIN)
-        function getPrintPageCSS(moduleId, defaultOrientation) {
-            let paperSize = 'A4';
-            let mt = '15', mb = '15', ml = '20', mr = '15';
+            const bulanIndo = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
 
-            if (moduleId) {
-                const paperEl = document.getElementById(moduleId + 'PaperSize');
-                const mtEl = document.getElementById(moduleId + 'MarginTop');
-                const mbEl = document.getElementById(moduleId + 'MarginBottom');
-                const mlEl = document.getElementById(moduleId + 'MarginLeft');
-                const mrEl = document.getElementById(moduleId + 'MarginRight');
-
-                if (paperEl && paperEl.value) paperSize = paperEl.value;
-                if (mtEl && mtEl.value !== '') mt = mtEl.value;
-                if (mbEl && mbEl.value !== '') mb = mbEl.value;
-                if (mlEl && mlEl.value !== '') ml = mlEl.value;
-                if (mrEl && mrEl.value !== '') mr = mrEl.value;
+            // Format YYYY-MM-DD atau YYYY/MM/DD
+            if (/^\d{4}[-/]\d{1,2}[-/]\d{1,2}/.test(str)) {
+                const parts = str.split(/[-T /]/);
+                const year = parts[0];
+                const monthIdx = parseInt(parts[1], 10) - 1;
+                const day = String(parseInt(parts[2], 10)).padStart(2, '0');
+                if (monthIdx >= 0 && monthIdx < 12 && year.length === 4) {
+                    return `${day} ${bulanIndo[monthIdx]} ${year}`;
+                }
             }
 
+            // Jika sudah dalam format "DD NamaBulan YYYY"
+            if (/^\d{1,2}\s+[A-Za-z]+\s+\d{4}$/.test(str)) {
+                const parts = str.split(/\s+/);
+                const day = String(parseInt(parts[0], 10)).padStart(2, '0');
+                return `${day} ${parts[1]} ${parts[2]}`;
+            }
+
+            // Parse sebagai Date Object (Mencakup Mon Jul 27 2026 00:00:00 GMT+0700, dsb)
+            let d = new Date(str);
+            if (!isNaN(d.getTime())) {
+                const day = String(d.getDate()).padStart(2, '0');
+                const monthIdx = d.getMonth();
+                const year = d.getFullYear();
+                if (monthIdx >= 0 && monthIdx < 12) {
+                    return `${day} ${bulanIndo[monthIdx]} ${year}`;
+                }
+            }
+
+            return str;
+        }
+
+        // FUNGSI MEMERIKSA SESI AUTENTIKASI / LOGIN
+        function checkAuthSession() {
+            const loginScreen = document.getElementById('loginScreen');
+            const appLayout = document.getElementById('appLayout');
+            const session = sessionStorage.getItem('admops_session');
+
+            if (session === 'active') {
+                if (loginScreen) loginScreen.classList.add('hidden');
+                if (appLayout) appLayout.classList.remove('hidden');
+            } else {
+                if (loginScreen) loginScreen.classList.remove('hidden');
+                if (appLayout) appLayout.classList.add('hidden');
+            }
+        }
+
+        function getPrintPageCSS(type, defaultOrientation = 'portrait') {
+            let mt = 15, mr = 15, mb = 15, ml = 15;
+            let paperSize = 'A4';
             let sizeRule = 'A4';
-            if (paperSize === 'F4') sizeRule = '215mm 330mm';
-            else if (paperSize === 'Legal') sizeRule = '216mm 356mm';
-            else if (paperSize === '8.5x13' || paperSize === '8.5 x 13 in' || paperSize === '8.5 x 13 In') sizeRule = '216mm 330mm';
-            else sizeRule = 'A4';
+
+            if (type === 'surat-pindah' || type === 'surat-terima') {
+                paperSize = 'F4';
+            } else if (type === 'surat-aktif') {
+                paperSize = 'A4';
+            }
+
+            if (paperSize === 'F4' || paperSize === 'f4' || paperSize === 'Folio' || paperSize === 'FOLIO') {
+                sizeRule = '215mm 330mm';
+            } else if (paperSize === '8.5x13' || paperSize === '8.5 x 13 in' || paperSize === '8.5 x 13 In') {
+                sizeRule = '216mm 330mm';
+            } else {
+                sizeRule = 'A4';
+            }
 
             if (defaultOrientation === 'landscape') {
                 sizeRule += ' landscape';
@@ -3647,12 +3696,12 @@
             filtered.forEach((s, index) => {
                 const tr = document.createElement('tr');
                 tr.className = "hover:bg-slate-50/80 transition-colors";
-                const cleanTgl = formatDateOnly(s.tanggal);
+                const cleanTgl = formatIndoDate(s.tanggal);
 
                 tr.innerHTML = `
                     <td class="py-3 px-4 text-center font-semibold text-slate-400">${index + 1}</td>
                     <td class="py-3 px-4 font-bold text-slate-800">${escapeHtml(s.noSurat)}</td>
-                    <td class="py-3 px-4 font-mono text-slate-600">${escapeHtml(cleanTgl)}</td>
+                    <td class="py-3 px-4 font-semibold text-slate-700">${escapeHtml(cleanTgl)}</td>
                     <td class="py-3 px-4 font-semibold text-brand-700">${escapeHtml(s.pengirim)}</td>
                     <td class="py-3 px-4 text-slate-600">${escapeHtml(s.perihal)}</td>
                     <td class="py-3 px-4 text-center">
@@ -3790,7 +3839,7 @@
                     <tr>
                         <td style="text-align:center;">${idx + 1}</td>
                         <td><strong>${escapeHtml(s.noSurat)}</strong></td>
-                        <td style="text-align:center;">${escapeHtml(formatDateOnly(s.tanggal))}</td>
+                        <td style="text-align:center;">${escapeHtml(formatIndoDate(s.tanggal))}</td>
                         <td><strong>${escapeHtml(s.pengirim)}</strong></td>
                         <td>${escapeHtml(s.perihal)}</td>
                     </tr>
@@ -3906,12 +3955,12 @@
             filtered.forEach((s, index) => {
                 const tr = document.createElement('tr');
                 tr.className = "hover:bg-slate-50/80 transition-colors";
-                const cleanTgl = formatDateOnly(s.tanggal);
+                const cleanTgl = formatIndoDate(s.tanggal);
 
                 tr.innerHTML = `
                     <td class="py-3 px-4 text-center font-semibold text-slate-400">${index + 1}</td>
                     <td class="py-3 px-4 font-bold text-slate-800">${escapeHtml(s.noSurat)}</td>
-                    <td class="py-3 px-4 font-mono text-slate-600">${escapeHtml(cleanTgl)}</td>
+                    <td class="py-3 px-4 font-semibold text-slate-700">${escapeHtml(cleanTgl)}</td>
                     <td class="py-3 px-4 font-semibold text-brand-700">${escapeHtml(s.tujuan)}</td>
                     <td class="py-3 px-4 text-slate-600">${escapeHtml(s.perihal)}</td>
                     <td class="py-3 px-4 text-center">
@@ -4045,7 +4094,7 @@
                     <tr>
                         <td style="text-align:center;">${idx + 1}</td>
                         <td><strong>${escapeHtml(s.noSurat)}</strong></td>
-                        <td style="text-align:center;">${escapeHtml(s.tanggal)}</td>
+                        <td style="text-align:center;">${escapeHtml(formatIndoDate(s.tanggal))}</td>
                         <td><strong>${escapeHtml(s.tujuan)}</strong></td>
                         <td>${escapeHtml(s.perihal)}</td>
                     </tr>
@@ -4203,12 +4252,12 @@
             filtered.forEach((s, index) => {
                 const tr = document.createElement('tr');
                 tr.className = "hover:bg-slate-50/80 transition-colors";
-                const cleanTgl = formatDateOnly(s.tanggalSurat);
+                const cleanTgl = formatIndoDate(s.tanggalSurat);
                 tr.innerHTML = `
                     <td class="py-3 px-4 text-center font-semibold text-slate-400">${index + 1}</td>
                     <td class="py-3 px-4">
                         <p class="font-bold text-slate-800">${escapeHtml(s.noSurat)}</p>
-                        <p class="text-[10px] text-slate-400 font-mono">${escapeHtml(cleanTgl)}</p>
+                        <p class="text-[11px] text-slate-600 font-semibold">${escapeHtml(cleanTgl)}</p>
                     </td>
                     <td class="py-3 px-4 font-bold text-slate-800">
                         ${escapeHtml(s.namaSiswa)}
@@ -4382,14 +4431,7 @@
                 return;
             }
 
-            let tglFormatted = data.tanggalSurat;
-            try {
-                const parts = data.tanggalSurat.split('-');
-                if (parts.length === 3) {
-                    const months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
-                    tglFormatted = `${parseInt(parts[2])} ${months[parseInt(parts[1]) - 1]} ${parts[0]}`;
-                }
-            } catch(e) {}
+            let tglFormatted = formatIndoDate(data.tanggalSurat);
 
             const namaKepsek = sekolahData.kepalaSekolah || "RINA MELATI, M.Pd";
             const nipKepsek = sekolahData.nipKepalaSekolah || "197103161993042001";
@@ -4634,7 +4676,7 @@
                     <tr>
                         <td style="text-align:center;">${idx + 1}</td>
                         <td><strong>${escapeHtml(s.noSurat)}</strong></td>
-                        <td style="text-align:center;">${escapeHtml(s.tanggalSurat)}</td>
+                        <td style="text-align:center;">${escapeHtml(formatIndoDate(s.tanggalSurat))}</td>
                         <td><strong>${escapeHtml(s.namaSiswa)}</strong> (NISN: ${escapeHtml(s.nisnSiswa)})</td>
                         <td>${escapeHtml(s.sekolahTujuan)}</td>
                         <td>${escapeHtml(s.alasanPindah)}</td>
@@ -4730,12 +4772,12 @@
             filtered.forEach((s, index) => {
                 const tr = document.createElement('tr');
                 tr.className = "hover:bg-slate-50/80 transition-colors";
-                const cleanTgl = formatDateOnly(s.tanggalSurat);
+                const cleanTgl = formatIndoDate(s.tanggalSurat);
                 tr.innerHTML = `
                     <td class="py-3 px-4 text-center font-semibold text-slate-400">${index + 1}</td>
                     <td class="py-3 px-4">
                         <p class="font-bold text-slate-800">${escapeHtml(s.noSurat)}</p>
-                        <p class="text-[10px] text-slate-400 font-mono">${escapeHtml(cleanTgl)}</p>
+                        <p class="text-[11px] text-slate-600 font-semibold">${escapeHtml(cleanTgl)}</p>
                     </td>
                     <td class="py-3 px-4 font-bold text-slate-800">
                         ${escapeHtml(s.namaSiswa)}
@@ -4892,14 +4934,7 @@
                 return;
             }
 
-            let tglFormatted = data.tanggalSurat;
-            try {
-                const parts = data.tanggalSurat.split('-');
-                if (parts.length === 3) {
-                    const months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
-                    tglFormatted = `${parseInt(parts[2])} ${months[parseInt(parts[1]) - 1]} ${parts[0]}`;
-                }
-            } catch(e) {}
+            let tglFormatted = formatIndoDate(data.tanggalSurat);
 
             const pembuka = data.pernyataanPembuka || "Yang bertanda tangan di bawah ini Kepala SDN 22 Tanah Keras Kecamatan Bayang Kabupaten Pesisir Selatan.";
             const penutup = data.pernyataanPenutup || "Adalah siswa yang aktif belajar sampai saat ini di SDN 22 Tanah Keras. Demikian Surat Keterangan Aktif Belajar ini dibuat, untuk dapat digunakan semestinya.";
@@ -5075,7 +5110,7 @@
                     <tr>
                         <td style="text-align:center;">${idx + 1}</td>
                         <td><strong>${escapeHtml(s.noSurat)}</strong></td>
-                        <td style="text-align:center;">${escapeHtml(s.tanggalSurat)}</td>
+                        <td style="text-align:center;">${escapeHtml(formatIndoDate(s.tanggalSurat))}</td>
                         <td><strong>${escapeHtml(s.namaSiswa)}</strong> (NISN: ${escapeHtml(s.nisnSiswa)})</td>
                         <td>${escapeHtml(s.kelasSiswa)}</td>
                         <td>${escapeHtml(s.ttlSiswa)}</td>
@@ -5174,12 +5209,12 @@
             filtered.forEach((s, index) => {
                 const tr = document.createElement('tr');
                 tr.className = "hover:bg-slate-50/80 transition-colors";
-                const cleanTgl = formatDateOnly(s.tanggalSurat);
+                const cleanTgl = formatIndoDate(s.tanggalSurat);
                 tr.innerHTML = `
                     <td class="py-3 px-4 text-center font-semibold text-slate-400">${index + 1}</td>
                     <td class="py-3 px-4">
                         <p class="font-bold text-slate-800">${escapeHtml(s.noSurat)}</p>
-                        <p class="text-[10px] text-slate-400 font-mono">${escapeHtml(cleanTgl)}</p>
+                        <p class="text-[11px] text-slate-600 font-semibold">${escapeHtml(cleanTgl)}</p>
                     </td>
                     <td class="py-3 px-4 font-bold text-slate-800">
                         ${escapeHtml(s.namaSiswa)}
@@ -5342,14 +5377,7 @@
                 return;
             }
 
-            let tglFormatted = data.tanggalSurat;
-            try {
-                const parts = data.tanggalSurat.split('-');
-                if (parts.length === 3) {
-                    const months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
-                    tglFormatted = `${parseInt(parts[2])} ${months[parseInt(parts[1]) - 1]} ${parts[0]}`;
-                }
-            } catch(e) {}
+            let tglFormatted = formatIndoDate(data.tanggalSurat);
 
             const pembuka1 = data.pernyataanPembuka1 || "Yang bertanda tangan di bawah ini Kepala Sekolah UPT SDN 22 Tanah Keras,";
             const pembuka2 = data.pernyataanPembuka2 || "Dengan ini menerangkan bahwa :";
@@ -5546,7 +5574,7 @@
                     <tr>
                         <td style="text-align:center;">${idx + 1}</td>
                         <td><strong>${escapeHtml(s.noSurat)}</strong></td>
-                        <td style="text-align:center;">${escapeHtml(s.tanggalSurat)}</td>
+                        <td style="text-align:center;">${escapeHtml(formatIndoDate(s.tanggalSurat))}</td>
                         <td><strong>${escapeHtml(s.namaSiswa)}</strong> (NISN: ${escapeHtml(s.nisnSiswa)})</td>
                         <td>${escapeHtml(s.namaOrtu)}</td>
                     </tr>
