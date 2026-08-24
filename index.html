@@ -126,7 +126,7 @@
                 </blockquote>
 
                 <p class="text-sm text-brand-100 leading-relaxed font-normal">
-                    FAUZI,S.Hum.
+                    FAUZI, S.Hum
                 </p>
 
                 <div class="pt-2 grid grid-cols-3 gap-4 border-t border-brand-500/30">
@@ -165,7 +165,7 @@
                         <img src="https://iili.io/CNAFjhQ.png" onerror="this.src='https://iili.io/CNAFjhQ.th.png'" alt="Logo Sekolah" class="w-full h-full object-contain">
                     </div>
                     <h2 class="text-xl font-bold text-slate-900 tracking-tight">Selamat Datang</h2>
-                    <p class="text-[11px] text-slate-500 mt-0.5">Silakan masuk.</p>
+                    <p class="text-[11px] text-slate-500 mt-0.5">Silakan masuk menggunakan akun operator Anda.</p>
                 </div>
 
                 <form id="formLogin" onsubmit="handleLoginSubmit(event)" class="space-y-4">
@@ -197,7 +197,7 @@
                     </div>
 
                     <button type="submit" class="w-full py-2.5 px-4 bg-brand-600 hover:bg-brand-700 text-white font-semibold text-xs rounded-xl shadow-lg shadow-brand-600/30 transition duration-200 flex items-center justify-center space-x-2">
-                        <span>MASUK ADMOPS</span>
+                        <span>Masuk ke Panel ADMOPS</span>
                         <i class="fa-solid fa-right-to-bracket text-xs"></i>
                     </button>
                 </form>
@@ -221,9 +221,9 @@
             </div>
 
             <div class="space-y-1.5">
-                <h3 class="text-lg font-bold text-white tracking-wide">Sedang Login</h3>
-                <p id="syncStatusText" class="text-xs text-brand-300 font-medium">Menghubungkan ke Google Sheets...</p>
-                <p class="text-[11px] text-slate-400">Mohon Tunggu Sebentar...</p>
+                <h3 class="text-lg font-bold text-white tracking-wide">Sedang Login </h3>
+                <p id="syncStatusText" class="text-xs text-brand-300 font-medium">Menghubungkan Data</p>
+                <p class="text-[11px] text-slate-400">mohon tunggu sebentar...</p>
             </div>
 
             <!-- Progress Bar Container -->
@@ -232,7 +232,7 @@
                     <div id="syncProgressBar" class="bg-gradient-to-r from-brand-500 via-blue-500 to-emerald-400 h-full rounded-full transition-all duration-150 ease-out" style="width: 0%"></div>
                 </div>
                 <div class="flex justify-between items-center text-xs text-slate-400 font-mono font-semibold px-1">
-                    <span>Jangan Tutup Aplikasi</span>
+                    <span>SDN 22 Tanah Keras</span>
                     <span id="syncProgressPercent" class="text-emerald-400 font-bold">0%</span>
                 </div>
             </div>
@@ -417,9 +417,9 @@
                                 <i class="fa-solid fa-shield-halved text-brand-300"></i>
                                 <span>Selamat Datang, Fauzi, S.Hum (Operator)</span>
                             </div>
-                            <h2 class="text-2xl md:text-3xl font-bold tracking-tight mb-2">Pusat Administrasi & Data Sekolah</h2>
+                            <h2 class="text-2xl md:text-3xl font-bold tracking-tight mb-2">Administrasi & Data Sekolah</h2>
                             <p class="text-brand-100 text-sm leading-relaxed mb-6">
-                                Kelola data terpadu untuk Siswa, Guru, dan Tenaga Kependidikan (GTK) dengan mudah.
+                                Kelola data terpadu untuk Siswa, Guru, dan Tenaga Kependidikan (GTK) dengan mudah, cepat.
                             </p>
                             <div class="flex flex-wrap gap-3">
                                 <button onclick="switchTab('siswa'); openModalSiswa()" class="px-4 py-2.5 bg-white text-brand-800 font-semibold text-xs rounded-xl hover:bg-brand-50 transition shadow-md flex items-center space-x-2">
@@ -551,7 +551,7 @@
                                     <div class="w-2 h-2 rounded-full bg-indigo-500 mt-1.5 shrink-0"></div>
                                     <div>
                                         <p class="font-semibold text-slate-700">Pemeriksaan Database</p>
-                                        <p class="text-slate-400 text-[10px]">Server Data Siap Terhubung</p>
+                                        <p class="text-slate-400 text-[10px]">Server Siap Terhubung</p>
                                     </div>
                                 </div>
                             </div>
@@ -2336,7 +2336,8 @@
         const initialSuratTerima = [];
 
         // STATE APP & GOOGLE SHEETS URL INTEGRATION (DIRECT DATABASE FROM GOOGLE SHEETS)
-        let GAS_URL = "https://script.google.com/macros/s/AKfycbxMxarDatjYOfFn0VdfbEZVbwsMdBkWyNYWi2KpTleDUTdzCofD8tmFReBsLTA_n2u2-g/exec";
+        let GAS_URL = "https://script.google.com/macros/s/AKfycbyA_-hLaFQozmvIB0RNlAIu-xrG5ZysnWsgrEd4VNPt6mZ62Q-KiQGWUie9ds89g3GhWw/exec";
+        let isDataLoadedFromGAS = false;
         let sekolahData = Object.assign({}, initialSekolah);
         let kopData = Object.assign({}, initialKop);
         let siswaList = [];
@@ -2481,8 +2482,17 @@
 
         function syncDataToGAS() {
             if (!GAS_URL) return Promise.resolve();
+            
+            // PROTEKSI KEAMANAN SINKRONISASI (ANTI DATA HILANG):
+            // Cegah pengiriman data ke Google Sheets jika data awal dari server belum pernah berhasil dimuat
+            if (!isDataLoadedFromGAS && siswaList.length === 0 && gtkList.length === 0 && suratMasukList.length === 0) {
+                console.warn("Sinkronisasi ditunda: Menunggu data dari Google Sheets selesai dimuat.");
+                return Promise.resolve();
+            }
+
             const payload = {
                 action: "syncAll",
+                isLoadedGuard: isDataLoadedFromGAS,
                 payload: {
                     sekolah: sekolahData,
                     kop: kopData,
@@ -2506,55 +2516,80 @@
             .then(text => {
                 if (text && !text.trim().startsWith('<')) {
                     const data = JSON.parse(text);
-                    console.log("Sinkronisasi Google Sheets berhasil:", data);
+                    if (data.status === "success") {
+                        console.log("Sinkronisasi Google Sheets berhasil:", data);
+                    } else if (data.status === "ignored") {
+                        console.warn("Sinkronisasi diabaikan oleh server:", data.message);
+                        showToast(data.message || "Peringatan keamanan sinkronisasi server", "warning");
+                    }
                 }
             })
             .catch(err => {
-                console.warn("Sinkronisasi otomatis ke Google Sheets:", err);
+                console.warn("Sinkronisasi ke Google Sheets terganggu jaringan:", err);
+                showToast("Koneksi internet terganggu. Data tersimpan aman di browser.", "warning");
             });
         }
 
         function manualSyncGAS() {
-            showToast("Proses sinkronisasi dengan Google Sheets berjalan...", "info");
             const icon = document.getElementById('syncSidebarIcon');
             if (icon) icon.classList.add('fa-spin');
+            showToast("Memeriksa koneksi", "info");
 
-            syncDataToGAS().then(() => {
-                fetchFromGAS();
-                if (icon) icon.classList.remove('fa-spin');
-                showToast("Sinkronisasi data ke Google Sheets berhasil!", "success");
-            });
+            // PROSES DUA TAHAP (SAFE SYNC):
+            // 1. Ambil data terbaru dari Google Sheets dulu untuk memastikan jaringan stabil & terhubung
+            fetchFromGAS()
+                .then(() => {
+                    // 2. Kirim data ke Google Sheets hanya setelah terverifikasi koneksi stabil
+                    showToast("Koneksi aman", "info");
+                    return syncDataToGAS();
+                })
+                .then(() => {
+                    if (icon) icon.classList.remove('fa-spin');
+                    showToast("Sinkronisasi data BERHASIL & AMAN!", "success");
+                })
+                .catch(err => {
+                    if (icon) icon.classList.remove('fa-spin');
+                    console.error("Gagal sinkronisasi manual:", err);
+                    showToast("Koneksi terganggu! Sinkronisasi dibatalkan demi keamanan data di Google Sheets.", "error");
+                });
         }
 
         function fetchFromGAS() {
-            if (!GAS_URL) return;
-            fetch(GAS_URL)
+            if (!GAS_URL) return Promise.reject("URL Apps Script belum diatur");
+            
+            return fetch(GAS_URL + "?t=" + Date.now()) // Query parameter anti-cache
             .then(res => res.text())
             .then(text => {
-                if (!text || text.trim().startsWith('<')) return;
+                if (!text || text.trim().startsWith('<')) {
+                    throw new Error("Respons server Google Sheets tidak valid atau koneksi terputus.");
+                }
                 const res = JSON.parse(text);
                 if (res && res.status === "success" && res.data) {
                     const d = res.data;
+                    
+                    // Gabungkan data server ke lokal dengan aman
                     if (d.sekolah && Object.keys(d.sekolah).length) sekolahData = Object.assign(sekolahData, d.sekolah);
                     if (d.kop && Object.keys(d.kop).length) kopData = Object.assign(kopData, d.kop);
-                    if (Array.isArray(d.siswa)) siswaList = d.siswa;
-                    if (Array.isArray(d.nis)) nisList = d.nis;
-                    if (Array.isArray(d.gtk)) gtkList = d.gtk;
-                    if (Array.isArray(d.suratMasuk)) suratMasukList = d.suratMasuk;
-                    if (Array.isArray(d.suratKeluar)) suratKeluarList = d.suratKeluar;
-                    if (Array.isArray(d.suratPindah)) suratPindahList = d.suratPindah;
-                    if (Array.isArray(d.suratAktif)) suratAktifList = d.suratAktif;
-                    if (Array.isArray(d.suratTerima)) suratTerimaList = d.suratTerima;
                     
+                    if (Array.isArray(d.siswa) && d.siswa.length > 0) siswaList = d.siswa;
+                    if (Array.isArray(d.nis) && d.nis.length > 0) nisList = d.nis;
+                    if (Array.isArray(d.gtk) && d.gtk.length > 0) gtkList = d.gtk;
+                    if (Array.isArray(d.suratMasuk) && d.suratMasuk.length > 0) suratMasukList = d.suratMasuk;
+                    if (Array.isArray(d.suratKeluar) && d.suratKeluar.length > 0) suratKeluarList = d.suratKeluar;
+                    if (Array.isArray(d.suratPindah) && d.suratPindah.length > 0) suratPindahList = d.suratPindah;
+                    if (Array.isArray(d.suratAktif) && d.suratAktif.length > 0) suratAktifList = d.suratAktif;
+                    if (Array.isArray(d.suratTerima) && d.suratTerima.length > 0) suratTerimaList = d.suratTerima;
+                    
+                    isDataLoadedFromGAS = true; // Mark initial load success
                     renderAllData();
                     renderSekolahData();
                     renderKopData();
+                } else {
+                    throw new Error("Data Google Sheets tidak valid");
                 }
-            })
-            .catch(err => {
-                console.warn("Gagal mengambil data dari Google Sheets:", err);
             });
         }
+
         // FUNGSI DATA NIS
         function renderNISTable() {
             const tbody = document.getElementById('tableNISBody');
