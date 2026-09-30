@@ -221,9 +221,9 @@
             </div>
 
             <div class="space-y-1.5">
-                <h3 class="text-lg font-bold text-white tracking-wide">Sedang Login </h3>
-                <p id="syncStatusText" class="text-xs text-brand-300 font-medium">Menghubungkan Data</p>
-                <p class="text-[11px] text-slate-400">mohon tunggu sebentar...</p>
+                <h3 class="text-lg font-bold text-white tracking-wide">Sedang Login & Sinkronisasi Data</h3>
+                <p id="syncStatusText" class="text-xs text-brand-300 font-medium">Menghubungkan ke Google Sheets...</p>
+                <p class="text-[11px] text-slate-400">Sedang login, mohon tunggu sebentar...</p>
             </div>
 
             <!-- Progress Bar Container -->
@@ -232,7 +232,7 @@
                     <div id="syncProgressBar" class="bg-gradient-to-r from-brand-500 via-blue-500 to-emerald-400 h-full rounded-full transition-all duration-150 ease-out" style="width: 0%"></div>
                 </div>
                 <div class="flex justify-between items-center text-xs text-slate-400 font-mono font-semibold px-1">
-                    <span>SDN 22 Tanah Keras</span>
+                    <span>Google Sheets Live Data</span>
                     <span id="syncProgressPercent" class="text-emerald-400 font-bold">0%</span>
                 </div>
             </div>
@@ -417,9 +417,9 @@
                                 <i class="fa-solid fa-shield-halved text-brand-300"></i>
                                 <span>Selamat Datang, Fauzi, S.Hum (Operator)</span>
                             </div>
-                            <h2 class="text-2xl md:text-3xl font-bold tracking-tight mb-2">Administrasi & Data Sekolah</h2>
+                            <h2 class="text-2xl md:text-3xl font-bold tracking-tight mb-2">Pusat Administrasi & Data Sekolah</h2>
                             <p class="text-brand-100 text-sm leading-relaxed mb-6">
-                                Kelola data terpadu untuk Siswa, Guru, dan Tenaga Kependidikan (GTK) dengan mudah, cepat.
+                                Kelola data terpadu untuk Siswa, Guru, dan Tenaga Kependidikan (GTK) dengan mudah, cepat, dan aman dalam satu platform terintegrasi.
                             </p>
                             <div class="flex flex-wrap gap-3">
                                 <button onclick="switchTab('siswa'); openModalSiswa()" class="px-4 py-2.5 bg-white text-brand-800 font-semibold text-xs rounded-xl hover:bg-brand-50 transition shadow-md flex items-center space-x-2">
@@ -543,15 +543,15 @@
                                 <div class="flex items-start space-x-3 pb-3 border-b border-slate-100">
                                     <div class="w-2 h-2 rounded-full bg-brand-500 mt-1.5 shrink-0"></div>
                                     <div>
-                                        <p class="font-semibold text-slate-700">Aplikasi ADMOPS</p>
+                                        <p class="font-semibold text-slate-700">Aplikasi ADMOPS Diinisialisasi</p>
                                         <p class="text-slate-400 text-[10px]">Sistem Siap digunakan</p>
                                     </div>
                                 </div>
                                 <div class="flex items-start space-x-3">
                                     <div class="w-2 h-2 rounded-full bg-indigo-500 mt-1.5 shrink-0"></div>
                                     <div>
-                                        <p class="font-semibold text-slate-700">Pemeriksaan Database</p>
-                                        <p class="text-slate-400 text-[10px]">Server Siap Terhubung</p>
+                                        <p class="font-semibold text-slate-700">Pemeriksaan Database Google Sheets</p>
+                                        <p class="text-slate-400 text-[10px]">Server Data Siap Terhubung</p>
                                     </div>
                                 </div>
                             </div>
@@ -2533,19 +2533,19 @@
         function manualSyncGAS() {
             const icon = document.getElementById('syncSidebarIcon');
             if (icon) icon.classList.add('fa-spin');
-            showToast("Memeriksa koneksi", "info");
+            showToast("Memeriksa koneksi & memverifikasi database Google Sheets...", "info");
 
             // PROSES DUA TAHAP (SAFE SYNC):
             // 1. Ambil data terbaru dari Google Sheets dulu untuk memastikan jaringan stabil & terhubung
             fetchFromGAS()
                 .then(() => {
                     // 2. Kirim data ke Google Sheets hanya setelah terverifikasi koneksi stabil
-                    showToast("Koneksi aman", "info");
+                    showToast("Koneksi aman. Menyinkronkan data ke database...", "info");
                     return syncDataToGAS();
                 })
                 .then(() => {
                     if (icon) icon.classList.remove('fa-spin');
-                    showToast("Sinkronisasi data BERHASIL & AMAN!", "success");
+                    showToast("Sinkronisasi data ke Google Sheets BERHASIL & AMAN!", "success");
                 })
                 .catch(err => {
                     if (icon) icon.classList.remove('fa-spin');
@@ -2608,6 +2608,9 @@
                 const matchKelas = filterKelas ? n.kelas === filterKelas : true;
                 return matchSearch && matchKelas;
             });
+
+            // Urutkan kronologis ascending: Input pertama di posisi paling atas (No. 1)
+            filtered.sort((a, b) => (a.id || 0) - (b.id || 0));
 
             if (filtered.length === 0) {
                 if (emptyState) emptyState.classList.remove('hidden');
@@ -2706,7 +2709,7 @@
                 if (idx !== -1) nisList[idx] = nisData;
                 showToast("Data NIS berhasil diperbarui", "success");
             } else {
-                nisList.unshift(nisData);
+                nisList.push(nisData); // Menambahkan data baru di urutan paling bawah
                 showToast("Data NIS baru berhasil ditambahkan", "success");
             }
 
@@ -2736,6 +2739,25 @@
                 return;
             }
 
+            const searchInput = document.getElementById('searchNIS');
+            const search = searchInput ? searchInput.value.toLowerCase() : '';
+            const filterKelas = document.getElementById('filterKelasNIS') ? document.getElementById('filterKelasNIS').value : '';
+
+            const filtered = nisList.filter(n => {
+                const matchSearch = (n.namaSiswa && n.namaSiswa.toLowerCase().includes(search)) ||
+                                    (n.nis && n.nis.toLowerCase().includes(search));
+                const matchKelas = filterKelas ? n.kelas === filterKelas : true;
+                return matchSearch && matchKelas;
+            });
+
+            // Urutkan kronologis ascending: Input pertama di posisi paling atas (No. 1)
+            filtered.sort((a, b) => (a.id || 0) - (b.id || 0));
+
+            if (filtered.length === 0) {
+                showToast("Tidak ada data NIS yang cocok dengan pencarian!", "warning");
+                return;
+            }
+
             const printWindow = window.open('', '_blank');
             if (!printWindow) {
                 showToast("Mohon izinkan pop-up browser!", "error");
@@ -2743,7 +2765,7 @@
             }
 
             let rows = '';
-            nisList.forEach((n, idx) => {
+            filtered.forEach((n, idx) => {
                 rows += `
                     <tr>
                         <td style="text-align:center;">${idx + 1}</td>
@@ -2799,7 +2821,21 @@
                 return;
             }
 
-            const dataToExport = nisList.map((n, index) => ({
+            const searchInput = document.getElementById('searchNIS');
+            const search = searchInput ? searchInput.value.toLowerCase() : '';
+            const filterKelas = document.getElementById('filterKelasNIS') ? document.getElementById('filterKelasNIS').value : '';
+
+            const filtered = nisList.filter(n => {
+                const matchSearch = (n.namaSiswa && n.namaSiswa.toLowerCase().includes(search)) ||
+                                    (n.nis && n.nis.toLowerCase().includes(search));
+                const matchKelas = filterKelas ? n.kelas === filterKelas : true;
+                return matchSearch && matchKelas;
+            });
+
+            // Urutkan kronologis ascending: Input pertama di posisi paling atas (No. 1)
+            filtered.sort((a, b) => (a.id || 0) - (b.id || 0));
+
+            const dataToExport = filtered.map((n, index) => ({
                 "No": index + 1,
                 "Nama Siswa": n.namaSiswa || "",
                 "Kelas": n.kelas || "",
@@ -3280,6 +3316,9 @@
                 return matchSearch && matchKelas;
             });
 
+            // Urutkan kronologis ascending: Input pertama di posisi paling atas (No. 1)
+            filtered.sort((a, b) => (a.id || 0) - (b.id || 0));
+
             if (filtered.length === 0) {
                 emptyState.classList.remove('hidden');
                 return;
@@ -3377,7 +3416,7 @@
                 if (idx !== -1) siswaList[idx] = siswaData;
                 showToast("Data Siswa berhasil diperbarui", "success");
             } else {
-                siswaList.unshift(siswaData);
+                siswaList.push(siswaData); // Menambahkan data baru di urutan paling bawah
                 showToast("Siswa baru berhasil ditambahkan", "success");
             }
 
@@ -3407,6 +3446,26 @@
                 return;
             }
 
+            const searchInput = document.getElementById('searchSiswa');
+            const search = searchInput ? searchInput.value.toLowerCase() : '';
+            const filterKelas = document.getElementById('filterKelas') ? document.getElementById('filterKelas').value : '';
+
+            const filtered = siswaList.filter(s => {
+                const matchSearch = (s.nama && s.nama.toLowerCase().includes(search)) ||
+                                    (s.nisn && s.nisn.toLowerCase().includes(search)) ||
+                                    (s.nik && s.nik.toLowerCase().includes(search));
+                const matchKelas = filterKelas ? s.kelas === filterKelas : true;
+                return matchSearch && matchKelas;
+            });
+
+            // Urutkan kronologis ascending: Input pertama di posisi paling atas (No. 1)
+            filtered.sort((a, b) => (a.id || 0) - (b.id || 0));
+
+            if (filtered.length === 0) {
+                showToast("Tidak ada data siswa yang cocok dengan pencarian!", "warning");
+                return;
+            }
+
             const printWindow = window.open('', '_blank');
             if (!printWindow) {
                 showToast("Mohon izinkan pop-up browser!", "error");
@@ -3414,7 +3473,7 @@
             }
 
             let rows = '';
-            siswaList.forEach((s, idx) => {
+            filtered.forEach((s, idx) => {
                 rows += `
                     <tr>
                         <td style="text-align:center;">${idx + 1}</td>
@@ -3477,8 +3536,23 @@
                 return;
             }
 
+            const searchInput = document.getElementById('searchSiswa');
+            const search = searchInput ? searchInput.value.toLowerCase() : '';
+            const filterKelas = document.getElementById('filterKelas') ? document.getElementById('filterKelas').value : '';
+
+            const filtered = siswaList.filter(s => {
+                const matchSearch = (s.nama && s.nama.toLowerCase().includes(search)) ||
+                                    (s.nisn && s.nisn.toLowerCase().includes(search)) ||
+                                    (s.nik && s.nik.toLowerCase().includes(search));
+                const matchKelas = filterKelas ? s.kelas === filterKelas : true;
+                return matchSearch && matchKelas;
+            });
+
+            // Urutkan kronologis ascending: Input pertama di posisi paling atas (No. 1)
+            filtered.sort((a, b) => (a.id || 0) - (b.id || 0));
+
             // Format array data siswa untuk lembar Excel
-            const dataToExport = siswaList.map((s, index) => ({
+            const dataToExport = filtered.map((s, index) => ({
                 "No": index + 1,
                 "Nama Siswa": s.nama || "",
                 "Jenis Kelamin": s.jenisKelamin || "",
