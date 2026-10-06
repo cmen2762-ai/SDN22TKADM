@@ -222,7 +222,7 @@
 
             <div class="space-y-1.5">
                 <h3 class="text-lg font-bold text-white tracking-wide">Sedang Login</h3>
-                <p id="syncStatusText" class="text-xs text-brand-300 font-medium">Menghubungkan</p>
+                <p id="syncStatusText" class="text-xs text-brand-300 font-medium">Menghubungkan ke Database</p>
                 <p class="text-[11px] text-slate-400">Sedang login, mohon tunggu sebentar...</p>
             </div>
 
@@ -232,7 +232,7 @@
                     <div id="syncProgressBar" class="bg-gradient-to-r from-brand-500 via-blue-500 to-emerald-400 h-full rounded-full transition-all duration-150 ease-out" style="width: 0%"></div>
                 </div>
                 <div class="flex justify-between items-center text-xs text-slate-400 font-mono font-semibold px-1">
-                    <span>Google Sheets Live Data</span>
+                    <span>Fauzi, S.Hum</span>
                     <span id="syncProgressPercent" class="text-emerald-400 font-bold">0%</span>
                 </div>
             </div>
@@ -2336,7 +2336,7 @@
         const initialSuratTerima = [];
 
         // STATE APP & GOOGLE SHEETS URL INTEGRATION (DIRECT DATABASE FROM GOOGLE SHEETS)
-        let GAS_URL = "https://script.google.com/macros/s/AKfycby-Gs2InUm9mj5Fk0ttOR1JXz-Sg4B2tvZ6S3fGZGtTxsoA0ZyEVK83gqvuoY7fApZ4Hg/exec";
+        let GAS_URL = "https://script.google.com/macros/s/AKfycbyA_-hLaFQozmvIB0RNlAIu-xrG5ZysnWsgrEd4VNPt6mZ62Q-KiQGWUie9ds89g3GhWw/exec";
         let isDataLoadedFromGAS = false;
         let sekolahData = Object.assign({}, initialSekolah);
         let kopData = Object.assign({}, initialKop);
@@ -2533,7 +2533,7 @@
         function manualSyncGAS() {
             const icon = document.getElementById('syncSidebarIcon');
             if (icon) icon.classList.add('fa-spin');
-            showToast("Memeriksa koneksi & Singkronisasi", "info");
+            showToast("Memeriksa koneksi", "info");
 
             // PROSES DUA TAHAP (SAFE SYNC):
             // 1. Ambil data terbaru dari Google Sheets dulu untuk memastikan jaringan stabil & terhubung
@@ -2545,7 +2545,7 @@
                 })
                 .then(() => {
                     if (icon) icon.classList.remove('fa-spin');
-                    showToast("Sinkronisasi Sukses", "success");
+                    showToast("Sinkronisasi data BERHASIL & AMAN!", "success");
                 })
                 .catch(err => {
                     if (icon) icon.classList.remove('fa-spin');
@@ -2852,7 +2852,8 @@
                         { wch: 6 },
                         { wch: 30 },
                         { wch: 15 },
-                        { wch: 22 }
+                        { wch: 22 },
+                        { wch: 25 }
                     ];
 
                     const cleanSchoolName = (sekolahData && sekolahData.nama) ? sekolahData.nama.replace(/[^a-zA-Z0-9]/g, "_") : "ADMOPS";
@@ -2868,50 +2869,32 @@
             }
         }
 
-        // FUNGSI CEK NO SURAT MASUK TERAKHIR
-        function cekNoSuratMasukTerakhir() {
-            if (!suratMasukList || suratMasukList.length === 0) {
-                showToast("Belum ada data Surat Masuk yang tercatat.", "warning");
-                return;
-            }
-
-            const lastItem = suratMasukList.reduce((max, item) => (item.id > max.id ? item : max), suratMasukList[0]);
-            const tglStr = formatIndoDate(lastItem.tanggal);
-
-            showConfirmModal(
-                `<div class="text-left space-y-2">
-                    <div class="p-3 bg-indigo-50 border border-indigo-200 rounded-xl">
-                        <p class="text-[11px] font-bold text-indigo-900 uppercase tracking-wider">Nomor Surat Masuk Terakhir:</p>
-                        <p class="text-lg font-extrabold text-indigo-700 font-mono mt-0.5">${escapeHtml(lastItem.noSurat)}</p>
-                    </div>
-                    <div class="text-xs space-y-1 text-slate-600 pt-1">
-                        <p><b>Tanggal:</b> ${escapeHtml(tglStr)}</p>
-                        <p><b>Pengirim:</b> ${escapeHtml(lastItem.pengirim)}</p>
-                        <p><b>Perihal:</b> ${escapeHtml(lastItem.perihal)}</p>
-                    </div>
-                </div>`,
-                null
-            );
-        }
-
-        // FUNGSI CEK NIS TERAKHIR
+        // FUNGSI CEK NIS TERAKHIR / TERTINGGI
         function cekNISTerakhir() {
             if (!nisList || nisList.length === 0) {
                 showToast("Belum ada data NIS yang tercatat.", "warning");
                 return;
             }
 
-            const lastItem = nisList.reduce((max, item) => (item.id > max.id ? item : max), nisList[0]);
+            // Cari NIS dengan nilai numerik tertinggi (terbesar)
+            const highestItem = nisList.reduce((max, item) => {
+                const numMax = parseInt(String(max.nis || '0').replace(/\D/g, ''), 10) || 0;
+                const numItem = parseInt(String(item.nis || '0').replace(/\D/g, ''), 10) || 0;
+                return numItem > numMax ? item : max;
+            }, nisList[0]);
+
+            const ketInfo = highestItem.keterangan ? `<p><b>Keterangan:</b> ${escapeHtml(highestItem.keterangan)}</p>` : '';
 
             showConfirmModal(
                 `<div class="text-left space-y-2">
                     <div class="p-3 bg-indigo-50 border border-indigo-200 rounded-xl">
-                        <p class="text-[11px] font-bold text-indigo-900 uppercase tracking-wider">NIS (Nomor Induk Siswa) Terakhir:</p>
-                        <p class="text-lg font-extrabold text-indigo-700 font-mono mt-0.5">${escapeHtml(lastItem.nis)}</p>
+                        <p class="text-[11px] font-bold text-indigo-900 uppercase tracking-wider">NIS (Nomor Induk Siswa) Tertinggi / Terakhir:</p>
+                        <p class="text-lg font-extrabold text-indigo-700 font-mono mt-0.5">${escapeHtml(highestItem.nis)}</p>
                     </div>
                     <div class="text-xs space-y-1 text-slate-600 pt-1">
-                        <p><b>Nama Siswa:</b> ${escapeHtml(lastItem.namaSiswa)}</p>
-                        <p><b>Kelas:</b> ${escapeHtml(lastItem.kelas)}</p>
+                        <p><b>Nama Siswa:</b> ${escapeHtml(highestItem.namaSiswa)}</p>
+                        <p><b>Kelas:</b> ${escapeHtml(highestItem.kelas)}</p>
+                        ${ketInfo}
                     </div>
                 </div>`,
                 null
